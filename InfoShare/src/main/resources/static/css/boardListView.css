@@ -1,0 +1,13 @@
+@charset "UTF-8";
+* {margin:0 auto;}
+body{ width:100%;}
+#list { margin:100px auto 0px auto;}
+#list, #list th, #list td{border:1px solid gray;
+
+         border-width: 1px 0;
+
+         border-collapse: collapse;
+
+         text-align: center;
+
+         padding:8px;}
