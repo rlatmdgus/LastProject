@@ -53,7 +53,7 @@
 								<hr>
 								<div id="comment_area">
 								</div>
-								<input type="text" id="comment" name="comment" placeholder="댓글을 입력하세요"> <input type="submit" value="등록"  class="btn btn-success" >
+								<input type="text" id="comment" name="comment" placeholder="댓글을 입력하세요"> <input type="submit" value="등록"  class="btn btn-success">
 							</form>
 						</div>
 					</div>
