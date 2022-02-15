@@ -7,14 +7,35 @@ import org.springframework.stereotype.Service;
 
 import com.multi.lastproject.dao.IBoardDAO;
 import com.multi.lastproject.model.BoardVO;
+import com.multi.lastproject.model.Criteria;
 @Service
 public class BoardService implements IBoardService {
 @Autowired
 	IBoardDAO dao;
 	@Override
-	public ArrayList<BoardVO> list() {
+	public ArrayList<BoardVO> list(Criteria cri) {
 		// TODO Auto-generated method stub
-		return dao.list();
+		return dao.list(cri);
 	}
-
+	@Override
+	public int getTotal() {
+		
+		return dao.getTotal();
+	}
+	
+	@Override
+	public void insertBoard(BoardVO vo) {
+		
+		dao.insertBoard(vo);
+	}
+	@Override
+	public BoardVO getPage(int boardNo) {
+		return dao.getPage(boardNo);
+	}
+	@Override
+	public void updateHit(int boardNo) {
+		dao.updateHit(boardNo);
+	}
+	
+	
 }

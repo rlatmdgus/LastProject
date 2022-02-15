@@ -5,8 +5,27 @@
   <mapper namespace="com.multi.lastproject.dao.IBoardDAO">
  
    <select id="list" resultType="com.multi.lastproject.model.BoardVO">
-   	SELECT * from board order by boardNo 
+   select * from (
+                select boardNo, boardTitle, memId, boardDate, boardHit  
+                from board order by boardNo desc) as T1
+        limit #{amount} OFFSET #{skip}
 
    </select>
+  	
+  	<select id="getTotal" resultType="int">
+  		select count(*) from board;
+  	</select>
+  	<insert id="insertBoard">
+  		insert into board (boardTitle,boardContext,boardTag,boardImage,memId,boardHit) 
+  					values(#{boardTitle},#{boardContext},#{boardTag},#{boardImage},#{memId},#{boardHit})
+  	</insert>
+  	
+  	 <select id="getPage" resultType="com.multi.lastproject.model.BoardVO">
+   select * from board where boardNo=#{boardNo}
+   </select>
+  	<update id="updateHit" parameterType="integer">
+  		update board set boardHit=boardHit+1 where boardNo=#{boardNo}
+  	</update>
+  	
   	
   </mapper>

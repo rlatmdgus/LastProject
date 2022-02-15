@@ -4,37 +4,37 @@ import java.util.Date;
 
 public class BoardVO {
 	private int boardNo;
-	private String memNickname;
 	private String memId;
 	private String boardTitle;
 	private String boardContext;
 	private Date boardDate;
-	public Date getBoardDate() {
-		return boardDate;
-	}
-	public void setBoardDate(Date boardDate) {
-		this.boardDate = boardDate;
-	}
 	private int boardHit;
 	private String boardTag;
 	private String ctgId;
 	private String deCtgId;
 	private int boardLike;
 	private int boardHate;
-	private String boardAddress;
 	private String boardImage;
+	private int boardCheck;
+	public int getBoardCheck() {
+		return boardCheck;
+	}
+	public void setBoardCheck(int boardCheck) {
+		this.boardCheck = boardCheck;
+	}
+	public Date getBoardDate() {
+		return boardDate;
+	}
+	public void setBoardDate(Date boardDate) {
+		this.boardDate = boardDate;
+	}
 	public int getBoardNo() {
 		return boardNo;
 	}
 	public void setBoardNo(int boardNo) {
 		this.boardNo = boardNo;
 	}
-	public String getMemNickname() {
-		return memNickname;
-	}
-	public void setMemNickname(String memNickname) {
-		this.memNickname = memNickname;
-	}
+	
 	public String getMemId() {
 		return memId;
 	}
@@ -88,12 +88,6 @@ public class BoardVO {
 	}
 	public void setBoardHate(int boardHate) {
 		this.boardHate = boardHate;
-	}
-	public String getBoardAddress() {
-		return boardAddress;
-	}
-	public void setBoardAddress(String boardAddress) {
-		this.boardAddress = boardAddress;
 	}
 	public String getBoardImage() {
 		return boardImage;
