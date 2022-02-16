@@ -1,0 +1,361 @@
+@charset "UTF-8";
+
+
+
+* {
+    margin: 0 auto;
+}
+
+#headerBox{
+	width: 1280px;
+}
+
+#logoBox {
+    float: left;
+}
+
+#top-navigation {
+	text-align: right;
+    border-top: 0 none;
+    border-radius: 0;
+    background-color: #eeeeee;
+    width: 1280px;
+    height: 32px;
+}
+
+#top-a{
+	text-decoration:none !important;
+	font-size: 13px;
+	color: #666;
+}
+
+#Name-home{
+	font-weight:bold;
+	text-decoration:none !important;
+	color: #28CC71;
+}
+
+#SearchHeader{
+	height: 60px;
+	width: 1280px;
+	background: #fff;
+	border-bottom: 1px solid #d9d9d9;
+	border-radius: 0;
+}
+
+#SearchHeader-bar{
+	 margin-left: 80px;
+	 font-size: 24px;
+	 float: left;
+	 margin-right: 230px;
+	 padding-top: 10px;
+}
+
+#SearchInput{
+	position: relative;
+    margin-right: 24px;
+    display: inline-block;
+    vertical-align: middle;
+    border: 1px solid #28CC71;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    height: 40px;
+}
+
+#Header-Search{
+	padding: 0;
+    margin: 0;
+    border: 0 none;
+    text-align: left;
+    text-indent: 12px;
+    font-size: 14px;
+    width: 285px;
+    height: 36px;
+    vertical-align: middle;
+    line-height: 36px;
+}
+
+#icon-search{
+	color: #28CC71;
+    font-size: 24px;
+    line-height: 38px;
+}
+
+#SearchInput{
+	margin-top: 10px;
+	float: left;
+}
+
+#SearchInput-Form{
+	height: 100%;
+    overflow: hidden;
+    background: #ffffff;
+}
+
+#Header-Search{
+	padding: 0;
+    margin: 0;
+    border: 0 none;
+    text-align: left;
+    text-indent: 12px;
+    font-size: 14px;
+    width: 285px;
+    height: 36px;
+    vertical-align: middle;
+    line-height: 36px;
+}
+
+#Header-Search:focus{
+	outline:none;
+}
+
+#SearchBtn{
+    height: 100%;
+    color: #ffffff;
+    border: 0 none;
+    background: none;
+    text-align: center;
+    font-size: 16px;
+    vertical-align: middle;
+}
+
+#SearchIcon{
+	width: 24px;
+}
+
+/* 실시간 */
+
+#content {
+    height: 36px;
+    width: 220px;
+    padding-top: 15px;
+    float: left;
+    margin-right: 120px;
+}
+
+#rank-a{
+	margin-left: 0px;
+	color: #28CC71;
+    text-decoration:none !important;
+    width: 220px;
+}
+
+#rank-number{
+	font-weight: bold;
+	font-size: 18px;
+	float: left;
+}
+
+#rank-list a:hover {
+    text-decoration: underline;
+}
+
+#rank-list {
+    overflow: hidden;
+    height: 20px;
+    margin: 0;
+}
+
+#rank-list dt {
+    display: none;
+}
+
+#rank-list dd {
+    position: relative;
+    margin: 0;
+    
+}
+
+#rank-list ol {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+#rank-list li {
+    height: 20px;
+    line-height: 20px;
+}
+
+/*-----------*/
+
+#profileLink{
+	padding-top: 10px;
+}
+
+#profileIcon{
+	width: 26px;
+	height: 26px;
+	
+}
+
+#profile{
+	text-align: center;
+	text-decoration:none !important;
+	color: #666;
+	font-size: 8px;
+	float: left;
+	margin-right: 30px;
+}
+
+/*-----------*/
+
+#MenuBar{
+
+	
+}
+
+#ui_guide{
+	padding-left: 0px;
+	height: 40px;
+	width: 1280px;
+	font-size: 0;
+    background: #fff;
+    text-align: center;
+}
+
+#ui_guide_menu{
+	display: inline-block;
+    font-size: 15px;
+    color: #666;
+    text-align: center;
+    cursor: pointer;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+}
+
+#guide_menu_btn{
+	text-decoration:none !important;
+	color: #666;
+}
+
+#guide_menu_btn:hover{
+	color: #28CC71;
+}
+
+#ui_guide_menu:hover{
+	color: #28CC71;
+}
+
+/**********************/
+
+/* 툴팁 기본 스타일 설정 시작 */
+
+.tooltip {
+    position: relative;
+  	display: block;
+}
+
+.tooltip .tooltiptext {
+  	visibility: hidden;
+  	width: 120px;
+  	background-color: #fff;
+  	text-align: center;
+  	border-radius: 6px;
+  	padding: 5px 0;
+  	position: absolute;
+  	z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  	visibility: visible;
+}
+
+/* 툴팁 화살표 기본 스타일 설정 시작 */
+
+.tooltip .tooltiptext::after {
+	content: " ";
+  	position: absolute;
+  	border-style: solid;
+  	border-width: 5px;
+}
+
+/* 아래쪽 툴팁 시작 */
+
+.tooltip .tooltip-bottom {
+	text-align: center;
+  	width: 120px;
+  	top: 150%;
+  	left: 55%;
+  	margin-left: -60px;
+  	border-radius: 0;
+}
+
+
+.tooltip .tooltip-bottom::after {
+  	bottom: 100%;
+  	left: 15%;
+  	width: 80px;
+  	margin-left: -5px;
+  	border-color: transparent transparent #28CC71 transparent;
+  	z-index: 1;
+}
+
+#LocalCat{
+	text-align: center;
+	list-style:none;
+   	padding-left:0px;
+   	float:left;
+   	padding-left: 12px;
+   	padding-top: 5px;
+   	padding-bottom: 5px;
+}
+
+#LocalCatBtn{
+	border: 0;
+	outline: 0;
+	background-color: #fff;
+	color: #333;
+	font-weight: bold;
+}
+
+#LocalCatBtn:hover {
+	background-color: #ABF2CA;
+	color: #fff;
+}
+
+.tooltip-right{
+	display: none;
+	top: 0px;
+	left: 120px;
+	position: absolute;
+	width: 130px;
+	height: 280px;
+	background-color:#fff;
+	border-left: 1px solid #d9d9d9;
+	font-weight:bold;
+	border-radius: 0;
+	padding: 5px;
+	z-index: 2;
+}
+
+#prodCat{
+	list-style:none;
+   	
+   	text-align:left;
+}
+
+#prodCatBtn{
+	border: 0;
+	outline: 0;
+	background-color: #fff;
+	color: #333;
+	font-weight: bold;
+	padding: 5px;
+	width: 119px;
+	text-align: left;
+}
+
+#prodCatBtn:hover {
+	background-color: #ABF2CA;
+	color: #fff;
+}
+
+
+/* 아래쪽 툴팁 시작 */
