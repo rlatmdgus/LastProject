@@ -23,6 +23,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.multi.lastproject.model.BoardVO;
 import com.multi.lastproject.model.Criteria;
 import com.multi.lastproject.model.PageMakerVO;
+import com.multi.lastproject.model.ReviewVO;
 import com.multi.lastproject.model.SmarteditorVO;
 import com.multi.lastproject.service.BoardService;
 
@@ -60,6 +61,24 @@ public class BoardController {
 	        }
 		service.insertBoard(vo);
 		System.out.println(vo.getBoardImage());
+		return "redirect:/list";
+	}
+	@RequestMapping("/writeReview")
+	public String insertReview() {
+		
+		return "board/reviewInsert";
+	}
+	@RequestMapping("/saveReview")
+	public String saveReview(ReviewVO vo,@RequestParam("smartEditor") String content) {
+		vo.setRevText(content);
+		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		 Matcher matcher = pattern.matcher(content);
+		 while(matcher.find()){
+	            System.out.println(matcher.group(1));
+	            vo.setRevImage(matcher.group(1));
+	        }
+		service.insertReview(vo);
+		
 		return "redirect:/list";
 	}
 	@RequestMapping("/readView")

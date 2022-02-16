@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.multi.lastproject.dao.IBoardDAO;
 import com.multi.lastproject.model.BoardVO;
 import com.multi.lastproject.model.Criteria;
+import com.multi.lastproject.model.ReviewVO;
 @Service
 public class BoardService implements IBoardService {
 @Autowired
@@ -35,6 +36,10 @@ public class BoardService implements IBoardService {
 	@Override
 	public void updateHit(int boardNo) {
 		dao.updateHit(boardNo);
+	}
+	@Override
+	public void insertReview(ReviewVO vo) {
+		dao.insertReview(vo);
 	}
 	
 	

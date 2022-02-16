@@ -17,7 +17,7 @@
   	</select>
   	<insert id="insertBoard">
   		insert into board (boardTitle,boardContext,boardTag,boardImage,memId,boardHit) 
-  					values(#{boardTitle},#{boardContext},#{boardTag},#{boardImage},#{memId},#{boardHit})
+  					values (#{boardTitle},#{boardContext},#{boardTag},#{boardImage},#{memId},#{boardHit})
   	</insert>
   	
   	 <select id="getPage" resultType="com.multi.lastproject.model.BoardVO">
@@ -26,6 +26,9 @@
   	<update id="updateHit" parameterType="integer">
   		update board set boardHit=boardHit+1 where boardNo=#{boardNo}
   	</update>
-  	
+  	<insert id="insertReview">
+  		insert into review (revTitle,revText,fdPrdNo,cloPrdNo,ctgId,deCtgId,revImage,memId) 
+  					values (#{revTitle},#{revText},#{fdPrdNo},#{cloPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
+  	</insert>
   	
   </mapper>
