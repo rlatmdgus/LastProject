@@ -1,0 +1,250 @@
+.point-color{
+    color: #F40022;
+}
+
+.error{
+    font-size: 11px;
+    height: 20px;
+    color:#F40022;
+    font-weight: 700;
+}
+
+.int {
+    display: block;
+    position: relative;
+    width: 430px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 30px;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.int_id {
+    display: inline;
+    position: relative;
+    width: 320px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+}
+.int_email {
+    display: inline;
+    position: relative;
+    width: 205px;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+}
+.int_email_input {
+    display: inline;
+    position: relative;
+    width: 200px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.int_select {
+    display: inline;
+    position: relative;
+    width: 100px;
+    height: 35px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+}
+.int_select_input {
+    display: inline;
+    position: relative;
+    width: 91px;
+    height: 30px;
+    font-size: 15px;
+    border-radius: 5px;
+    border: none;
+}
+
+body {
+    margin: 0;
+    background-color: #F8F9FA;
+}
+
+.title{
+    width: 894px;
+    text-align: left;
+    height: 150px;
+}
+h1{
+    margin-left: 30px;
+    color: #1bbc9b;
+}
+
+h4{
+    margin-left: 30px;
+    margin-bottom: 0px;
+    color: #1bbc9b
+}
+
+table{
+    height: 300px;
+    width: 900px;
+    margin-right: auto;
+    margin-left: auto;
+    background-color: #EEEFF1;
+    border-radius: 5px;
+    box-shadow: 10px 10px 12px 3px rgba(0,0,0,0.39);
+}
+
+.joinForm{
+    margin-top: 50px;
+}
+
+.Cn:hover{
+    color: black;
+}
+
+.create{
+    text-align: center;
+
+}
+
+
+.Cn {
+    text-align: center;
+    font-weight: bold;
+    font-size: 13px;
+    color: #1bbc9b;
+    border-bottom: 1px dotted black;
+}
+
+.Cn2 {
+    width: 1600px;
+    border-bottom: 1px dotted black;
+}
+
+.IdCheckBtu{
+    width: 100px;
+    color: white;
+    font-size: 12px; 
+    background-color: #49dfc1;
+    border: none;
+    padding: 10px 16px;
+    font-size: 14px;
+    border-radius: 5px;
+    transition: all .15s cubic-bezier(0.4,0,0.2,1);
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+  .CelBtu:hover {
+    background-color: #43b39c;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  .CreBtu:hover {
+    background-color: #43b39c;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+  .IdCheckBtu:hover {
+    background-color: #43b39c;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  }
+
+  .CelBtu:active {
+    position: relative;
+    top: 1px;
+    right: 1px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  .CreBtu:active {
+    position: relative;
+    top: 1px;
+    right: 1px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+  .IdCheckBtu:active {
+    position: relative;
+    top: 1px;
+    right: 1px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  }
+
+.CreBtu {
+    background-color: #49dfc1;
+    font-weight: bold;
+    color: white;
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: .5rem;
+    transition: all .15s cubic-bezier(0.4,0,0.2,1);
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 30px;
+    width: 140px;
+    border-radius: 5px;
+}
+
+.CelBtu {
+    background-color: #49dfc1;
+    font-weight: bold;
+    color: white;
+    padding: 10px 16px;
+    font-size: 1rem;
+    border-radius: .5rem;
+    transition: all .15s cubic-bezier(0.4,0,0.2,1);
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 30px;
+    width: 140px;
+    border-radius: 5px;
+}
+
+b{
+    color: #F40022;
+}
+
+.tooltip {
+    display: inline-block;
+    color: #F40022;
+    font-weight: bold;
+}
+
+.tooltip-text {
+    display: none;
+    position: absolute;
+    width: auto;
+    height: auto;
+    border: none;
+    padding: 20px;
+    margin-top: 10px;
+    margin-left: -45px;
+    font-size: 14px;
+    color: #007F66;
+    background: #FFA100;
+    z-index: 1;
+}
+
+.tooltip .tooltip-text::after {
+    content: " ";
+    position: absolute;
+    border-style: solid;
+    border-width: 10px;
+    bottom: 100%;
+    left: 10%;
+    margin-left: -10px;
+    border-color: transparent transparent #FFA100 transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    display: block;
+}
+
+

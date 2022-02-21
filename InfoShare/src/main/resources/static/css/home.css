@@ -1,1 +1,43 @@
 @charset "UTF-8";
+
+* {
+    margin: 0 auto;
+}
+
+#MenuBox{
+	margin-top: 50px;
+	width: 1280px;
+    text-align: center;
+    position: relative;
+}
+
+#MainTitle{
+	margin-bottom: 20px;
+	font: bold;
+	font-size: 25px;
+}
+
+#AreaSel{
+	margin-bottom: 10px;
+	font-size: 15px;
+}
+
+#AreaBox{
+	padding-left: 20px;
+	text-align: center;
+}
+
+#AreaBt{
+	width: 250px;
+	height: 80px;
+	margin: 30px;
+	cursor: pointer;  
+	float: left;
+	border-radius: 2px;
+	font-size: 24px
+}
+
+#AreaBt:hover {
+	color:#fff;
+	background-color: blue;
+}
