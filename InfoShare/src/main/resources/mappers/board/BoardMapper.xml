@@ -31,4 +31,28 @@
   					values (#{revTitle},#{revText},#{fdPrdNo},#{cloPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
   	</insert>
   	
+  	<select id="commentCount" resultType="integer">
+  		select count(*) from comment 
+  	</select>
+  	<select id="commentList" resultType="com.multi.lastproject.model.CommentVO">
+       select * from comment where boardNo = ${boardNo}
+    </select>
+<insert id="commentInsert" parameterType="com.multi.lastproject.model.CommentVO">
+        INSERT INTO
+        comment (memId,comText,boardNo)
+        VALUES(#{memId},#{comText},#{boardNo}) 
+    </insert>
+	<update id="commentUpdate" parameterType="com.multi.lastproject.model.CommentVO">
+        UPDATE comment
+            SET
+            comText = #{comText}
+        WHERE CNO = #{comNo}
+    </update>
+    
+    <delete id="commentDelete" parameterType="int">
+        DELETE FROM comment WHERE comNo = #{comNo}
+    </delete>
+
+
+
   </mapper>

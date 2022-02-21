@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.multi.lastproject.dao.IBoardDAO;
 import com.multi.lastproject.model.BoardVO;
+import com.multi.lastproject.model.CommentVO;
 import com.multi.lastproject.model.Criteria;
 import com.multi.lastproject.model.ReviewVO;
 @Service
@@ -41,6 +42,32 @@ public class BoardService implements IBoardService {
 	public void insertReview(ReviewVO vo) {
 		dao.insertReview(vo);
 	}
+	@Override
+	public int commentCount() {
+		// TODO Auto-generated method stub
+		return dao.commentCount();
+	}
+	@Override
+	public ArrayList<CommentVO> commentList(int boardNo) {
+		// TODO Auto-generated method stub
+		return dao.commentList(boardNo);
+	}
+	@Override
+	public int commentInsert(CommentVO comment) {
+		// TODO Auto-generated method stub
+		return dao.commentInsert(comment);
+	}
+	@Override
+	public int commentUpdate(CommentVO comment) {
+		// TODO Auto-generated method stub
+		return dao.commentUpdate(comment);
+	}
+	@Override
+	public int commentDelete(int comNo) {
+		// TODO Auto-generated method stub
+		return dao.commentDelete(comNo);
+	}
+	
 	
 	
 }

@@ -20,7 +20,7 @@
 			</nav>
 			<hr />
 			<section id="container">
-			<form id="count">
+				
 					<table >
 						<tr><td>${read.boardTitle }</td></tr>
 						<tr><td>작성자 : ${read.memId }</td></tr>
@@ -40,20 +40,21 @@
 							</tr>
 						<tr><td colspan="2"><hr>${read.boardContext }</td></tr>	
 					</table>
-					<input type="hidden" id="memId" name="memId" value="${read.memId }">
-					<input type="hidden" id="boardNo" name="boardNo" value="${read.boardNo }">
-					<input type="hidden" id="boardLike" name="boardLike" value="${read.boardLike }"> 
-					<input type="hidden" id="boardHate" name="boardHate" value="${read.boardHate }"> 
 					
-					</form>	
+							
 					<div class="comments">
+							<p>댓글
+							<hr>
+							<div class="container">
+      						  <div class="commentList"></div>
+    						</div>	
 						<div class="comment_form">
-							<form action="">
-								<p>댓글
-								<hr>
+							<form id="comment_form">
+				
 								<div id="comment_area">
 								</div>
-								<input type="text" id="comment" name="comment" placeholder="댓글을 입력하세요"> <input type="submit" value="등록"  class="btn btn-success">
+								<input type="hidden" id="boardNo" name="boardNo" value="${read.boardNo }">
+								<input type="text" id="comText" name="comText" placeholder="댓글을 입력하세요"> <input type="submit" id="insert" value="등록"  class="btn btn-success">
 							</form>
 						</div>
 					</div>
