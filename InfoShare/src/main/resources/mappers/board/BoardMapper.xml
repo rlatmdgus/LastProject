@@ -4,22 +4,58 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.multi.lastproject.dao.IBoardDAO">
  
+  <sql id="criteria">
+        <trim prefix="where (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            boardTitle like concat('%',#{keyword},'%') 
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            boardContext like concat('%',#{keyword},'%') 
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            memId like concat('%',#{keyword},'%' )
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    </sql>
+ 
+ 
+ 
    <select id="list" resultType="com.multi.lastproject.model.BoardVO">
    select * from (
                 select boardNo, boardTitle, memId, boardDate, boardHit  
-                from board order by boardNo desc) as T1
+                from board 
+                <if test="keyword !=null">
+                	<include refid="criteria"></include>
+                </if>
+                order by boardNo desc) as T1
         limit #{amount} OFFSET #{skip}
 
    </select>
   	
   	<select id="getTotal" resultType="int">
-  		select count(*) from board;
+  		select count(*) from board
+  		<if test="keyword !=null">
+                	<include refid="criteria"></include>
+                </if>
+  	</select>
+  	<select id="getTotalBoard" resultType="int" parameterType="String">
+  		select count(*) from board where ctgId=#{ctgId};
   	</select>
   	<insert id="insertBoard">
   		insert into board (boardTitle,boardContext,boardTag,boardImage,memId,boardHit) 
   					values (#{boardTitle},#{boardContext},#{boardTag},#{boardImage},#{memId},#{boardHit})
   	</insert>
-  	
+  		<update id="modifyBoard">
+		update board set 
+		boardTitle=#{boardTitle},boardContext=#{boardContext},boardTag=#{boardTag},boardImage=#{boardImage}
+		where boardNo=#{boardNo}
+	</update>
   	 <select id="getPage" resultType="com.multi.lastproject.model.BoardVO">
    select * from board where boardNo=#{boardNo}
    </select>
@@ -52,6 +88,10 @@
     <delete id="commentDelete" parameterType="int">
         DELETE FROM comment WHERE comNo = #{comNo}
     </delete>
+
+	<delete id="deleteBoard" parameterType="int">
+		DELETE FROM board where boardNo=#{boardNo}
+	</delete>
 
 
 

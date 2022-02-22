@@ -2,6 +2,7 @@
  * 
  */
 $(document).ready(function(){
+	var category;
   SU('.LocalCatBtnSU', '.tooltip-right');
   BS('.LocalCatBtnBS', '.tooltip-right');
   DG('.LocalCatBtnDG', '.tooltip-right');

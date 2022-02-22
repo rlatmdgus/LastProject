@@ -9,6 +9,13 @@
 		    commentInsert(insertData); //Insert 함수호출(아래)
 		});
  
+	$('#delete').on('click',function(){
+		var boardNo=$('#boardNo').val();
+		var check=confirm("삭제 하시겠습니까?");
+		if(check){
+		location.href="/boardDelete?boardNo="+boardNo;
+		}
+	})
  
  //댓글 수정 - 댓글 내용 출력을 input 폼으로 변경 
 function commentUpdate(comNo, comText){
@@ -70,7 +77,7 @@ function commentList(boardNo){
                 a += '<div style="float:right;font-size:12px"><a style="cursor:pointer"  onclick="commentUpdate('+value.comNo+',\''+value.comText+'\')"> 수정 </a>';
                 a += '<a style="cursor:pointer" href="javascript:void(0); onclick="commentDelete('+value.comNo+')"> 삭제 </a> </div>';
                 a += '<div class="commentContent'+value.comNo+'"><p>'+value.comText +'</p>';
-                a +=time;
+                a +='<p id="date">'+time+'</p>';
                 a += '</div></div>';
             });
             

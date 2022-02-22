@@ -1,7 +1,7 @@
 @charset "UTF-8";
 *{margin:0 auto;}
 #wrap{width:1400px;}
-h1{margin-top:30px;
+h3{margin-top:30px;
 		}
 nav{
 	margin-bottom:50px;
@@ -9,6 +9,10 @@ nav{
 nav a {float:right;
 	margin-right:15px;
 	}
+nav button{
+	float:right;
+	margin-right:15px;
+}
 table{width:800px;
 		height:150px;}
 	
@@ -29,11 +33,12 @@ section img{
 	width:700px;
 	height:100px;
 }
-p{
+#comment{
 	font-size:25px;
 	font-weight:bold;
 }
-img{
-	width:25px;
-	height:25px;	
+
+#date{
+	color:grey;
+	font-size:11px;
 }

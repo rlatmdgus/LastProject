@@ -7,12 +7,14 @@ import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,7 +40,7 @@ public class BoardController {
 		
 		ArrayList<BoardVO> boardList=service.list(cri);
 		model.addAttribute("list", boardList);
-		int total=service.getTotal();
+		int total=service.getTotal(cri);
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
 		
 		model.addAttribute("pageMaker", pageMaker);
@@ -51,7 +53,7 @@ public class BoardController {
 		return "board/boardInsert";
 	}
 	@RequestMapping("/savePost")
-	public String savePost(BoardVO vo,@RequestParam("smartEditor") String content) {
+	public String savePost(BoardVO vo,@RequestParam("smartEditor") String content,HttpSession session) {
 		vo.setBoardContext(content);
 		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		 Matcher matcher = pattern.matcher(content);
@@ -59,8 +61,28 @@ public class BoardController {
 	            System.out.println(matcher.group(1));
 	            vo.setBoardImage(matcher.group(1));
 	        }
+		 vo.setMemId((String)session.getAttribute("sid"));
 		service.insertBoard(vo);
 		System.out.println(vo.getBoardImage());
+		return "redirect:/list";
+	}
+	@RequestMapping("/updatePost")
+	public String updatePost(BoardVO vo,@RequestParam("smartEditor") String content,HttpSession session) {
+		vo.setBoardContext(content);
+		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		 Matcher matcher = pattern.matcher(content);
+		 while(matcher.find()){
+	            System.out.println(matcher.group(1));
+	            vo.setBoardImage(matcher.group(1));
+	        }
+		 vo.setMemId((String)session.getAttribute("sid"));
+		service.modifyBoard(vo);
+		return "redirect:/list";
+	}
+	@RequestMapping("/boardDelete")
+	public String deleteBoard(@RequestParam("boardNo") int boardNo) {
+			service.deleteBoard(boardNo);
+		
 		return "redirect:/list";
 	}
 	@RequestMapping("/writeReview")
@@ -88,6 +110,12 @@ public class BoardController {
 		service.updateHit(vo.getBoardNo());
 		return "board/boardReadView";
 	}
+	@RequestMapping("/updateBoard")
+	public String updateBoard(BoardVO vo,Model model) {
+		model.addAttribute("read",service.getPage(vo.getBoardNo()));
+		return "board/boardupdate";
+	}
+	
 	@RequestMapping("/singleImageUpload")
 	public String simpleImageUpload(HttpServletRequest request,SmarteditorVO vo) {
 		String callback=vo.getCallback();

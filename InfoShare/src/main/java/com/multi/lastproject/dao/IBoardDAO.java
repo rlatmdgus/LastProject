@@ -1,6 +1,7 @@
 package com.multi.lastproject.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.multi.lastproject.model.BoardVO;
 import com.multi.lastproject.model.CommentVO;
@@ -9,12 +10,14 @@ import com.multi.lastproject.model.ReviewVO;
 
 public interface IBoardDAO {
 	public ArrayList<BoardVO> list(Criteria cri);
-	public int getTotal();
+	public int getTotal(Criteria cri);
+	public int getTotalBoard(String ctgId);
 	public void insertBoard(BoardVO vo);
 	public BoardVO getPage(int boardNo);
 	public void updateHit(int boardNo);
 	public void insertReview(ReviewVO vo);
-	
+	public void deleteBoard(int boardNo);
+	public void modifyBoard(BoardVO vo);
 	 // 댓글 개수
     public int commentCount() ;
  
@@ -29,6 +32,6 @@ public interface IBoardDAO {
     // 댓글 삭제
     public int commentDelete(int comNo);
 
-
+    ArrayList<BoardVO> searchBoard(HashMap<String, Object> map);
 
 }

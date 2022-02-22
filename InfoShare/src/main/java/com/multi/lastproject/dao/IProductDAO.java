@@ -10,4 +10,5 @@ public interface IProductDAO {
 	public ArrayList<FoodProductVO> list(PrdCriteria cri);
 	public int getTotal();
 	public FoodProductVO getPage(String fdPrdNo);
+	public int getTotalBoard(String ctgId);
 }

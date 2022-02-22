@@ -35,7 +35,7 @@
 							
 						<!-- 로그인 성공한 경우 보여줄 메뉴 항목  -->	
 						<c:if test="${not empty sessionScope.sid}">
-							${sessionScope.Mname} 님 환영합니다!
+							${sessionScope.sid} 님 환영합니다!
 							&nbsp;&nbsp;
 							<input type="button" value="로그아웃" onclick="location.href='/logout'">
 							마이페이지
@@ -101,7 +101,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnSU">서울</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${1}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -117,7 +117,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnBS">부산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${2}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -133,7 +133,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnDG">대구</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${3}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -149,7 +149,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnIC">인천</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${4}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -165,7 +165,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGJ">광주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${5}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -181,7 +181,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnDJ">대전</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${6}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -197,7 +197,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnUS">울산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${7}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -213,7 +213,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnSJ">세종</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${8}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -229,7 +229,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGG">경기</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${9}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -245,7 +245,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGW">강원</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${10}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -261,7 +261,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnCB">충북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${11}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -277,7 +277,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnCN">충남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${12}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -293,7 +293,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGB">경북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${13}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -309,7 +309,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGN">경남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      						<li id="prodCat"><a href="<c:url value='/foodListView/${14}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -325,7 +325,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJB">전북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      						<li id="prodCat"><a href="<c:url value='/foodListView/${15}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -341,7 +341,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJN">전남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${16}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -357,7 +357,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJJ">제주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${17}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>

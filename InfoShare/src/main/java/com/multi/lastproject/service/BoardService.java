@@ -1,6 +1,7 @@
 package com.multi.lastproject.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,9 +21,9 @@ public class BoardService implements IBoardService {
 		return dao.list(cri);
 	}
 	@Override
-	public int getTotal() {
+	public int getTotal(Criteria cri) {
 		
-		return dao.getTotal();
+		return dao.getTotal(cri);
 	}
 	
 	@Override
@@ -66,6 +67,26 @@ public class BoardService implements IBoardService {
 	public int commentDelete(int comNo) {
 		// TODO Auto-generated method stub
 		return dao.commentDelete(comNo);
+	}
+	@Override
+	public int getTotalBoard(String ctgId) {
+		// TODO Auto-generated method stub
+		return dao.getTotalBoard(ctgId);
+	}
+	@Override
+	public void deleteBoard(int boardNo) {
+		// TODO Auto-generated method stub
+		dao.deleteBoard(boardNo);
+	}
+	@Override
+	public void modifyBoard(BoardVO vo) {
+		// TODO Auto-generated method stub
+		dao.modifyBoard(vo);
+	}
+	@Override
+	public ArrayList<BoardVO> searchBoard(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		return dao.searchBoard(map);
 	}
 	
 	
