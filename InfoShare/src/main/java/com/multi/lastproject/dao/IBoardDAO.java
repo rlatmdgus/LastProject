@@ -9,6 +9,7 @@ import com.multi.lastproject.model.ReviewVO;
 
 public interface IBoardDAO {
 	public ArrayList<BoardVO> list(Criteria cri);
+	public ArrayList<BoardVO> hitlist(Criteria cri);
 	public int getTotal();
 	public void insertBoard(BoardVO vo);
 	public BoardVO getPage(int boardNo);

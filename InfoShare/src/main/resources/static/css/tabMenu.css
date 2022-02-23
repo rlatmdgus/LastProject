@@ -1,7 +1,4 @@
 @charset "UTF-8";
-
-
-
 * {
     margin: 0 auto;
 }
@@ -23,6 +20,7 @@
     height: 32px;
     padding-top: 3px;
 }
+
 
 #top-a{
 	text-decoration:none !important;
@@ -136,6 +134,8 @@
 }
 
 #rank-a{
+	display: none;
+	
 	margin-left: 0px;
 	color: #28CC71;
     text-decoration:none !important;
@@ -143,6 +143,8 @@
 }
 
 #rank-number{
+	display: none;
+	
 	font-weight: bold;
 	font-size: 18px;
 	float: left;
