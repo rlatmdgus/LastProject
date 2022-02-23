@@ -1,19 +1,11 @@
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
-* {
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    border-radius: 5px;
-}
-
-h2{
+.title{
       margin-top: auto;
       text-align: center;
       color: #1bbc9b;
       margin-bottom: 20px;
 }
  
-body {
+.lg-body {
     margin: 0;
     background-color: #F8F9FA;
 }

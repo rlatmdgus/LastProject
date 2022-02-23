@@ -15,7 +15,6 @@
 	  	
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/login.js'/>"></script>
-		<script src="<c:url value='/js/consentChk.js'/>"></script>
 		<script src="<c:url value='/js/rank-list.js'/>"></script>
 		<script src="<c:url value='/js/slideShow.js'/>"></script>
 		<script src="<c:url value='/js/category.js'/>"></script>
@@ -35,10 +34,10 @@
 							
 						<!-- 로그인 성공한 경우 보여줄 메뉴 항목  -->	
 						<c:if test="${not empty sessionScope.sid}">
-							${sessionScope.Mname} 님 환영합니다!
+							${sessionScope.sname}님
 							&nbsp;&nbsp;
-							<input type="button" value="로그아웃" onclick="location.href='/logout'">
-							마이페이지
+							<a href="<c:url value='/logout'/>" id="top-a">로그아웃</a> &nbsp;
+							<a href="<c:url value='/myinfoForm'/>" id="top-a">마이페이지</a> &nbsp;
 						</c:if>					
 					</div>
 					<div id="SearchHeader">
@@ -81,7 +80,21 @@
 				            </dl>
 				        </div>
 				        <div id="profileLink">
-				        		<a href="#" id="profile">
+				        	<!-- 로그인 하지 않은 경우 보여줄 메뉴 항목  -->
+							<c:if test="${empty sessionScope.sid }">
+								<a href="/loginForm" id="profile">
+				        			<img id="profileIcon" src="<c:url value="/imgs/profile.png"/>">
+				        			<p>내 정보</p>
+				        		</a>
+				        		<a href="/loginForm" id="profile">
+				        			<img id="profileIcon" src="<c:url value="/imgs/basket.png"/>">
+				        			<p>장바구니</p>
+				        		</a>
+							</c:if>
+								
+							<!-- 로그인 성공한 경우 보여줄 메뉴 항목  -->	
+							<c:if test="${not empty sessionScope.sid}">
+								<a href="/myinfoForm" id="profile">
 				        			<img id="profileIcon" src="<c:url value="/imgs/profile.png"/>">
 				        			<p>내 정보</p>
 				        		</a>
@@ -89,6 +102,7 @@
 				        			<img id="profileIcon" src="<c:url value="/imgs/basket.png"/>">
 				        			<p>장바구니</p>
 				        		</a>
+							</c:if>	
 						</div>
 				</div>
 				<div id="MenuBar">
@@ -370,7 +384,6 @@
 					      					</div>
       									</li>
       								</ul>
-      								
       							</span>
     						</div>
 						</li>
@@ -387,7 +400,182 @@
 							<span>작가님들 소개</span>
 						</li>
 						<li id="ui_guide_menu">
-							<span>지역별 커뮤니티</span>
+							<div class="tooltip">지역별 커뮤니티
+      							<span class="tooltiptext tooltip-bottom">
+      								<ul style="padding-left: 0px;">
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnSU">서울</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnBS">부산</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnDG">대구</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnIC">인천</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnGJ">광주</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnDJ">대전</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnUS">울산</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnSJ">세종</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnGG">경기</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnGW">강원</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnCB">충북</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnCN">충남</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnGB">경북</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnGN">경남</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnJB">전북</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnJN">전남</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      									<li id="LocalCat">
+      										<button id="LocalCatBtn" class="LocalCatBtnJJ">제주</button>
+      										<div class="tooltip-right">
+					      						<ul style="padding-left: 0px;">
+					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
+					      						</ul>
+					      					</div>
+      									</li>
+      								</ul>
+      							</span>
+    						</div>
 						</li>
 					</ul>       	
 				</div>

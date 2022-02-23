@@ -37,15 +37,15 @@ public class MemberService implements IMemberService {
 	}
 
 	@Override
-	public int memberDelete(MemberVO vo) {
+	public int accountDelete(MemberVO vo) {
 		
-		return dao.memberDelete(vo);
+		return dao.accountDelete(vo);
 	}
 
 	@Override
-	public void memberUpdate(MemberVO vo) {
+	public void infoedit(MemberVO vo) {
 		
-		dao.memberUpdate(vo);
+		dao.infoedit(vo);
 	}
 
 	@Override
