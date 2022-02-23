@@ -1,0 +1,23 @@
+@charset "UTF-8";
+*{margin: 0 auto;}
+#wrap{width:1400px;}
+h2 {margin-top:20px;
+	margin-bottom:20px;}
+#boardTitle{
+	width:80%;
+	margin-top:20px;
+	margin-bottom:20px;
+	height:40px;
+	font-size:20px;
+}
+#boardTage{
+	width:100px;
+	height:40px;
+}
+#list{
+	float:right
+}
+#savebutton{
+	float:right;
+	margin-right:10px;
+}

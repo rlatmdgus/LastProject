@@ -7,12 +7,19 @@ import org.springframework.context.annotation.ComponentScan;
 
 import com.multi.lastproject.controller.MainController;
 import com.multi.lastproject.controller.MemberController;
+import com.multi.lastproject.dao.IBoardDAO;
 import com.multi.lastproject.dao.IMemberDAO;
 
 @SpringBootApplication
+@ComponentScan(basePackages= {"com.multi.lastproject"})
+@MapperScan(basePackages = {"com.multi.lastproject.dao"})
 @ComponentScan(basePackageClasses = MainController.class)
 @ComponentScan(basePackageClasses = MemberController.class)
 @MapperScan(basePackageClasses = IMemberDAO.class)
+<<<<<<< HEAD
+=======
+@MapperScan(basePackageClasses=IBoardDAO.class)
+>>>>>>> upstream/main
 
 public class InfoShareApplication {
 

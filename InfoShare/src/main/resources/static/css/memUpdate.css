@@ -1,0 +1,93 @@
+.w{
+	width: 900px;
+}
+
+.memUpdate{
+    margin-top: 30px;
+    border: none;
+}
+
+
+.info-table{
+	display: block;
+	margin-right: auto;
+    margin-left: auto;
+	margin-left: 0px;
+	border-collapse : collapse;
+	border-spacing : 0;
+}
+
+
+.text-field {
+    font-size: 14px;
+    padding: 10px;
+    border: none;
+    width: 260px;
+    
+}
+
+.info-td{
+	width: 750px;
+}
+
+.info-tr{
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	
+}
+
+.info-th{
+	padding: 12px 10px;
+	background: #f5f5f5;
+    font-weight: normal;
+    font-size: 14px;
+    width: 150px;
+    height: 48px;
+    text-align: left;
+    color: #666;
+    
+}
+
+.text-input{
+	display: block;
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 14px;
+	padding: 10px;
+    border: none;
+    width: 260px;
+    margin-bottom: 10px;
+	border: 1px solid #acacac;
+		
+}
+
+.btn-box{
+	display: flex;
+	justify-content: center;
+
+}
+
+.edit-btn{
+	margin-left: 0px;
+	margin-right: 50px;
+	margin-top: 30px; 
+	padding: 8px 15px; 
+	width: auto;
+	height: auto;
+	color: #fff;
+    background: #28CC71;
+    border: 1px solid #28CC71;
+}
+
+
+.info-delete-btn{
+	margin: 0;
+	margin-top: 30px; 
+	padding: 8px 15px; 
+	width: auto;
+	height: auto;
+	background: #fff;
+	color: #333;
+	border: 1px solid #ccc;
+	
+}
