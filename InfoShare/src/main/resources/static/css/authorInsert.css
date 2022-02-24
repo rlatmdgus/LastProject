@@ -1,0 +1,30 @@
+@charset "EUC-KR";
+
+td input {
+    width: 100%;
+}
+
+select {
+    width: 100%;
+    text-align: center;
+}
+
+.author-insert-title {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+
+.authorInsert-wrap {
+    display : flex;
+    flex-direction: column;
+}
+
+.author-insert-bottom {
+    margin-top: 30px;
+}
+
+.author-insert-update {
+    background-color: #b0b6e2;
+    text-decoration: none;
+}
