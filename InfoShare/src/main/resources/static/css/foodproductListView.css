@@ -60,3 +60,12 @@
  background-color:tomato;
  color:white;
  }
+ .item .move{
+ 	width:300px;
+ 	height:300px;
+ }
+#write{ 
+ float:right;
+ 		margin-top:20px;
+ 		margin-bottom:20px;
+ }

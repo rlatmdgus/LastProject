@@ -8,7 +8,7 @@
 	 	<link rel="stylesheet" href="<c:url value='/css/bootstrap.css'/>">
 	 	<link rel="stylesheet" href="<c:url value='/css/boardReadView.css'/> ">
 	  <script type="text/javascript" src="<c:url value='/js/jquery-3.6.0.min.js'/>" ></script>
-	  <script type="text/javascript" src="<c:url value='/js/boardReadView.js'/>" ></script>
+	  <script type="text/javascript" src="<c:url value='/js/readReview.js'/>" ></script>
 	</head>
 	<body>
 	
@@ -16,7 +16,7 @@
 				<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
 			<nav>
 				<h3>리뷰</h3>
-			  <a href="<c:url value='/'/>" class="btn btn-success" >홈</a> <a href="<c:url value='/reviewlist/${ctgId }/${deCtgId }'/>" class="btn btn-success" > 목록</a>
+			  <a href="<c:url value='/'/>" class="btn btn-success" >홈</a> <a href="<c:url value='/reviewlist/${read.ctgId }/${read.deCtgId }'/>" class="btn btn-success" > 목록</a>
 			  <c:if test="${read.memId ==sessionScope.sid }">
 			  	<button class="btn btn-success" id="delete" >삭제</button> <a href="<c:url value='/updateReview?revNo=${read.revNo}&ctgId=${ctgId }&deCtgId=${deCtgId }'/>" class="btn btn-success" > 수정</a>
 			  </c:if>

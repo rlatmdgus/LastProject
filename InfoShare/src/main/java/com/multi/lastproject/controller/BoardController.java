@@ -54,11 +54,13 @@ public class BoardController {
 	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
+		cri.setAmount(9);
 		ArrayList<BoardVO> reviewList=service.reviewList(cri);
 		System.out.println(cri.getCtgId());
 		System.out.println(cri.getDeCtgId());
 		model.addAttribute("list", reviewList);
-		int total=service.getTotal(cri);
+		int total=service.getTotalReview(cri);
+		System.out.println("dsds"+total);
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
 		model.addAttribute("ctgId",ctgId);
 		model.addAttribute("deCtgId", deCtgId);
@@ -113,11 +115,31 @@ public class BoardController {
 		service.modifyBoard(vo);
 		return "redirect:/list/"+ctgId+"/"+vo.getDeCtgId();
 	}
+	@RequestMapping("/updateReviewPost")
+	public String updateReviewPost(ReviewVO vo,@RequestParam("smartEditor") String content,@RequestParam("ctgId") String ctgId,HttpSession session) {
+		vo.setRevText(content);
+		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		 Matcher matcher = pattern.matcher(content);
+		 while(matcher.find()){
+	            System.out.println(matcher.group(1));
+	            vo.setRevImage(matcher.group(1));
+	        } 
+		 System.out.println(" :::"+vo.getRevNo());
+		 vo.setMemId((String)session.getAttribute("sid"));
+		service.modifyReview(vo);
+		return "redirect:/reviewlist/"+ctgId+"/"+vo.getDeCtgId();
+	}
 	@RequestMapping("/boardDelete")
 	public String deleteBoard(@RequestParam("boardNo") int boardNo, @RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
 			service.deleteBoard(boardNo);
 			System.out.println(ctgId);
 		return "redirect:/list/"+ctgId+"/"+deCtgId;
+	}
+	@RequestMapping("/reviewDelete")
+	public String reviewDelete(@RequestParam("revNo") int revNo, @RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
+			service.deleteReview(revNo);
+			System.out.println(ctgId);
+		return "redirect:/reviewlist/"+ctgId+"/"+deCtgId;
 	}
 	@RequestMapping("/writeReview")
 	public String insertReview(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
@@ -150,7 +172,13 @@ public class BoardController {
 		model.addAttribute("deCtgId", vo.getDeCtgId());
 		return "board/boardupdate";
 	}
-	
+	@RequestMapping("/updateReview")
+	public String updateReview(ReviewVO vo,Model model) {
+		model.addAttribute("read",service.getReview(vo.getRevNo()));
+		model.addAttribute("ctgId",vo.getCtgId());
+		model.addAttribute("deCtgId", vo.getDeCtgId());
+		return "board/reviewUpdate";
+	}
 	@RequestMapping("/singleImageUpload")
 	public String simpleImageUpload(HttpServletRequest request,SmarteditorVO vo) {
 		String callback=vo.getCallback();

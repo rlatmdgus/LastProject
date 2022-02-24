@@ -403,7 +403,7 @@
 							<span>작가님들 소개</span>
 						</li>
 						<li id="ui_guide_menu">
-							<div class="tooltip">지역별 커뮤니티					<
+							<div class="tooltip">지역별 커뮤니티					
       							<span class="tooltiptext tooltip-bottom">
       								<ul style="padding-left: 0px;">
       									<li id="LocalCat">
@@ -584,5 +584,8 @@
 				</div>
 			</div>
 		</header>
+
+
 	</body>
+
 </html>

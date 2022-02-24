@@ -34,7 +34,7 @@ public class MainController {
 		ArrayList<FoodProductVO> foodProductList=service2.fplist(cri2);
 		model.addAttribute("list", boardList);
 		model.addAttribute("FPlist", foodProductList);
-		int total=service.getTotal();
+		int total=service.getTotal(cri);
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
 		
 		model.addAttribute("pageMaker", pageMaker);
