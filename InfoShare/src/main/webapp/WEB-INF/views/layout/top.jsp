@@ -29,7 +29,7 @@
 						<c:if test="${empty sessionScope.sid }">
 							<a href="<c:url value='/loginForm'/>" id="top-a">로그인</a>&nbsp; 
 							<a href="<c:url value='/joinForm'/>" id="top-a">회원가입</a>&nbsp; 
-							<a href="<c:url value='/cscForm'/>" id="top-a">챗봇</a> &nbsp;
+							<a href="<c:url value='/chatbotForm'/>" id="top-a">챗봇</a> &nbsp;
 						</c:if>
 							
 						<!-- 로그인 성공한 경우 보여줄 메뉴 항목  -->	
@@ -37,7 +37,7 @@
 							${sessionScope.sname}님
 							&nbsp;&nbsp;
 							<a href="<c:url value='/logout'/>" id="top-a">로그아웃</a> &nbsp;
-							<a href="<c:url value=''/>" id="top-a">챗봇</a> &nbsp;
+							<a href="<c:url value='/chatbotForm'/>" id="top-a">챗봇</a> &nbsp;
 						</c:if>					
 					</div>
 					<div id="SearchHeader">
@@ -392,9 +392,6 @@
 						</li>
 						<li id="ui_guide_menu">
 							<span>새로운 작품</span>
-						</li>
-						<li id="ui_guide_menu">
-							<span>실시간 후기</span>
 						</li>
 						<li id="ui_guide_menu">
 							<span>작가님들 소개</span>

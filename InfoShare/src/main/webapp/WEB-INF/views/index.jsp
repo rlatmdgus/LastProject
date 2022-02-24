@@ -74,7 +74,6 @@
 	                </c:forEach>
             	</form>
 		</section>
-		
 		<section>
 			<div id="MenuBox">
 				<div id="MainTitle"><a>인기 게시물</a></div>
