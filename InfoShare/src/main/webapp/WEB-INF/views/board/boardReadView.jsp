@@ -16,7 +16,7 @@
 				<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
 			<nav>
 				<h3>자유 게시판</h3>
-			  <a href="<c:url value='/'/>" class="btn btn-success" >홈</a> <a href="<c:url value='/list/${ctgId }/${deCtgId }'/>" class="btn btn-success" > 목록</a>
+			  <a href="<c:url value='/'/>" class="btn btn-success" >홈</a> <a href="<c:url value='/list/${read.ctgId }/${read.deCtgId }'/>" class="btn btn-success" > 목록</a>
 			  <c:if test="${read.memId ==sessionScope.sid }">
 			  	<button class="btn btn-success" id="delete" >삭제</button> <a href="<c:url value='/updateBoard?boardNo=${read.boardNo}&ctgId=${ctgId }&deCtgId=${deCtgId }'/>" class="btn btn-success" > 수정</a>
 			  </c:if>

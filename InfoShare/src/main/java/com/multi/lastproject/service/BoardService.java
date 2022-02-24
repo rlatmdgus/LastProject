@@ -73,9 +73,9 @@ public class BoardService implements IBoardService {
 		return dao.commentDelete(comNo);
 	}
 	@Override
-	public int getTotalBoard(String ctgId) {
+	public int getTotalReview(Criteria cri) {
 		// TODO Auto-generated method stub
-		return dao.getTotalBoard(ctgId);
+		return dao.getTotalReview(cri);
 	}
 	@Override
 	public void deleteBoard(int boardNo) {
@@ -102,6 +102,19 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		return dao.getReview(revNo);
 	}
+
+	@Override
+	public void modifyReview(ReviewVO vo) {
+		// TODO Auto-generated method stub
+		dao.modifyReview(vo);
+	}
+
+	@Override
+	public void deleteReview(int revNo) {
+		// TODO Auto-generated method stub
+		dao.deleteReview(revNo);
+	}
+
 	
 	
 	

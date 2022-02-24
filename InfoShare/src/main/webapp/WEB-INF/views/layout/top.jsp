@@ -121,7 +121,7 @@
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">문구</button></li>
-<!-- 					      							<li id="prodCat"><button id="prodCatBtn">주방 & 생활</button></li> -->
+					      							<li id="prodCat"><button id="prodCatBtn">주방 & 생활</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">전자기기 관련</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">기타</button></li>
 					      						</ul>
@@ -581,5 +581,8 @@
 				</div>
 			</div>
 		</header>
+
+
 	</body>
+
 </html>

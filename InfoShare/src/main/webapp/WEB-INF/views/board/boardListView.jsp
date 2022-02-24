@@ -12,6 +12,7 @@
 	  <script type="text/javascript" src="<c:url value='/js/boardListView.js'/>"></script>
 	</head>
 	<body>
+	<!--  게시판-->
 	<div id="wrap">
 	<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
 	<section>
@@ -19,6 +20,7 @@
 			<c:if test="${not empty sessionScope.sid }">
 			<a href='<c:url value="/write?ctgId=${ctgId }&deCtgId=${deCtgId }"/>' id="write" class="btn btn-success">글쓰기</a>     
 			</c:if>
+			<!-- dddssssssd; -->
      </div>
 	<div id="container">
 		<table class="table table-striped table-hover">

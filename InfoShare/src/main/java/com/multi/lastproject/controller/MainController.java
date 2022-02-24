@@ -37,6 +37,10 @@ public class MainController {
 		model.addAttribute("list", boardList);
 		model.addAttribute("FPlist", foodProductList);
 		
+		int total=service.getTotal(cri);
+		PageMakerVO pageMaker=new PageMakerVO(cri,total);
+
+		
 		return "/index";
 	}
 }
