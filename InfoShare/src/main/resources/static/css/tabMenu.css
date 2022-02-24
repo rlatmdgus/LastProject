@@ -352,7 +352,11 @@
 	width: 119px;
 	text-align: left;
 	text-decoration:none;
+	font-size:12px;
+	font-weight:bold;
+	margin-top:2px;
 }
+
 #prodCatBtn:hover {
 	background-color: #ABF2CA;
 	color: #fff;
