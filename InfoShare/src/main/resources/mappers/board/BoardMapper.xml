@@ -37,12 +37,9 @@
    </select>
  
  
+
  
- 
- 
- 
- 
- 
+
  
  
    <select id="list" resultType="com.multi.lastproject.model.BoardVO">
@@ -110,7 +107,15 @@
   		insert into review (revTitle,revText,fdPrdNo,cloPrdNo,ctgId,deCtgId,revImage,memId) 
   					values (#{revTitle},#{revText},#{fdPrdNo},#{cloPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
   	</insert>
-  	
+  	 <update id="modifyReview">
+		update review set 
+		revTitle=#{revTitle},revText=#{revText},fdPrdNo=#{fdPrdNo},cloPrdNo=#{cloPrdNo},ctgId=#{ctgId},deCtgId=#{deCtgId},
+		revImage=#{revImage},memId=#{memId}
+		where revNo=#{revNo}
+	</update>
+	<delete id="deleteReview" parameterType="int">
+		delete from review where revNo=#{revNo}
+	</delete>
   	<select id="commentCount" resultType="integer">
   		select count(*) from comment 
   	</select>

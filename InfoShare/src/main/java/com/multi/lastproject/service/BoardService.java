@@ -103,6 +103,18 @@ public class BoardService implements IBoardService {
 		return dao.getReview(revNo);
 	}
 
+	@Override
+	public void modifyReview(ReviewVO vo) {
+		// TODO Auto-generated method stub
+		dao.modifyReview(vo);
+	}
+
+	@Override
+	public void deleteReview(int revNo) {
+		// TODO Auto-generated method stub
+		dao.deleteReview(revNo);
+	}
+
 	
 	
 	
