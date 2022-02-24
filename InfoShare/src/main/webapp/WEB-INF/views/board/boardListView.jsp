@@ -20,7 +20,7 @@
 			<c:if test="${not empty sessionScope.sid }">
 			<a href='<c:url value="/write?ctgId=${ctgId }&deCtgId=${deCtgId }"/>' id="write" class="btn btn-success">글쓰기</a>     
 			</c:if>
-			<!-- dddd; -->
+			<!-- dddssssssd; -->
      </div>
 	<div id="container">
 		<table class="table table-striped table-hover">
