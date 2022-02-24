@@ -1,0 +1,18 @@
+.cart-wrap {
+    text-align: center;
+}
+
+.cart-header {
+    display: flex;
+    justify-content : space-around;
+}
+
+.cart-del{
+    background-color : #86cfda;
+    text-decoration: none;
+}
+
+.cart-prorder {
+    background-color: #b0b6e2;
+    text-decoration: none;
+}

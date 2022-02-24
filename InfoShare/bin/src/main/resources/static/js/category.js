@@ -2,23 +2,24 @@
  * 
  */
 $(document).ready(function(){
-  SU('.LocalCatBtnSU', '.tooltipmenumenumenu-right');
-  BS('.LocalCatBtnBS', '.tooltipmenumenumenu-right');
-  DG('.LocalCatBtnDG', '.tooltipmenumenumenu-right');
-  IC('.LocalCatBtnIC', '.tooltipmenumenumenu-right');
-  GJ('.LocalCatBtnGJ', '.tooltipmenumenumenu-right');
-  DJ('.LocalCatBtnDJ', '.tooltipmenumenumenu-right');
-  US('.LocalCatBtnUS', '.tooltipmenumenumenu-right');
-  SJ('.LocalCatBtnSJ', '.tooltipmenumenumenu-right');
-  GG('.LocalCatBtnGG', '.tooltipmenumenumenu-right');
-  GW('.LocalCatBtnGW', '.tooltipmenumenumenu-right');
-  CB('.LocalCatBtnCB', '.tooltipmenumenumenu-right');
-  CN('.LocalCatBtnCN', '.tooltipmenumenumenu-right');
-  GB('.LocalCatBtnGB', '.tooltipmenumenumenu-right');
-  GN('.LocalCatBtnGN', '.tooltipmenumenumenu-right');
-  JB('.LocalCatBtnJB', '.tooltipmenumenumenu-right');
-  JN('.LocalCatBtnJN', '.tooltipmenumenumenu-right');
-  JJ('.LocalCatBtnJJ', '.tooltipmenumenumenu-right');
+	var category;
+  SU('.LocalCatBtnSU', '.tooltip-right');
+  BS('.LocalCatBtnBS', '.tooltip-right');
+  DG('.LocalCatBtnDG', '.tooltip-right');
+  IC('.LocalCatBtnIC', '.tooltip-right');
+  GJ('.LocalCatBtnGJ', '.tooltip-right');
+  DJ('.LocalCatBtnDJ', '.tooltip-right');
+  US('.LocalCatBtnUS', '.tooltip-right');
+  SJ('.LocalCatBtnSJ', '.tooltip-right');
+  GG('.LocalCatBtnGG', '.tooltip-right');
+  GW('.LocalCatBtnGW', '.tooltip-right');
+  CB('.LocalCatBtnCB', '.tooltip-right');
+  CN('.LocalCatBtnCN', '.tooltip-right');
+  GB('.LocalCatBtnGB', '.tooltip-right');
+  GN('.LocalCatBtnGN', '.tooltip-right');
+  JB('.LocalCatBtnJB', '.tooltip-right');
+  JN('.LocalCatBtnJN', '.tooltip-right');
+  JJ('.LocalCatBtnJJ', '.tooltip-right');
 });
 
 function SU(selector, layer) {

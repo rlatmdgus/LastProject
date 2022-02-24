@@ -4,16 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   <mapper namespace="com.multi.lastproject.dao.IProductDAO">
  
-   <select id="list" resultType="com.multi.lastproject.model.FoodProductVO">
+   <select id="list" resultType="com.multi.lastproject.model.FoodProductVO" parameterType="com.multi.lastproject.model.PrdCriteria" >
    select * from (
                 select * 
-                from foodproduct order by fdPrdNo desc) as T1
+                from foodproduct where ctgId=#{ctgId} order by fdPrdNo desc) as T1 
         limit #{amount} OFFSET #{skip}
 
    </select>
+   
+   <select id="fplist" resultType="com.multi.lastproject.model.FoodProductVO">
+  	   SELECT * FROM foodproduct ORDER BY fdPrdNo DESC limit 8
+  	</select>
   	
   	<select id="getTotal" resultType="int">
   		select count(*) from foodproduct;
+  	</select>
+  	<select id="getTotalBoard" resultType="int" parameterType="String">
+  		select count(*) from foodproduct where ctgId=#{ctgId};
   	</select>
   	<select id="getPage" resultType="com.multi.lastproject.model.FoodProductVO">
    select * from foodproduct where fdPrdNo=#{fdPrdNo}

@@ -1,0 +1,9 @@
+.author-reg {
+    background-color : #86cfda;
+    text-decoration:none !important;
+}
+
+.authorlist-wrap {
+    display: flex;
+    justify-content : space-around;
+}
