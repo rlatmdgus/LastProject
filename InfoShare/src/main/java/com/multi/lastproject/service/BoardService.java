@@ -88,6 +88,16 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		return dao.searchBoard(map);
 	}
+	@Override
+	public ArrayList<BoardVO> reviewList(Criteria cri) {
+		// TODO Auto-generated method stub
+		return dao.reviewList(cri);
+	}
+	@Override
+	public ReviewVO getReview(int revNo) {
+		// TODO Auto-generated method stub
+		return dao.getReview(revNo);
+	}
 	
 	
 	

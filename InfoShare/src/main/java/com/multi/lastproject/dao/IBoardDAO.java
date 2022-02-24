@@ -10,10 +10,12 @@ import com.multi.lastproject.model.ReviewVO;
 
 public interface IBoardDAO {
 	public ArrayList<BoardVO> list(Criteria cri);
+	public ArrayList<BoardVO> reviewList(Criteria cri);
 	public int getTotal(Criteria cri);
 	public int getTotalBoard(String ctgId);
 	public void insertBoard(BoardVO vo);
 	public BoardVO getPage(int boardNo);
+	public ReviewVO getReview(int revNo);
 	public void updateHit(int boardNo);
 	public void insertReview(ReviewVO vo);
 	public void deleteBoard(int boardNo);

@@ -17,23 +17,24 @@
 	<section>
 	<div>            
 			<c:if test="${not empty sessionScope.sid }">
-			<a href='<c:url value="/write?ctgId=${ctgId }&deCtgId=${deCtgId }"/>' id="write" class="btn btn-success">글쓰기</a>     
+			<a href='<c:url value="/writeReview?ctgId=${ctgId }&deCtgId=${deCtgId }"/>' id="write" class="btn btn-success">리뷰쓰기</a>     
 			</c:if>
      </div>
 	<div id="container">
 		<table class="table table-striped table-hover">
 		<tr><th id="No">번호</th>
 		<th id="title">제목</th>
+		<th id="image">제품 사진</th>
 		<th id="name">작성자</th>
 		<th id="date">작성일</th>
-		<th id="hit">조회수</th>
 		</tr>
 		<c:forEach items="${list }" var="li">
-		<tr><td><c:out value="${li.boardNo }"/></td>
-		<td><a href="<c:url value='/readView?boardNo=${li.boardNo}&ctgId=${ctgId}&deCtgId=${deCtgId }' />"><c:out value="${li.boardTitle }"/></a></td>
+		<tr><td><c:out value="${li.revNo }"/></td>
+		<td><a href="<c:url value='/readReview?revNo=${li.revNo }&ctgId=${ctgId }&deCtgId=${deCtgId }' />"><c:out value="${li.revTitle }"/></a></td>
+		<td><img src="${li.revImage }"></td>
 		<td><c:out value="${li.memId }"/></td>
-		<td><fmt:formatDate pattern = "yyyy/MM/dd hh:mm:ss" value="${li.boardDate}"/></td>
-		<td><c:out value="${li.boardHit }"/></td></tr>
+		<td><fmt:formatDate pattern = "yyyy/MM/dd hh:mm:ss" value="${li.revDate}"/></td>
+		</tr>
 		</c:forEach>
 		</table>
 		<div class="pageInfo_wrap">
@@ -53,7 +54,7 @@
 				
 			</div>
 		</div>
-		<form method="post" id="moveForm">
+		<form method="get" id="moveForm">
 			<input type="hidden" name="pageNum" id="pageNum" value="${pageMaker.cri.pageNum }">
 			<input type="hidden" name="amount" value="${pageMaker.cri.amount }">
 			<input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">

@@ -4,10 +4,12 @@
  $(function(){
 	
 	$('#pageInfo a').on('click',function(e){
+		var ctgId=$('#ctgId').val();
+		var deCtgId=$('#deCtgId').val();
 		
 		 e.preventDefault();
        	 $("input[name='pageNum']").val($(this).attr("href"));
-       	$("#moveForm").attr("action", "/list");
+       	$("#moveForm").attr("action", "/list/"+ctgId+"/"+deCtgId);
         	$("#moveForm").submit();
 	});
 

@@ -5,8 +5,28 @@ import java.util.Arrays;
 public class Criteria {
 	  /* 현재 페이지 */
     private int pageNum;
+    //지역 카테고리
+    private String ctgId;
     
-    /* 한 페이지 당 보여질 게시물 갯수 */
+    //지역별 메뉴 카테고리
+    private String deCtgId;
+    public String getDeCtgId() {
+		return deCtgId;
+	}
+
+	public void setDeCtgId(String deCtgId) {
+		this.deCtgId = deCtgId;
+	}
+
+	public String getCtgId() {
+		return ctgId;
+	}
+
+	public void setCtgId(String ctgId) {
+		this.ctgId = ctgId;
+	}
+
+	/* 한 페이지 당 보여질 게시물 갯수 */
     private int amount;
     
     /* 스킵 할 게시물 수( (pageNum-1) * amount ) */
@@ -61,7 +81,7 @@ public class Criteria {
 
 	public void setPageNum(int pageNum) {
 		this.skip=(pageNum-1)*this.amount;
-		this.pageNum = pageNum;
+		this.pageNum = pageNum; 
 	}
 
 	public int getAmount() {
@@ -83,7 +103,10 @@ public class Criteria {
 
 	@Override
 	public String toString() {
-		return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword
-				+ ", typeArr=" + Arrays.toString(typeArr) + ", type=" + type + "]";
+		return "Criteria [pageNum=" + pageNum + ", ctgId=" + ctgId + ", deCtgId=" + deCtgId + ", amount=" + amount
+				+ ", skip=" + skip + ", keyword=" + keyword + ", typeArr=" + Arrays.toString(typeArr) + ", type=" + type
+				+ "]";
 	}
+
+
 }

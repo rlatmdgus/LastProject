@@ -16,11 +16,7 @@ import com.multi.lastproject.dao.IMemberDAO;
 @ComponentScan(basePackageClasses = MainController.class)
 @ComponentScan(basePackageClasses = MemberController.class)
 @MapperScan(basePackageClasses = IMemberDAO.class)
-<<<<<<< HEAD
-=======
 @MapperScan(basePackageClasses=IBoardDAO.class)
->>>>>>> upstream/main
-
 public class InfoShareApplication {
 
 	public static void main(String[] args) {

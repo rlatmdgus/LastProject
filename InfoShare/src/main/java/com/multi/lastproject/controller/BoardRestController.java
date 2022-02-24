@@ -19,7 +19,7 @@ public class BoardRestController {
 	BoardService service;
 	
 	 @RequestMapping("/commentList") //댓글 리스트
-	    private List<CommentVO> mCommentServiceList(@RequestParam("boardNo") int boardNo){
+	    private List<CommentVO> mCommentServiceList(@RequestParam("boardNo") int boardNo, @RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId){
 	        return service.commentList(boardNo);
 	    }
 	    
