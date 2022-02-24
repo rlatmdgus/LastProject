@@ -13,7 +13,7 @@ public interface IBoardDAO {
 
 	public ArrayList<BoardVO> reviewList(Criteria cri);
 	public int getTotal(Criteria cri);
-	public int getTotalBoard(String ctgId);
+	public int getTotalReview(Criteria cri);
 
 	public ArrayList<BoardVO> hitlist(Criteria cri);
 

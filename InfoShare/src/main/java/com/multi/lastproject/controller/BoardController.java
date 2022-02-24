@@ -54,11 +54,13 @@ public class BoardController {
 	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
+		cri.setAmount(9);
 		ArrayList<BoardVO> reviewList=service.reviewList(cri);
 		System.out.println(cri.getCtgId());
 		System.out.println(cri.getDeCtgId());
 		model.addAttribute("list", reviewList);
-		int total=service.getTotal(cri);
+		int total=service.getTotalReview(cri);
+		System.out.println("dsds"+total);
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
 		model.addAttribute("ctgId",ctgId);
 		model.addAttribute("deCtgId", deCtgId);

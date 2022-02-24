@@ -78,8 +78,8 @@
               and  memId like concat('%',#{keyword},'%' )
                 </if>
   	</select>
-  	<select id="getTotalBoard" resultType="int" parameterType="String">
-  		select count(*) from board where ctgId=#{ctgId};
+  	<select id="getTotalReview" resultType="int" >
+  		select count(*) from review where ctgId=#{ctgId} and deCtgId=#{deCtgId} 
   	</select>
   	
   	<insert id="insertBoard">

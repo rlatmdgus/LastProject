@@ -20,7 +20,7 @@ public interface IBoardService {
 	public BoardVO getPage(int boardNo);//게시글 조회
 	public void updateHit(int boardNo);//조회수 갱신
 	public void insertReview(ReviewVO vo);
-	public int getTotalBoard(String ctgId);
+	public int getTotalReview(Criteria cri);
 	public void deleteBoard(int boardNo);
 	public ReviewVO getReview(int revNo);
 	 // 댓글 개수
