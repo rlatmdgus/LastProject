@@ -14,6 +14,7 @@
 	<body>
 		<div id="wrap">
 		<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
+		
 			<section id="content_box">
 			<c:if test="${ctgId == '1'}">
 			<h3>서울</h3>

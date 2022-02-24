@@ -2738,19 +2738,19 @@
    * Constants
    */
 
-  var NAME$4 = 'tooltip';
+  var NAME$4 = 'tooltipmenumenumenu';
   var VERSION$4 = '4.6.1';
-  var DATA_KEY$4 = 'bs.tooltip';
+  var DATA_KEY$4 = 'bs.tooltipmenumenumenu';
   var EVENT_KEY$4 = "." + DATA_KEY$4;
   var JQUERY_NO_CONFLICT$4 = $__default["default"].fn[NAME$4];
-  var CLASS_PREFIX$1 = 'bs-tooltip';
+  var CLASS_PREFIX$1 = 'bs-tooltipmenumenumenu';
   var BSCLS_PREFIX_REGEX$1 = new RegExp("(^|\\s)" + CLASS_PREFIX$1 + "\\S+", 'g');
   var DISALLOWED_ATTRIBUTES = ['sanitize', 'whiteList', 'sanitizeFn'];
   var CLASS_NAME_FADE$3 = 'fade';
   var CLASS_NAME_SHOW$3 = 'show';
   var HOVER_STATE_SHOW = 'show';
   var HOVER_STATE_OUT = 'out';
-  var SELECTOR_TOOLTIP_INNER = '.tooltip-inner';
+  var SELECTOR_tooltipmenumenumenu_INNER = '.tooltipmenumenumenu-inner';
   var SELECTOR_ARROW = '.arrow';
   var TRIGGER_HOVER = 'hover';
   var TRIGGER_FOCUS = 'focus';
@@ -2765,7 +2765,7 @@
   };
   var Default$3 = {
     animation: true,
-    template: '<div class="tooltip" role="tooltip">' + '<div class="arrow"></div>' + '<div class="tooltip-inner"></div></div>',
+    template: '<div class="tooltipmenumenumenu" role="tooltipmenumenumenu">' + '<div class="arrow"></div>' + '<div class="tooltipmenumenumenu-inner"></div></div>',
     trigger: 'hover focus',
     title: '',
     delay: 0,
@@ -2817,10 +2817,10 @@
    * Class definition
    */
 
-  var Tooltip = /*#__PURE__*/function () {
-    function Tooltip(element, config) {
+  var tooltipmenumenumenu = /*#__PURE__*/function () {
+    function tooltipmenumenumenu(element, config) {
       if (typeof Popper__default["default"] === 'undefined') {
-        throw new TypeError('Bootstrap\'s tooltips require Popper (https://popper.js.org)');
+        throw new TypeError('Bootstrap\'s tooltipmenumenumenus require Popper (https://popper.js.org)');
       } // Private
 
 
@@ -2838,7 +2838,7 @@
     } // Getters
 
 
-    var _proto = Tooltip.prototype;
+    var _proto = tooltipmenumenumenu.prototype;
 
     // Public
     _proto.enable = function enable() {
@@ -3062,7 +3062,7 @@
 
     _proto.setContent = function setContent() {
       var tip = this.getTipElement();
-      this.setElementContent($__default["default"](tip.querySelectorAll(SELECTOR_TOOLTIP_INNER)), this.getTitle());
+      this.setElementContent($__default["default"](tip.querySelectorAll(SELECTOR_tooltipmenumenumenu_INNER)), this.getTitle());
       $__default["default"](tip).removeClass(CLASS_NAME_FADE$3 + " " + CLASS_NAME_SHOW$3);
     };
 
@@ -3366,7 +3366,7 @@
     } // Static
     ;
 
-    Tooltip._jQueryInterface = function _jQueryInterface(config) {
+    tooltipmenumenumenu._jQueryInterface = function _jQueryInterface(config) {
       return this.each(function () {
         var $element = $__default["default"](this);
         var data = $element.data(DATA_KEY$4);
@@ -3378,7 +3378,7 @@
         }
 
         if (!data) {
-          data = new Tooltip(this, _config);
+          data = new tooltipmenumenumenu(this, _config);
           $element.data(DATA_KEY$4, data);
         }
 
@@ -3392,7 +3392,7 @@
       });
     };
 
-    _createClass(Tooltip, null, [{
+    _createClass(tooltipmenumenumenu, null, [{
       key: "VERSION",
       get: function get() {
         return VERSION$4;
@@ -3429,19 +3429,19 @@
       }
     }]);
 
-    return Tooltip;
+    return tooltipmenumenumenu;
   }();
   /**
    * jQuery
    */
 
 
-  $__default["default"].fn[NAME$4] = Tooltip._jQueryInterface;
-  $__default["default"].fn[NAME$4].Constructor = Tooltip;
+  $__default["default"].fn[NAME$4] = tooltipmenumenumenu._jQueryInterface;
+  $__default["default"].fn[NAME$4].Constructor = tooltipmenumenumenu;
 
   $__default["default"].fn[NAME$4].noConflict = function () {
     $__default["default"].fn[NAME$4] = JQUERY_NO_CONFLICT$4;
-    return Tooltip._jQueryInterface;
+    return tooltipmenumenumenu._jQueryInterface;
   };
 
   /**
@@ -3460,14 +3460,14 @@
   var SELECTOR_TITLE = '.popover-header';
   var SELECTOR_CONTENT = '.popover-body';
 
-  var Default$2 = _extends({}, Tooltip.Default, {
+  var Default$2 = _extends({}, tooltipmenumenumenu.Default, {
     placement: 'right',
     trigger: 'click',
     content: '',
-    template: '<div class="popover" role="tooltip">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
+    template: '<div class="popover" role="tooltipmenumenumenu">' + '<div class="arrow"></div>' + '<h3 class="popover-header"></h3>' + '<div class="popover-body"></div></div>'
   });
 
-  var DefaultType$2 = _extends({}, Tooltip.DefaultType, {
+  var DefaultType$2 = _extends({}, tooltipmenumenumenu.DefaultType, {
     content: '(string|element|function)'
   });
 
@@ -3487,11 +3487,11 @@
    * Class definition
    */
 
-  var Popover = /*#__PURE__*/function (_Tooltip) {
-    _inheritsLoose(Popover, _Tooltip);
+  var Popover = /*#__PURE__*/function (_tooltipmenumenumenu) {
+    _inheritsLoose(Popover, _tooltipmenumenumenu);
 
     function Popover() {
-      return _Tooltip.apply(this, arguments) || this;
+      return _tooltipmenumenumenu.apply(this, arguments) || this;
     }
 
     var _proto = Popover.prototype;
@@ -3604,7 +3604,7 @@
     }]);
 
     return Popover;
-  }(Tooltip);
+  }(tooltipmenumenumenu);
   /**
    * jQuery
    */
@@ -4348,7 +4348,7 @@
   exports.Scrollspy = ScrollSpy;
   exports.Tab = Tab;
   exports.Toast = Toast;
-  exports.Tooltip = Tooltip;
+  exports.tooltipmenumenumenu = tooltipmenumenumenu;
   exports.Util = Util;
 
   Object.defineProperty(exports, '__esModule', { value: true });

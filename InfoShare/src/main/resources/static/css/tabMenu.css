@@ -133,6 +133,8 @@
 }
 
 #rank-a{
+	display: none;
+	
 	margin-left: 0px;
 	color: #28CC71;
     text-decoration:none !important;
@@ -311,6 +313,7 @@
 	background-color: #fff;
 	color: #333;
 	font-weight: bold;
+	font-size: 13px;
 }
 
 #LocalCatBtn:hover {
@@ -330,7 +333,7 @@
 	font-weight:bold;
 	border-radius: 0;
 	padding: 5px;
-	z-index: 2;
+	z-index: 3;
 }
 
 #prodCat{
@@ -349,7 +352,7 @@
 	width: 119px;
 	text-align: left;
 	text-decoration:none;
-	font-size:12px;
+	font-size:11px;
 	font-weight:bold;
 	margin-top:2px;
 }
@@ -358,6 +361,3 @@
 	background-color: #ABF2CA;
 	color: #fff;
 }
-
-
-/* 아래쪽 툴팁 시작 */

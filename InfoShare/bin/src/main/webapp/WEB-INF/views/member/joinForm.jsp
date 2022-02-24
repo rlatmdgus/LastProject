@@ -43,8 +43,8 @@
                     <tr>
                         <td class="Cn">
                             <label for="memPw">비밀번호</label>
-                            <div class="tooltip"><i class="fas fa-exclamation-triangle"></i>
-                                <div class="tooltip-text">
+                            <div class="tooltipmenumenumenu"><i class="fas fa-exclamation-triangle"></i>
+                                <div class="tooltipmenumenumenu-text">
                                     <b>
                                         비밀번호 입력 시 아래 규칙을 참고해주세요!
                                     </b>

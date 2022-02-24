@@ -50,6 +50,7 @@ public class BoardController {
 		model.addAttribute("pageMaker", pageMaker);
 		return "board/boardListView";
 	}
+	
 	@RequestMapping("/reviewlist/{ctgId}/{deCtgId}")
 	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
 		cri.setCtgId(ctgId);

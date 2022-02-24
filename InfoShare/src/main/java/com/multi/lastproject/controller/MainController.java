@@ -30,14 +30,13 @@ public class MainController {
 	
 	@RequestMapping("/")
 	public String hitlist(Model model, Criteria cri, PrdCriteria cri2) {
+		
 		ArrayList<BoardVO> boardList=service.hitlist(cri);
 		ArrayList<FoodProductVO> foodProductList=service2.fplist(cri2);
+		
 		model.addAttribute("list", boardList);
 		model.addAttribute("FPlist", foodProductList);
-		int total=service.getTotal();
-		PageMakerVO pageMaker=new PageMakerVO(cri,total);
 		
-		model.addAttribute("pageMaker", pageMaker);
 		return "/index";
 	}
 }

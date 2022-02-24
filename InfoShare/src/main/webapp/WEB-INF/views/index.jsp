@@ -82,7 +82,7 @@
 			<form class="boardListbox" id="boardListView" method="post" action="">
 	                <c:forEach items="${list}" var="blist">
 	                    <div class="boardbox"
-	                         onclick="location.href='<c:url value="/readView?boardNo=${blist.boardNo}"/>'">
+	                         onclick="location.href='<c:url value="/readView?boardNo=${blist.boardNo}&ctgId=${blist.ctgId}&deCtgId=${blist.deCtgId}"/>'">
 	                        <div class="boardindex">
 	                            <div class="titleindex">
 	                            	<span class="board_title" type="text" name="boardTitle">${blist.boardTitle}</span>

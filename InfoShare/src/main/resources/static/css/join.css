@@ -211,13 +211,13 @@ b{
     color: #F40022;
 }
 
-.tooltip {
+.tooltipmenumenumenu {
     display: inline-block;
     color: #F40022;
     font-weight: bold;
 }
 
-.tooltip-text {
+.tooltipmenumenumenu-text {
     display: none;
     position: absolute;
     width: auto;
@@ -232,7 +232,7 @@ b{
     z-index: 1;
 }
 
-.tooltip .tooltip-text::after {
+.tooltipmenumenumenu .tooltipmenumenumenu-text::after {
     content: " ";
     position: absolute;
     border-style: solid;
@@ -243,7 +243,7 @@ b{
     border-color: transparent transparent #FFA100 transparent;
 }
 
-.tooltip:hover .tooltip-text {
+.tooltipmenumenumenu:hover .tooltipmenumenumenu-text {
     display: block;
 }
 

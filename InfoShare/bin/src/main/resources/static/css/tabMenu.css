@@ -247,12 +247,12 @@
 
 /* 툴팁 기본 스타일 설정 시작 */
 
-.tooltip {
+.tooltipmenumenumenu {
     position: relative;
   	display: block;
 }
 
-.tooltip .tooltiptext {
+.tooltipmenumenumenu .tooltipmenumenumenutext {
   	visibility: hidden;
   	width: 120px;
   	background-color: #fff;
@@ -263,13 +263,13 @@
   	z-index: 1;
 }
 
-.tooltip:hover .tooltiptext {
+.tooltipmenumenumenu:hover .tooltipmenumenumenutext {
   	visibility: visible;
 }
 
 /* 툴팁 화살표 기본 스타일 설정 시작 */
 
-.tooltip .tooltiptext::after {
+.tooltipmenumenumenu .tooltipmenumenumenutext::after {
 	content: " ";
   	position: absolute;
   	border-style: solid;
@@ -278,7 +278,7 @@
 
 /* 아래쪽 툴팁 시작 */
 
-.tooltip .tooltip-bottom {
+.tooltipmenumenumenu .tooltipmenumenumenumenu-bottom {
 	text-align: center;
   	width: 120px;
   	top: 150%;
@@ -288,7 +288,7 @@
 }
 
 
-.tooltip .tooltip-bottom::after {
+.tooltipmenumenumenu .tooltipmenumenumenumenu-bottom::after {
   	bottom: 100%;
   	left: 15%;
   	width: 80px;
@@ -320,7 +320,7 @@
 	color: #fff;
 }
 
-.tooltip-right{
+.tooltipmenumenumenu-right{
 	display: none;
 	top: 0px;
 	left: 120px;

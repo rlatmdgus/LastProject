@@ -94,12 +94,12 @@
 				<div id="MenuBar">
 					<ul id="ui_guide">
 						<li id="ui_guide_menu">
-							<div class="tooltip">카테고리
-      							<span class="tooltiptext tooltip-bottom">
+							<div class="tooltipmenumenumenu">카테고리
+      							<span class="tooltipmenumenumenutext tooltipmenumenumenumenu-bottom">
       								<ul style="padding-left: 0px;">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnSU">서울</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -115,7 +115,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnBS">부산</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -131,7 +131,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnDG">대구</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -147,7 +147,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnIC">인천</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -163,7 +163,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGJ">광주</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -179,7 +179,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnDJ">대전</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -195,7 +195,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnUS">울산</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -211,7 +211,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnSJ">세종</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -227,7 +227,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGG">경기</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -243,7 +243,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGW">강원</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -259,7 +259,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnCB">충북</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -275,7 +275,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnCN">충남</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -291,7 +291,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGB">경북</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -307,7 +307,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGN">경남</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -323,7 +323,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJB">전북</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -339,7 +339,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJN">전남</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
@@ -355,7 +355,7 @@
       									</li>
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJJ">제주</button>
-      										<div class="tooltip-right">
+      										<div class="tooltipmenumenumenu-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
