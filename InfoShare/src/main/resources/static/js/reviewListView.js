@@ -12,7 +12,7 @@
        	$("#moveForm").attr("action", "/reviewlist/"+ctgId+"/"+deCtgId);
         	$("#moveForm").submit();
 	});
-
+	
 	$('#search').on('click',function(e){
 		
 		e.preventDefault();

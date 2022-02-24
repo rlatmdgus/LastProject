@@ -23,8 +23,8 @@
 	<div class="box">
 			<c:forEach items="${list }" var="li">
 				<ul class="item">
-					<li><img class="move" src="<c:url value='${li.revImage }'/>"></li>
-					<li class="a">${li.revTitle }</li>
+					<li><a href="<c:url value='/readReview?revNo=${li.revNo }&ctgId=${ctgId}&deCtgId=${deCtgId }'/> " ><img class="move" src="<c:url value='${li.revImage }'/>"></a></li>
+					<li class="a"><a href="<c:url value='/readReview?revNo=${li.revNo }&ctgId=${ctgId}&deCtgId=${deCtgId }'/> " >${li.revTitle }</a></li>
 					<li class="b">${li.memId }</li>
 					<li class="c"><fmt:formatDate pattern = "yyyy/MM/dd hh:mm:ss" value="${li.revDate}"/></li>
 				</ul>
