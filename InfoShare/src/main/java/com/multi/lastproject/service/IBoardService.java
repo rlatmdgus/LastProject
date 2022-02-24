@@ -10,8 +10,12 @@ import com.multi.lastproject.model.ReviewVO;
 
 public interface IBoardService {
 	public ArrayList<BoardVO> list(Criteria cri);//목록
+
 	public ArrayList<BoardVO> reviewList(Criteria cri);
 	public int getTotal(Criteria cri);//게시글 개수
+
+	public ArrayList<BoardVO> hitlist(Criteria cri);
+
 	public void insertBoard(BoardVO vo);//개시글 작성
 	public BoardVO getPage(int boardNo);//게시글 조회
 	public void updateHit(int boardNo);//조회수 갱신

@@ -20,6 +20,10 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		return dao.list(cri);
 	}
+	
+	public ArrayList<BoardVO> hitlist(Criteria cri){
+		return dao.hitlist(cri);
+	}
 	@Override
 	public int getTotal(Criteria cri) {
 		
@@ -98,6 +102,7 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		return dao.getReview(revNo);
 	}
+
 	
 	
 	

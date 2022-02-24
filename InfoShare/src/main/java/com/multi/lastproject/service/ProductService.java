@@ -19,6 +19,10 @@ public class ProductService implements IProductService {
 		// TODO Auto-generated method stub
 		return dao.list(cri);
 	}
+	
+	public ArrayList<FoodProductVO> fplist(PrdCriteria cri){
+		return dao.fplist(cri);
+	}
 
 	@Override
 	public int getTotal() {
