@@ -56,7 +56,23 @@
 			<div id="MenuBox">
 				<div id="MainTitle"><a>인기작품</a></div>
 			</div>
-			
+			<form class="boardListbox" id="boardListView" method="post" action="">
+	                <c:forEach items="${FPlist}" var="FPlist">
+	                    <div class="boardbox"
+	                         onclick="location.href='<c:url value="readProduct?FdPrdNo=${FPlist.fdPrdNo}"/>'">
+	                        <div class="boardindex">
+	                            <div class="titleindex">
+	                                <img src="${FPlist.fdPrdImg}" style="width: 252px; height: 252px;">
+	                            </div>
+	                            <div class="product-title-Bottom">
+	                                <span class="titlebottom" type="text" name="boardHit">${FPlist.fdPrdName}</span>
+	                                <span class="titlebottom" type="text" name="boardHit">${FPlist.fdPrdPrice}</span>
+	                                <span class="titlebottom" type="text" name="boardHit">${FPlist.fdPrdGrade}</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </c:forEach>
+            	</form>
 		</section>
 		
 		<section>

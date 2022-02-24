@@ -9,13 +9,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.multi.lastproject.model.BoardVO;
 import com.multi.lastproject.model.Criteria;
+import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.PageMakerVO;
+import com.multi.lastproject.model.PrdCriteria;
+import com.multi.lastproject.model.PrdPageMakerVO;
 import com.multi.lastproject.service.BoardService;
+import com.multi.lastproject.service.ProductService;
 
 @Controller
 public class MainController {
 	@Autowired
 	BoardService service;
+	@Autowired
+	ProductService service2;
 	
 	/*@RequestMapping("/")
 	public String index() {
@@ -23,9 +29,11 @@ public class MainController {
 	}*/
 	
 	@RequestMapping("/")
-	public String hitlist(Model model, Criteria cri) {
+	public String hitlist(Model model, Criteria cri, PrdCriteria cri2) {
 		ArrayList<BoardVO> boardList=service.hitlist(cri);
+		ArrayList<FoodProductVO> foodProductList=service2.fplist(cri2);
 		model.addAttribute("list", boardList);
+		model.addAttribute("FPlist", foodProductList);
 		int total=service.getTotal();
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
 		

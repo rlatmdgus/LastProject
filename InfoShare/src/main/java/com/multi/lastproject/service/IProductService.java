@@ -8,6 +8,7 @@ import com.multi.lastproject.model.PrdCriteria;
 public interface IProductService {
 	
 	public ArrayList<FoodProductVO> list(PrdCriteria cri);
+	public ArrayList<FoodProductVO> fplist(PrdCriteria cri);
 	public int getTotal();
 	public FoodProductVO getPage(String fdPrdNo);
 }

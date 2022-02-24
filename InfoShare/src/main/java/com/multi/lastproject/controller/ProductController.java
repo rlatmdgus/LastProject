@@ -27,6 +27,7 @@ public class ProductController {
 	model.addAttribute("pageMaker", pageMaker);
 		return "board/foodproductListView";
 	}
+	
 	@RequestMapping("/readProduct")
 	public String readProduct(Model model,FoodProductVO vo) {
 		
