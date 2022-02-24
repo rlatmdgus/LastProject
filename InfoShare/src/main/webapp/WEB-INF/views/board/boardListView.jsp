@@ -12,6 +12,7 @@
 	  <script type="text/javascript" src="<c:url value='/js/boardListView.js'/>"></script>
 	</head>
 	<body>
+	<!--  게시판-->
 	<div id="wrap">
 	<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
 	<section>
