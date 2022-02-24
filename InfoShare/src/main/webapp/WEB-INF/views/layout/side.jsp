@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link href="<c:url value='/css/side.css'/>" rel="stylesheet" type="text/css">
+		<link href="<c:url value='/css/myinfo.css'/>" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="myinfo-arrange">

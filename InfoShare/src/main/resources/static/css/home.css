@@ -1,43 +1,59 @@
 @charset "UTF-8";
 
-* {
-    margin: 0 auto;
-}
-
 #MenuBox{
+	display: flex;
+	align-items: flex-start;
 	margin-top: 50px;
 	width: 1280px;
-    text-align: center;
-    position: relative;
+	border-bottom: 1px solid #acacac;
+	margin-bottom: 24px;
 }
 
 #MainTitle{
+	margin-left: 0;
+	margin-bottom: 5px;
+	font-size: 20px;
+    font-weight: 700;
+	width: 75%;
+    color: #333333;
+}
+
+.boardListbox{
+	width: 1280px;
+	padding-left: 40px;
+}
+
+.boardListView{
+	width: 1280px;
+}
+
+.boardbox{
+	margin-left: 30px;
+	margin-right: 30px;
 	margin-bottom: 20px;
-	font: bold;
-	font-size: 25px;
-}
-
-#AreaSel{
-	margin-bottom: 10px;
-	font-size: 15px;
-}
-
-#AreaBox{
-	padding-left: 20px;
-	text-align: center;
-}
-
-#AreaBt{
-	width: 250px;
-	height: 80px;
-	margin: 30px;
-	cursor: pointer;  
+	margin-top: 20px;
+	width: 252px;
 	float: left;
-	border-radius: 2px;
-	font-size: 24px
 }
 
-#AreaBt:hover {
-	color:#fff;
-	background-color: blue;
+.posttitleBottom{
+	display: flex;
+	justify-content: flex-end;
+}
+
+.board_title{
+	font-size: 20px;
+	font-weight: 10px;
+}
+
+.titlebottom{
+	margin: 0px;
+	
+}
+
+.product-title-Bottom{
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	
 }
