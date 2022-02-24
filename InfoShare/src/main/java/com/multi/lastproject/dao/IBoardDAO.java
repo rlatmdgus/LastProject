@@ -18,6 +18,9 @@ public interface IBoardDAO {
 	public ArrayList<BoardVO> hitlist(Criteria cri);
 
 
+	public int getTotalBoard(String ctgId);
+  
+
 	public void insertBoard(BoardVO vo);
 	public BoardVO getPage(int boardNo);
 	public ReviewVO getReview(int revNo);
