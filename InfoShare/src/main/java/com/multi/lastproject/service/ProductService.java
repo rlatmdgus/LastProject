@@ -36,4 +36,10 @@ public class ProductService implements IProductService {
 		return dao.getPage(fdPrdNo);
 	}
 
+	@Override
+	public int getTotalBoard(String ctgId) {
+		// TODO Auto-generated method stub
+		return dao.getTotalBoard(ctgId);
+	}
+
 }

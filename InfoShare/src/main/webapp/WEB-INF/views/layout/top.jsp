@@ -29,15 +29,18 @@
 						<c:if test="${empty sessionScope.sid }">
 							<a href="<c:url value='/loginForm'/>" id="top-a">로그인</a>&nbsp; 
 							<a href="<c:url value='/joinForm'/>" id="top-a">회원가입</a>&nbsp; 
-							<a href="<c:url value=''/>" id="top-a">챗봇</a> &nbsp;
+							<a href="<c:url value='/cscForm'/>" id="top-a">고객센터</a> &nbsp;
 						</c:if>
 							
 						<!-- 로그인 성공한 경우 보여줄 메뉴 항목  -->	
 						<c:if test="${not empty sessionScope.sid}">
+							${sessionScope.sid} 님 환영합니다!
+
 							${sessionScope.sname}님
+
 							&nbsp;&nbsp;
 							<a href="<c:url value='/logout'/>" id="top-a">로그아웃</a> &nbsp;
-							<a href="<c:url value=''/>" id="top-a">챗봇</a> &nbsp;
+							<a href="<c:url value='/myinfoForm'/>" id="top-a">마이페이지</a> &nbsp;
 						</c:if>					
 					</div>
 					<div id="SearchHeader">
@@ -115,7 +118,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnSU">서울</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${1}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -131,7 +134,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnBS">부산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${2}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -147,7 +150,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnDG">대구</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${3}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -163,7 +166,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnIC">인천</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${4}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -179,7 +182,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGJ">광주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${5}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -195,7 +198,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnDJ">대전</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${6}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -211,7 +214,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnUS">울산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${7}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -227,7 +230,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnSJ">세종</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${8}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -243,7 +246,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGG">경기</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${9}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -259,7 +262,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGW">강원</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${10}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -275,7 +278,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnCB">충북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${11}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -291,7 +294,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnCN">충남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${12}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -307,7 +310,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGB">경북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${13}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -323,7 +326,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGN">경남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      						<li id="prodCat"><a href="<c:url value='/foodListView/${14}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -339,7 +342,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJB">전북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      						<li id="prodCat"><a href="<c:url value='/foodListView/${15}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -355,7 +358,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJN">전남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${16}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -371,7 +374,7 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJJ">제주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">음식</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/foodListView/${17}'/>" id="prodCatBtn">음식</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
@@ -400,15 +403,15 @@
 							<span>작가님들 소개</span>
 						</li>
 						<li id="ui_guide_menu">
-							<div class="tooltip">지역별 커뮤니티
+							<div class="tooltip">지역별 커뮤니티					<
       							<span class="tooltiptext tooltip-bottom">
       								<ul style="padding-left: 0px;">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnSU">서울</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${1}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${1}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -417,8 +420,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnBS">부산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${2}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${2}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -427,8 +430,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnDG">대구</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${3}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${3}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -437,8 +440,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnIC">인천</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${4}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${4}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -447,8 +450,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGJ">광주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${5}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${5}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -457,8 +460,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnDJ">대전</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${6}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${6}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -467,8 +470,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnUS">울산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      						<li id="prodCat"><a href="<c:url value='/list/${7}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${7}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -477,8 +480,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnSJ">세종</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${8}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${8}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -487,8 +490,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGG">경기</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${9}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${9}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -497,8 +500,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGW">강원</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      						<li id="prodCat"><a href="<c:url value='/list/${10}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${10}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -507,8 +510,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnCB">충북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${11}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${11}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -517,8 +520,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnCN">충남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${12}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${12}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -527,8 +530,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGB">경북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${13}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${13}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -537,8 +540,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnGN">경남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${14}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${14}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -547,8 +550,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJB">전북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${15}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${15}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -557,8 +560,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJN">전남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${16}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      							<li id="prodCat"><a href="<c:url value='/reviewlist/${16}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>
@@ -567,8 +570,8 @@
       										<button id="LocalCatBtn" class="LocalCatBtnJJ">제주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      							<li id="prodCat"><button id="prodCatBtn">자유게시판</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">작품 후기</button></li>
+					      							<li id="prodCat"><a href="<c:url value='/list/${17}/${1}'/>" id="prodCatBtn">자유게시판</a></li>
+					      						<li id="prodCat"><a href="<c:url value='/reviewlist/${17}/${2}'/>" id="prodCatBtn">작품 후기</a></li>
 					      							<li id="prodCat"><button id="prodCatBtn">정보공유</button></li>
 					      						</ul>
 					      					</div>

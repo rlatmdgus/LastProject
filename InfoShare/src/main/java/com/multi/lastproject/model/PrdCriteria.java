@@ -10,7 +10,17 @@ public class PrdCriteria {
     /* 스킵 할 게시물 수( (pageNum-1) * amount ) */
     private int skip;
     
-    /* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
+   private String ctgId;
+
+	public String getCtgId() {
+	return ctgId;
+}
+
+public void setCtgId(String ctgId) {
+	this.ctgId = ctgId;
+}
+
+	/* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
     public PrdCriteria() {
         this(1,9);
         this.skip = 0;

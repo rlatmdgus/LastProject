@@ -4,10 +4,63 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  <mapper namespace="com.multi.lastproject.dao.IBoardDAO">
  
+<!--   <sql id="criteria">
+        <trim prefix="where (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            boardTitle like concat('%',#{keyword},'%') and ctgId=#{ctgId} and deCtgId=#{deCtgId}
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            boardContext like concat('%',#{keyword},'%') and ctgId=#{ctgId} and deCtgId=#{deCtgId}
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            memId like concat('%',#{keyword},'%' ) and ctgId=#{ctgId} and deCtgId=#{deCtgId}
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
+    </sql>
+ 
+  -->
+ 
+ <select id="reviewList" resultType="com.multi.lastproject.model.ReviewVO">
+   select * from (
+                select revNo, revTitle, revImage, revDate,memId
+                from review 
+                where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
+                order by revNo desc) as T1
+        limit #{amount} OFFSET #{skip}
+
+   </select>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
    <select id="list" resultType="com.multi.lastproject.model.BoardVO">
    select * from (
-                select boardNo, boardTitle, memId, boardDate, boardHit, boardImage  
-                from board order by boardNo desc) as T1
+                select boardNo, boardTitle, memId, boardDate, boardHit  
+                from board 
+     
+                where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
+                <if test="type == 'T'.toString()">
+              and   boardTitle like concat('%',#{keyword},'%') 
+                </if>
+                <if test="type == 'C'.toString()">
+              and   boardContext like concat('%',#{keyword},'%')
+                </if>
+                <if test="type == 'W'.toString()">
+              and  memId like concat('%',#{keyword},'%' )
+                </if>
+                order by boardNo desc) as T1
         limit #{amount} OFFSET #{skip}
    </select>
    
@@ -16,16 +69,37 @@
   	</select>
   	
   	<select id="getTotal" resultType="int">
-  		select count(*) from board;
+  		select count(*) from board
+  		      where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
+                <if test="type == 'T'.toString()">
+              and   boardTitle like concat('%',#{keyword},'%') 
+                </if>
+                <if test="type == 'C'.toString()">
+              and   boardContext like concat('%',#{keyword},'%')
+                </if>
+                <if test="type == 'W'.toString()">
+              and  memId like concat('%',#{keyword},'%' )
+                </if>
+  	</select>
+  	<select id="getTotalBoard" resultType="int" parameterType="String">
+  		select count(*) from board where ctgId=#{ctgId};
   	</select>
   	
   	<insert id="insertBoard">
-  		insert into board (boardTitle,boardContext,boardTag,boardImage,memId,boardHit) 
-  					values (#{boardTitle},#{boardContext},#{boardTag},#{boardImage},#{memId},#{boardHit})
+  		insert into board (boardTitle,boardContext,boardTag,boardImage,memId,boardHit,ctgId,deCtgId) 
+  					values (#{boardTitle},#{boardContext},#{boardTag},#{boardImage},#{memId},#{boardHit},#{ctgId},#{deCtgId})
   	</insert>
-  	
+  		<update id="modifyBoard">
+		update board set 
+		boardTitle=#{boardTitle},boardContext=#{boardContext},boardTag=#{boardTag},boardImage=#{boardImage}
+		where boardNo=#{boardNo}
+	</update>
   	 <select id="getPage" resultType="com.multi.lastproject.model.BoardVO">
    select * from board where boardNo=#{boardNo}
+   </select>
+
+    <select id="getReview" resultType="com.multi.lastproject.model.ReviewVO">
+   select * from review where revNo=#{revNo}
    </select>
    
   	<update id="updateHit" parameterType="integer">
@@ -61,5 +135,9 @@
     <delete id="commentDelete" parameterType="int">
         DELETE FROM comment WHERE comNo = #{comNo}
     </delete>
-    
+
+    <delete id="deleteBoard" parameterType="int">
+      DELETE FROM board where boardNo=#{boardNo}
+    </delete>
+
   </mapper>

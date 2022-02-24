@@ -13,10 +13,12 @@ import java.util.regex.Pattern;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -33,25 +35,44 @@ public class BoardController {
 	BoardService service;
 	
 	
-	@RequestMapping("/list")
-	public String boardListView(Model model,Criteria cri) {
-		
+	@RequestMapping("/list/{ctgId}/{deCtgId}")
+	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
+		cri.setCtgId(ctgId);
+		cri.setDeCtgId(deCtgId);
 		ArrayList<BoardVO> boardList=service.list(cri);
+		System.out.println(cri.getCtgId());
+		System.out.println(cri.getDeCtgId());
 		model.addAttribute("list", boardList);
-		int total=service.getTotal();
+		int total=service.getTotal(cri);
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
-		
+		model.addAttribute("ctgId",ctgId);
+		model.addAttribute("deCtgId", deCtgId);
 		model.addAttribute("pageMaker", pageMaker);
-		
 		return "board/boardListView";
 	}
+	@RequestMapping("/reviewlist/{ctgId}/{deCtgId}")
+	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
+		cri.setCtgId(ctgId);
+		cri.setDeCtgId(deCtgId);
+		ArrayList<BoardVO> reviewList=service.reviewList(cri);
+		System.out.println(cri.getCtgId());
+		System.out.println(cri.getDeCtgId());
+		model.addAttribute("list", reviewList);
+		int total=service.getTotal(cri);
+		PageMakerVO pageMaker=new PageMakerVO(cri,total);
+		model.addAttribute("ctgId",ctgId);
+		model.addAttribute("deCtgId", deCtgId);
+		model.addAttribute("pageMaker", pageMaker);
+		return "board/reviewListView";
+	}
 	@RequestMapping("/write")
-	public String insertBoard() {
-		
+	public String insertBoard(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
+		model.addAttribute("ctgId", ctgId);
+		model.addAttribute("deCtgId", deCtgId);
 		return "board/boardInsert";
 	}
 	@RequestMapping("/savePost")
-	public String savePost(BoardVO vo,@RequestParam("smartEditor") String content) {
+	public String savePost(BoardVO vo,@RequestParam("smartEditor") String content,HttpSession session) {
 		vo.setBoardContext(content);
 		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		 Matcher matcher = pattern.matcher(content);
@@ -59,35 +80,77 @@ public class BoardController {
 	            System.out.println(matcher.group(1));
 	            vo.setBoardImage(matcher.group(1));
 	        }
+		 vo.setMemId((String)session.getAttribute("sid"));
 		service.insertBoard(vo);
-		System.out.println(vo.getBoardImage());
-		return "redirect:/list";
-	}
-	@RequestMapping("/writeReview")
-	public String insertReview() {
-		
-		return "board/reviewInsert";
+		return "redirect:/list/"+vo.getCtgId()+"/"+vo.getDeCtgId();
 	}
 	@RequestMapping("/saveReview")
-	public String saveReview(ReviewVO vo,@RequestParam("smartEditor") String content) {
+	public String saveReview(ReviewVO vo,@RequestParam("smartEditor") String content,HttpSession session) {
 		vo.setRevText(content);
+	
+		vo.setMemId((String)session.getAttribute("sid"));
 		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		 Matcher matcher = pattern.matcher(content);
 		 while(matcher.find()){
 	            System.out.println(matcher.group(1));
 	            vo.setRevImage(matcher.group(1));
 	        }
+		 
 		service.insertReview(vo);
 		
-		return "redirect:/list";
+		return "redirect:/reviewlist/"+vo.getCtgId()+"/"+vo.getDeCtgId();
 	}
+	@RequestMapping("/updatePost")
+	public String updatePost(BoardVO vo,@RequestParam("smartEditor") String content,@RequestParam("ctgId") String ctgId,HttpSession session) {
+		vo.setBoardContext(content);
+		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
+		 Matcher matcher = pattern.matcher(content);
+		 while(matcher.find()){
+	            System.out.println(matcher.group(1));
+	            vo.setBoardImage(matcher.group(1));
+	        } 
+		 vo.setMemId((String)session.getAttribute("sid"));
+		service.modifyBoard(vo);
+		return "redirect:/list/"+ctgId+"/"+vo.getDeCtgId();
+	}
+	@RequestMapping("/boardDelete")
+	public String deleteBoard(@RequestParam("boardNo") int boardNo, @RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
+			service.deleteBoard(boardNo);
+			System.out.println(ctgId);
+		return "redirect:/list/"+ctgId+"/"+deCtgId;
+	}
+	@RequestMapping("/writeReview")
+	public String insertReview(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
+		model.addAttribute("ctgId", ctgId);
+		model.addAttribute("deCtgId", deCtgId);
+		return "board/reviewInsert";
+	}
+	
 	@RequestMapping("/readView")
 	public String boardReadView(BoardVO vo,Model model) {
-		
+			
 		model.addAttribute("read",service.getPage(vo.getBoardNo()));
 		service.updateHit(vo.getBoardNo());
+		model.addAttribute("ctgId",vo.getCtgId());
+		model.addAttribute("deCtgId", vo.getDeCtgId());
 		return "board/boardReadView";
 	}
+	@RequestMapping("/readReview")
+	public String readReview(ReviewVO vo,Model model) {
+			
+		model.addAttribute("read",service.getReview(vo.getRevNo()));
+		model.addAttribute("ctgId",vo.getCtgId());
+		model.addAttribute("deCtgId", vo.getDeCtgId());
+		return "board/readReview";
+	}
+	@RequestMapping("/updateBoard")
+	public String updateBoard(BoardVO vo,Model model) {
+		model.addAttribute("read",service.getPage(vo.getBoardNo()));
+		model.addAttribute("ctgId",vo.getCtgId());
+		model.addAttribute("deCtgId", vo.getDeCtgId());
+		return "board/boardupdate";
+	}
+	
 	@RequestMapping("/singleImageUpload")
 	public String simpleImageUpload(HttpServletRequest request,SmarteditorVO vo) {
 		String callback=vo.getCallback();

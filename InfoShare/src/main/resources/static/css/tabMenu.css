@@ -21,7 +21,6 @@
     padding-top: 3px;
 }
 
-
 #top-a{
 	text-decoration:none !important;
 	font-size: 13px;
@@ -134,8 +133,6 @@
 }
 
 #rank-a{
-	display: none;
-	
 	margin-left: 0px;
 	color: #28CC71;
     text-decoration:none !important;
@@ -143,8 +140,6 @@
 }
 
 #rank-number{
-	display: none;
-	
 	font-weight: bold;
 	font-size: 18px;
 	float: left;
@@ -353,6 +348,10 @@
 	padding: 5px;
 	width: 119px;
 	text-align: left;
+	text-decoration:none;
+	font-size:12px;
+	font-weight:bold;
+	margin-top:2px;
 }
 
 #prodCatBtn:hover {

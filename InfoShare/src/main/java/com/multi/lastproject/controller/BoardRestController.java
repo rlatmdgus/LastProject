@@ -2,6 +2,8 @@ package com.multi.lastproject.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,14 +19,16 @@ public class BoardRestController {
 	BoardService service;
 	
 	 @RequestMapping("/commentList") //댓글 리스트
-	    private List<CommentVO> mCommentServiceList(@RequestParam("boardNo") int boardNo){
+	    private List<CommentVO> mCommentServiceList(@RequestParam("boardNo") int boardNo, @RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId){
 	        return service.commentList(boardNo);
 	    }
 	    
 	    @RequestMapping("/commentinsert") //댓글 작성 
-	    private int mCommentServiceInsert(@RequestParam("boardNo") int boardNo, @RequestParam("comText") String comText,CommentVO vo){
+	    private int mCommentServiceInsert(@RequestParam("boardNo") int boardNo, @RequestParam("comText") String comText,CommentVO vo,
+	    								HttpSession session){
 	        	vo.setBoardNo(boardNo);
 	        	vo.setComText(comText);
+	        	vo.setMemId((String)session.getAttribute("sid"));
 	        return service.commentInsert(vo);
 	    }
 	    
@@ -43,7 +47,5 @@ public class BoardRestController {
 	        
 	        return service.commentDelete(comNo);
 	    }
-
-
 	
 }

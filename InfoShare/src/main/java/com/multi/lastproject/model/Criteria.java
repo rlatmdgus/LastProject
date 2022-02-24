@@ -1,16 +1,68 @@
 package com.multi.lastproject.model;
 
+import java.util.Arrays;
+
 public class Criteria {
 	  /* 현재 페이지 */
     private int pageNum;
+    //지역 카테고리
+    private String ctgId;
     
-    /* 한 페이지 당 보여질 게시물 갯수 */
+    //지역별 메뉴 카테고리
+    private String deCtgId;
+    public String getDeCtgId() {
+		return deCtgId;
+	}
+
+	public void setDeCtgId(String deCtgId) {
+		this.deCtgId = deCtgId;
+	}
+
+	public String getCtgId() {
+		return ctgId;
+	}
+
+	public void setCtgId(String ctgId) {
+		this.ctgId = ctgId;
+	}
+
+	/* 한 페이지 당 보여질 게시물 갯수 */
     private int amount;
     
     /* 스킵 할 게시물 수( (pageNum-1) * amount ) */
     private int skip;
+    /*검색 타입*/
+    private String keyword;
     
-    /* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
+    private String[] typeArr;
+    public String[] getTypeArr() {
+		return typeArr;
+	}
+
+	public void setTypeArr(String[] typeArr) {
+		this.typeArr = typeArr;
+	}
+
+	public String getKeyword() {
+		return keyword;
+	}
+
+	public void setKeyword(String keyword) {
+		this.keyword = keyword;
+	}
+
+	/*검색 타입*/
+    private String type;
+    public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.typeArr=type.split("");
+		this.type = type;
+	}
+
+	/* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
     public Criteria() {
         this(1,10);
         this.skip = 0;
@@ -29,7 +81,7 @@ public class Criteria {
 
 	public void setPageNum(int pageNum) {
 		this.skip=(pageNum-1)*this.amount;
-		this.pageNum = pageNum;
+		this.pageNum = pageNum; 
 	}
 
 	public int getAmount() {
@@ -48,4 +100,13 @@ public class Criteria {
 	public void setSkip(int skip) {
 		this.skip = skip;
 	}
+
+	@Override
+	public String toString() {
+		return "Criteria [pageNum=" + pageNum + ", ctgId=" + ctgId + ", deCtgId=" + deCtgId + ", amount=" + amount
+				+ ", skip=" + skip + ", keyword=" + keyword + ", typeArr=" + Arrays.toString(typeArr) + ", type=" + type
+				+ "]";
+	}
+
+
 }

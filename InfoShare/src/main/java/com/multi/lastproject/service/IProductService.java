@@ -11,4 +11,5 @@ public interface IProductService {
 	public ArrayList<FoodProductVO> fplist(PrdCriteria cri);
 	public int getTotal();
 	public FoodProductVO getPage(String fdPrdNo);
+	public int getTotalBoard(String ctgId);
 }

@@ -1,10 +1,12 @@
 package com.multi.lastproject.controller;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.multi.lastproject.model.FoodProductVO;
@@ -17,13 +19,14 @@ public class ProductController {
 @Autowired
 	ProductService service;
 
-	@RequestMapping("/foodListView")
-	public String foodproductListView(Model model,PrdCriteria cri) {
+	@RequestMapping("/foodListView/{ctgId}")
+	public String foodproductListView(@PathVariable String ctgId,Model model,PrdCriteria cri) {
+		cri.setCtgId(ctgId);
 	ArrayList<FoodProductVO> foodProductList=service.list(cri);
 	model.addAttribute("list", foodProductList);
-	int total=service.getTotal();
+	int total=service.getTotalBoard(ctgId);
 	PrdPageMakerVO pageMaker=new PrdPageMakerVO(cri,total);
-	
+	model.addAttribute("ctgId",ctgId);
 	model.addAttribute("pageMaker", pageMaker);
 		return "board/foodproductListView";
 	}
