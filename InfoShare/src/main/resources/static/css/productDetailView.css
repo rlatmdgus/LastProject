@@ -1,12 +1,12 @@
 @charset "UTF-8";
 *{margin:0 auto;}
 #wrap{
-	width:1400px;
+	width:1280px;
 }
 #itemBox{
-	width:1400px;
+	width:1280px;
 	height:450px;
-	margin-top:150px;
+	margin-top:50px;
 	border:solid 1px;
 }
 #imageBox{
@@ -22,11 +22,11 @@
 }
 img{
 	width:600px;
-	height:300px;
+	height:450px;
 }
 table{
 	width:400px;
-	height:300px;
+	height:200px;
 	text-align:center;
 }
 td{
@@ -41,7 +41,7 @@ td{
 }
 #textBox{
 	margin-top:30px;
-	width:1400px;
+	width:1280px;
 	height:300px;
 	text-align:center;
 	border:solid 1px;

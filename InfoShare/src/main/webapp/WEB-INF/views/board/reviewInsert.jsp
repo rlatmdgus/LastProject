@@ -15,7 +15,7 @@
 	<body>
 		<div id="wrap">
 		<section>
-		<h2>게시판 작성</h2>
+		<h2>리뷰 작성</h2>
 		<hr>
 		<a href='<c:url value="/reviewlist/${ctgId }/${deCtgId }"/>' id="list" class="btn btn-success">글목록</a> 
 		<form id="reviewInsertForm" action="<c:url value='/saveReview'/>" method="post">
