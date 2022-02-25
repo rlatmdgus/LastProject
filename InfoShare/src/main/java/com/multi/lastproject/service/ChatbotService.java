@@ -21,7 +21,7 @@ public class ChatbotService {
 	//public static String main(String voiceMessage) {	
 
 		String apiURL = "https://dulhl3tn85.apigw.ntruss.com/custom/v1/6623/e8719376576e3779552e218472eeaaee921c8f0928163eff177f6adf17a0bb1d";
-		String secretKey = "bENwZmtCZFRuUnpHaUFNY1FBYkJqSEpoWFlZSWxEbnU=";		
+		String secretKey = "bENwZmtCZFRuUnpHaUFNY1FBYkJqSEpoWFlZSWxEbnU=";	
 		
         String chatbotMessage = ""; // 응답 메시지        
 
@@ -82,7 +82,8 @@ public class ChatbotService {
 		//public static String main(String voiceMessage) {	
 
 		String apiURL = "https://dulhl3tn85.apigw.ntruss.com/custom/v1/6623/e8719376576e3779552e218472eeaaee921c8f0928163eff177f6adf17a0bb1d";
-		String secretKey = "bENwZmtCZFRuUnpHaUFNY1FBYkJqSEpoWFlZSWxEbnU=";		
+		String secretKey = "bENwZmtCZFRuUnpHaUFNY1FBYkJqSEpoWFlZSWxEbnU=";
+
 			
 	        String chatbotMessage = ""; // 응답 메시지        
 
