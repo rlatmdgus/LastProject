@@ -29,5 +29,24 @@
   		INSERT INTO member (memId, memPw, memBirth, memName, memHp, memEmail, memAddress)
   		VALUES (#{memId}, #{memPw}, #{memBirth}, #{memName}, #{memHp}, #{memEmail}, #{memAddress})
   	</insert>
+  	
+  	<!-- 회원검색 -->
+  	<select id="memberInfo" parameterType="string" resultType="com.multi.lastproject.model.MemberVO">
+  		SELECT * FROM member WHERE memId=#{memId}		
+  	</select>
+	
+	<!-- 회원정보수정 -->
+	<update id="infoedit" parameterType="com.multi.lastproject.model.MemberVO">
+  		UPDATE member SET memPw=#{memPw}, memName=#{memName}, 
+  						memEmail=#{memEmail}, memBirth=#{memBirth}, memHp=#{memHp}
+  		WHERE memId=#{memId}
+  	</update>
+  	
+  	<!-- 회원탈퇴 -->
+	<delete id="accountDelete">
+		DELETE FROM member
+		WHERE memId = #{memId}
+		AND memPw = #{memPw} 
+	</delete>
 
 </mapper>

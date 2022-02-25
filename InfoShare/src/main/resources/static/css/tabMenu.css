@@ -296,7 +296,7 @@
   	width: 80px;
   	margin-left: -5px;
   	border-color: transparent transparent #28CC71 transparent;
-  	z-index: 1;
+  	z-index: 2;
 }
 
 #LocalCat{
@@ -315,6 +315,7 @@
 	background-color: #fff;
 	color: #333;
 	font-weight: bold;
+	font-size: 13px;
 }
 
 #LocalCatBtn:hover {
@@ -328,7 +329,7 @@
 	left: 120px;
 	position: absolute;
 	width: 130px;
-	height: 280px;
+	height: 273px;
 	background-color:#fff;
 	border-left: 1px solid #d9d9d9;
 	font-weight:bold;
@@ -352,6 +353,7 @@
 	padding: 5px;
 	width: 119px;
 	text-align: left;
+	font-size: 13px;
 }
 
 #prodCatBtn:hover {

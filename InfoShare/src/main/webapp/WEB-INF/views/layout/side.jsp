@@ -7,6 +7,7 @@
 		<meta charset="UTF-8">
 		<title>Insert title here</title>
 		<link href="<c:url value='/css/side.css'/>" rel="stylesheet" type="text/css">
+		<link href="<c:url value='/css/myinfo.css'/>" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="myinfo-arrange">
@@ -25,6 +26,7 @@
 						<a href="<c:url value=''/>" class="my-menu-a"><span>찜 목록</span></a>
 						<a href="<c:url value=''/>" class="my-menu-a"><span>팔로우하는 작가</span></a>
 						<a href="<c:url value='/infoedit/${sessionScope.sid}'/>" class="my-menu-a"><span>내 정보 관리</span></a>
+						<a href="<c:url value='/authorInsert'/>" class="my-menu-a"><span>작가 등록 신청</span></a>
 					</nav>
 				</div>
 			</aside>

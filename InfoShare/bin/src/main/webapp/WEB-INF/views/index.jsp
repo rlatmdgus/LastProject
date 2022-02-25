@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -48,31 +49,51 @@
 				<span class="dot" onclick="currentSlide(4)"></span>
 			</div>
 
+			
+		</section>
+		
+		<section>
 			<div id="MenuBox">
-				<div id="MainTitle">
-					<a>나만 불편해?</a>
-				</div>
-				<div id="AreaSel"><a>지역 선택</a></div>
-				<div id="AreaBox">
-					<input type="button" value="서울" id="AreaBt">
-					<input type="button" value="부산" id="AreaBt">
-					<input type="button" value="대구" id="AreaBt">
-					<input type="button" value="인천" id="AreaBt">
-					<input type="button" value="광주" id="AreaBt">
-					<input type="button" value="대전" id="AreaBt">
-					<input type="button" value="울산" id="AreaBt">
-					<input type="button" value="세종" id="AreaBt">
-					<input type="button" value="경기도" id="AreaBt">
-					<input type="button" value="강원도" id="AreaBt">
-					<input type="button" value="충북" id="AreaBt">
-					<input type="button" value="충남" id="AreaBt">
-					<input type="button" value="경북" id="AreaBt">
-					<input type="button" value="경남" id="AreaBt">
-					<input type="button" value="전북" id="AreaBt">
-					<input type="button" value="전남" id="AreaBt">
-					<input type="button" value="제주도" id="AreaBt">
-				</div>
+				<div id="MainTitle"><a>인기작품</a></div>
 			</div>
+			<form class="boardListbox" id="boardListView" method="post" action="">
+	                <c:forEach items="${FPlist}" var="FPlist">
+	                    <div class="boardbox"
+	                         onclick="location.href='<c:url value="readProduct?FdPrdNo=${FPlist.fdPrdNo}"/>'">
+	                        <div class="boardindex">
+	                            <div class="titleindex">
+	                                <img src="${FPlist.fdPrdImg}" style="width: 252px; height: 252px;">
+	                            </div>
+	                            <div class="product-title-Bottom">
+	                                <span class="titlebottom" type="text" name="boardHit">${FPlist.fdPrdName}</span>
+	                                <span class="titlebottom" type="text" name="boardHit">${FPlist.fdPrdPrice}</span>
+	                                <span class="titlebottom" type="text" name="boardHit">${FPlist.fdPrdGrade}</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </c:forEach>
+            	</form>
+		</section>
+		<section>
+			<div id="MenuBox">
+				<div id="MainTitle"><a>인기 게시물</a></div>
+			</div>
+			<form class="boardListbox" id="boardListView" method="post" action="">
+	                <c:forEach items="${list}" var="blist">
+	                    <div class="boardbox"
+	                         onclick="location.href='<c:url value="/readView?boardNo=${blist.boardNo}&ctgId=${blist.ctgId}&deCtgId=${blist.deCtgId}"/>'">
+	                        <div class="boardindex">
+	                            <div class="titleindex">
+	                            	<span class="board_title" type="text" name="boardTitle">${blist.boardTitle}</span>
+	                                <img src="${blist.boardImage}" style="width: 252px; height: 252px;">
+	                            </div>
+	                            <div class="posttitleBottom">
+	                                <span class="titlebottom" type="text" name="boardHit">조회수 ${blist.boardHit}</span>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </c:forEach>
+            	</form>
 		</section>
 		
 		<!-- BOTTOM -->

@@ -10,7 +10,7 @@
       <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 	  <script src="<c:url value='/js/login.js'/>"></script>
   </head>
-<body>
+<body class="lg-body">
 
   <!-- TOP -->
   
@@ -19,13 +19,13 @@
   <section>
     <div class="login-form">
         <form id="loginForm" name="loginForm">
-          <h2>로그인</h2>
+          <h2 class="title">로그인</h2>
           <input type="text" id="memId" name="memId" class="text-field">
           <input type="password" id="memPw" name="memPw" class="text-field">
           <input type="submit" value="로그인" class="bt">
         </form>
           <div class="links">
-            아직 회원이 아니신가요?&emsp;<a href="<c:url value='/consentForm'/>" style="font-size: 14px;">회원가입</a>
+            아직 회원이 아니신가요?&emsp;<a href="<c:url value='/joinForm'/>" style="font-size: 14px;">회원가입</a>
           </div>
           
       </div>
