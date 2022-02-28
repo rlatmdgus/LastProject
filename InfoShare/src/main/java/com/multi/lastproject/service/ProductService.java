@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.multi.lastproject.dao.IProductDAO;
+import com.multi.lastproject.model.ClothsProductVO;
 import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.PrdCriteria;
 
@@ -40,6 +41,24 @@ public class ProductService implements IProductService {
 	public int getTotalBoard(String ctgId) {
 		// TODO Auto-generated method stub
 		return dao.getTotalBoard(ctgId);
+	}
+
+	@Override
+	public ArrayList<ClothsProductVO> clolist(PrdCriteria cri) {
+		// TODO Auto-generated method stub
+		return dao.clolist(cri);
+	}
+
+	@Override
+	public ClothsProductVO clogetPage(String cloPrdNo) {
+		// TODO Auto-generated method stub
+		return dao.clogetPage(cloPrdNo);
+	}
+
+	@Override
+	public int clogetTotal(String ctgId) {
+		// TODO Auto-generated method stub
+		return dao.clogetTotal(ctgId);
 	}
 
 }

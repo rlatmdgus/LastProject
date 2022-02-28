@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -25,7 +26,7 @@
 				var amount = document.getElementById('amount'); // 주문액 출력
 				
 				//주문액 계산 = 주문수량 * 상품가격
-				var total = qty * ${read.fdPrdPrice}+${read.fdPrdCost };
+				var total = qty * ${read.cloPrdPrice}+${read.cloPrdCost };
 								
 				cartQty.value = qty; // 변경된 주문수량 출력 
 				// 계산액 출력
@@ -37,28 +38,40 @@
 	<body>
 		<div id="wrap">
 		<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
-			<h3>${read.fdPrdName }</h3>
+		
+			<h3>${read.cloPrdName }</h3>
 			<section id="itemBox">
 				<div id="imageBox">
 					<%-- <img  src="<c:url value='${read.fdPrdImg }'/>"> --%>
-					<img  src="${read.fdPrdImg }">
+					<img  src="${read.cloPrdImg }">
+					<input type="hidden" id="cloPrdSize" name="cloPrdSize" value="${read.cloPrdSize }">
+
 				</div>	
 				<div id="prdBox">
-				<form method="post" action="<c:url value='/insertFoodCart'/>">
+				<form method="post" action="<c:url value='/insertCart'/>">
 					<table>
 					<tr><td>작가 </td><td>${read.authorId }</td></tr>
-					<tr><td>평점</td><td> ${read.fdPrdGrade }</td></tr>
-					<tr><td>용량</td><td> ${read.fdPrdWeight }</td></tr>
-					<tr><td>가격</td><td><fmt:formatNumber value="${read.fdPrdPrice}" pattern="#,###원"/></td></tr>
-					<tr><td>배송비</td><td><fmt:formatNumber value="${read.fdPrdCost }" pattern="#,###원"/></td></tr>
+					<tr><td>평점</td><td> ${read.cloPrdGrade }</td></tr>
+					<tr><td>사이즈</td><td><select>
+					<c:forEach items="${list }" var="li">
+					<option>${li }</option>
+					</c:forEach>
+					</select> </td></tr>
+					<tr><td>색상</td><td><select>
+					<c:forEach items="${colorlist }" var="coli">
+					<option>${coli }</option>
+					</c:forEach>
+					</select> </td></tr>
+					<tr><td>가격</td><td><fmt:formatNumber value="${read.cloPrdPrice}" pattern="#,###원"/></td></tr>
+					<tr><td>배송비</td><td><fmt:formatNumber value="${read.cloPrdCost }" pattern="#,###원"/></td></tr>
 					<tr><td><input type="button" value="-" onClick="qtyChange(-1)">
 										<input type="text" id="cartQty" name="cartQty" value="1" size="1" readonly>
 										<input type="button" value="+" onClick="qtyChange(1)"> 개
 								</td>
-						<td><span id="amount"><fmt:formatNumber value="${read.fdPrdPrice+read.fdPrdCost}" pattern="#,###원"/></span></td>
+						<td><span id="amount"><fmt:formatNumber value="${read.cloPrdPrice+read.cloPrdCost}" pattern="#,###원"/></span></td>
 								</tr>
 					</table>
-					<input type="hidden" id="fdPrdNo" name="fdPrdNo" value="${read.fdPrdNo }">
+					<input type="hidden" id="cloPrdNo" name="cloPrdNo" value="${read.cloPrdNo }">
 					<input type="submit" value="장바구니" class="b">
 					<input type="button" value="주문하기" class="b">
 					</form>
@@ -68,7 +81,7 @@
 			</section>
 			<section id="textBox">
 			<div id="descriptBox">
-					${read.fdPrdDescript }
+					${read.cloPrdDescript }
 				</div>
 			</section>
 		</div>

@@ -16,14 +16,26 @@
   	   SELECT * FROM foodproduct ORDER BY fdPrdNo DESC limit 8
   	</select>
   	
-  	<select id="getTotal" resultType="int">
-  		select count(*) from foodproduct;
+ 
+  	<select id="clogetTotal" resultType="int">
+  		select count(*) from clothosproduct where ctgId=#{ctgId};
   	</select>
   	<select id="getTotalBoard" resultType="int" parameterType="String">
   		select count(*) from foodproduct where ctgId=#{ctgId};
   	</select>
   	<select id="getPage" resultType="com.multi.lastproject.model.FoodProductVO">
    select * from foodproduct where fdPrdNo=#{fdPrdNo}
+   </select>
+ 
+ <select id="clolist" resultType="com.multi.lastproject.model.ClothsProductVO" parameterType="com.multi.lastproject.model.PrdCriteria" >
+   select * from (
+                select * 
+                from clothosproduct where ctgId=#{ctgId} order by cloPrdNo desc) as T1 
+        limit #{amount} OFFSET #{skip}
+
+   </select>
+ <select id="clogetPage" resultType="com.multi.lastproject.model.ClothsProductVO">
+   select * from clothosproduct where cloPrdNo=#{cloPrdNo}
    </select>
  
   </mapper>

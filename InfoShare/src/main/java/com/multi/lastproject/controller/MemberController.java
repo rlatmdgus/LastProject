@@ -40,6 +40,9 @@ public class MemberController {
 			session.setAttribute("sid", vo.getMemId());
 			session.setAttribute("sname", vo.getMemName());
 			result = "success";
+			String []address=vo.getMemAddress().split(" ");
+			session.setAttribute("saddress", address[0]);
+			System.out.println(address[0]);
 		}
 		
 		return result;

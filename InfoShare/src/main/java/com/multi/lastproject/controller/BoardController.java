@@ -2,6 +2,7 @@ package com.multi.lastproject.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -36,7 +37,15 @@ public class BoardController {
 	
 	
 	@RequestMapping("/list/{ctgId}/{deCtgId}")
-	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
+	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session,HttpServletResponse response) throws IOException {
+		response.setHeader("Content-Type", "text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(session.getAttribute("sid")==null) {
+			out.println("<script>alert('로그인 먼저 하세요'); </script>");
+			out.flush();
+			return "/member/loginForm";
+		}
+		else {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
 		ArrayList<BoardVO> boardList=service.list(cri);
@@ -49,10 +58,18 @@ public class BoardController {
 		model.addAttribute("deCtgId", deCtgId);
 		model.addAttribute("pageMaker", pageMaker);
 		return "board/boardListView";
+		}
 	}
 	
 	@RequestMapping("/reviewlist/{ctgId}/{deCtgId}")
-	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
+	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session,HttpServletResponse response) throws IOException {
+		response.setHeader("Content-Type", "text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(session.getAttribute("sid")==null) {
+			out.println("<script>alert('로그인 먼저 하세요'); </script>");
+			out.flush();
+			return "/member/loginForm";
+		}else {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
 		cri.setAmount(9);
@@ -67,6 +84,7 @@ public class BoardController {
 		model.addAttribute("deCtgId", deCtgId);
 		model.addAttribute("pageMaker", pageMaker);
 		return "board/reviewListView";
+		}
 	}
 	@RequestMapping("/write")
 	public String insertBoard(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {

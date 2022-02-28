@@ -111,12 +111,13 @@
 							<div class="tooltip">카테고리
       							<span class="tooltiptext tooltip-bottom">
       								<ul style="padding-left: 0px;">
+      								<c:if test="${sessionScope.saddress =='서울' || empty sessionScope.sid}">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnSU">서울</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${1}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${1}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -127,12 +128,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='부산' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnBS">부산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${2}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${2}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -143,12 +146,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='대구'|| empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnDG">대구</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${3}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${3}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -159,12 +164,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='인천' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnIC">인천</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${4}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${4}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -175,12 +182,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='광주' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGJ">광주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${5}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${5}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -191,12 +200,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='대전' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnDJ">대전</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${6}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${6}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -207,12 +218,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='울산' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnUS">울산</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${7}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${7}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -223,12 +236,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='세종' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnSJ">세종</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${8}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${8}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -239,12 +254,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='경기' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGG">경기</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${9}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${9}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -255,12 +272,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='강원' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGW">강원</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${10}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${10}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -271,12 +290,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='충북' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnCB">충북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${11}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${11}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -287,12 +308,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='충남' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnCN">충남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${12}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${12}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -303,12 +326,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='경북' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGB">경북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${13}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${13}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -319,12 +344,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='경남' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGN">경남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      						<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${14}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${14}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -335,12 +362,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='전북' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJB">전북</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
-					      						<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${15}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${15}'/>'">음식</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${15}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -351,12 +380,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='전남' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJN">전남</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${16}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${16}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -367,12 +398,14 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='제주' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJJ">제주</button>
       										<div class="tooltip-right">
 					      						<ul style="padding-left: 0px;">
 					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/foodListView/${17}'/>'">음식</button></li>
-					      							<li id="prodCat"><button id="prodCatBtn">의류</button></li>
+					      							<li id="prodCat"><button id="prodCatBtn" onclick="location.href='<c:url value='/clothsListView/${17}'/>'">의류</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">화장품</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">악세서리</button></li>
 					      							<li id="prodCat"><button id="prodCatBtn">가구</button></li>
@@ -383,6 +416,7 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
       								</ul>
       							</span>
     						</div>
@@ -400,6 +434,7 @@
 							<div class="tooltip">지역별 커뮤니티
       							<span class="tooltiptext tooltip-bottom">
       								<ul style="padding-left: 0px;">
+      								<c:if test="${sessionScope.saddress =='서울' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnSU">서울</button>
       										<div class="tooltip-right">
@@ -410,6 +445,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='부산' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnBS">부산</button>
       										<div class="tooltip-right">
@@ -420,6 +457,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='대구' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnDG">대구</button>
       										<div class="tooltip-right">
@@ -430,6 +469,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='인천' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnIC">인천</button>
       										<div class="tooltip-right">
@@ -440,6 +481,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='광주' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGJ">광주</button>
       										<div class="tooltip-right">
@@ -450,6 +493,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='대전' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnDJ">대전</button>
       										<div class="tooltip-right">
@@ -460,6 +505,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='울산' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnUS">울산</button>
       										<div class="tooltip-right">
@@ -470,6 +517,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='세종' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnSJ">세종</button>
       										<div class="tooltip-right">
@@ -480,6 +529,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='경기' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGG">경기</button>
       										<div class="tooltip-right">
@@ -490,6 +541,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='강원' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGW">강원</button>
       										<div class="tooltip-right">
@@ -500,6 +553,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if> 
+      									<c:if test="${sessionScope.saddress =='충북' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnCB">충북</button>
       										<div class="tooltip-right">
@@ -510,6 +565,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='충남' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnCN">충남</button>
       										<div class="tooltip-right">
@@ -520,6 +577,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='경북' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGB">경북</button>
       										<div class="tooltip-right">
@@ -530,6 +589,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='경남' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnGN">경남</button>
       										<div class="tooltip-right">
@@ -540,6 +601,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='전북' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJB">전북</button>
       										<div class="tooltip-right">
@@ -550,6 +613,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='전남' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJN">전남</button>
       										<div class="tooltip-right">
@@ -560,6 +625,8 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
+      									<c:if test="${sessionScope.saddress =='제주' || empty sessionScope.sid }">
       									<li id="LocalCat">
       										<button id="LocalCatBtn" class="LocalCatBtnJJ">제주</button>
       										<div class="tooltip-right">
@@ -570,6 +637,7 @@
 					      						</ul>
 					      					</div>
       									</li>
+      									</c:if>
       								</ul>
       							</span>
     						</div>

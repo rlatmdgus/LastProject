@@ -2,6 +2,7 @@ package com.multi.lastproject.dao;
 
 import java.util.ArrayList;
 
+import com.multi.lastproject.model.ClothsProductVO;
 import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.PrdCriteria;
 
@@ -12,4 +13,7 @@ public interface IProductDAO {
 	public int getTotal();
 	public FoodProductVO getPage(String fdPrdNo);
 	public int getTotalBoard(String ctgId);
+	public ArrayList<ClothsProductVO> clolist(PrdCriteria cri);
+	public ClothsProductVO clogetPage(String cloPrdNo);
+	public int clogetTotal(String ctgId);
 }
