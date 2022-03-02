@@ -51,7 +51,7 @@
 
 #SearchInput{
 	position: relative;
-    margin-right: 24px;
+    margin-right: 30px;
     display: inline-block;
     vertical-align: middle;
     border: 1px solid #28CC71;
@@ -127,60 +127,17 @@
 #content {
     height: 36px;
     width: 220px;
-    padding-top: 15px;
+    padding-top: 20px;
     float: left;
-    margin-right: 120px;
+    margin-right: 115px;
 }
 
 #rank-a{
-	display: none;
 	
 	margin-left: 0px;
 	color: #28CC71;
     text-decoration:none !important;
     width: 220px;
-}
-
-#rank-number{
-	display: none;
-	
-	font-weight: bold;
-	font-size: 18px;
-	float: left;
-}
-
-#rank-list a:hover {
-    text-decoration: underline;
-}
-
-#rank-list {
-    overflow: hidden;
-    height: 20px;
-    margin: 0;
-}
-
-#rank-list dt {
-    display: none;
-}
-
-#rank-list dd {
-    position: relative;
-    margin: 0;
-    
-}
-
-#rank-list ol {
-    position: absolute;
-    top: 0;
-    left: 0;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-}
-
-#rank-list li {
-    height: 20px;
-    line-height: 20px;
 }
 
 /*-----------*/

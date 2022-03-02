@@ -14,6 +14,7 @@
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	  	
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+		<script src="<c:url value='/js/wichipopup.js'/>"></script>
 		<script src="<c:url value='/js/login.js'/>"></script>
 		<script src="<c:url value='/js/rank-list.js'/>"></script>
 		<script src="<c:url value='/js/slideShow.js'/>"></script>
@@ -55,29 +56,7 @@
 							</form>
 						</div>
 						<div id="content">
-				            <dl id="rank-list">
-				                <dt>실시간 급상승 검색어</dt>
-				                <dd>
-				                    <ol>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">1</p>&nbsp;서울</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">2</p>&nbsp;부산</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">3</p>&nbsp;대구</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">4</p>&nbsp;인천</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">5</p>&nbsp;광주</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">6</p>&nbsp;대전</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">7</p>&nbsp;울산</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">8</p>&nbsp;세종</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">9</p>&nbsp;경기도</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">10</p>&nbsp;강원도</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">11</p>&nbsp;충북</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">12</p>&nbsp;경북</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">13</p>&nbsp;경남</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">14</p>&nbsp;전북</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">15</p>&nbsp;전남</a></li>
-				                        <li><a href="#" id="rank-a"><p id="rank-number">16</p>&nbsp;제주도</a></li>
-				                    </ol>
-				                </dd>
-				            </dl>
+				            <a href="#none" target="_blank" onclick="wichiPopUp()" id="rank-a">내 위치</a>
 				        </div>
 				        <div id="profileLink">
 				        	<!-- 로그인 하지 않은 경우 보여줄 메뉴 항목  -->
