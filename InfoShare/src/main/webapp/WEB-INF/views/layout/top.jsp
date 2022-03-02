@@ -88,7 +88,7 @@
 				        		</a>
 				        		<a href="/loginForm" id="profile">
 				        			<img id="profileIcon" src="<c:url value="/imgs/basket.png"/>">
-				        			<p>장바구니</p>
+				        			<p id="cartList">장바구니</p>
 				        		</a>
 							</c:if>
 								
@@ -98,7 +98,7 @@
 				        			<img id="profileIcon" src="<c:url value="/imgs/profile.png"/>">
 				        			<p>내 정보</p>
 				        		</a>
-				        		<a href="#" id="profile">
+				        		<a href="/cartList" id="profile">
 				        			<img id="profileIcon" src="<c:url value="/imgs/basket.png"/>">
 				        			<p>장바구니</p>
 				        		</a>

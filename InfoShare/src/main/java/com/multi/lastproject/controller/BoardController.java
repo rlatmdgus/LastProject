@@ -168,8 +168,14 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/readView")
-	public String boardReadView(BoardVO vo,Model model) {
-			
+	public String boardReadView(BoardVO vo,Model model,HttpServletResponse response,HttpSession session) throws IOException {
+		response.setHeader("Content-Type", "text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(session.getAttribute("sid")==null) {
+			out.println("<script>alert('로그인 먼저 하세요'); </script>");
+			out.flush();
+			return "/member/loginForm";
+		}
 		model.addAttribute("read",service.getPage(vo.getBoardNo()));
 		service.updateHit(vo.getBoardNo());
 		model.addAttribute("ctgId",vo.getCtgId());

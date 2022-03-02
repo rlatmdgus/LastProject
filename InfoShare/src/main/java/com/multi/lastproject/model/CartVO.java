@@ -8,6 +8,20 @@ public class CartVO {
 	private String fdPrdName;
 	private String cloPrdName;
 	private String fdPrdImg;
+	private String cloPrdCost;
+	private String fdPrdCost;
+	public String getCloPrdCost() {
+		return cloPrdCost;
+	}
+	public void setCloPrdCost(String cloPrdCost) {
+		this.cloPrdCost = cloPrdCost;
+	}
+	public String getFdPrdCost() {
+		return fdPrdCost;
+	}
+	public void setFdPrdCost(String fdPrdCost) {
+		this.fdPrdCost = fdPrdCost;
+	}
 	private String cloPrdImg;
 	private String cloPrdPrice;
 	private String fdPrdPrice;

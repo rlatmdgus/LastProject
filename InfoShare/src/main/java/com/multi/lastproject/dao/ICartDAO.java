@@ -12,4 +12,6 @@ public interface ICartDAO {
 	void updateQtyInCart(CartVO vo);  //동일 상품이 존재하면 수량 변경
 	ArrayList<CartVO> cartList(String memId);   // 장바구니 목록
 	ArrayList<CartVO> fdcartList(String memId);   // 장바구니 목록
+	void deleteProduct(String cartNo);
+	void deleteCart(String memId);
 }

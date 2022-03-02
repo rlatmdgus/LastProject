@@ -29,8 +29,17 @@
  <select id="reviewList" resultType="com.multi.lastproject.model.ReviewVO">
    select * from (
                 select revNo, revTitle, revImage, revDate,memId
-                from review 
+                from review      
                 where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
+                <if test="type == 'T'.toString()">
+              and   revTitle like concat('%',#{keyword},'%') 
+                </if>
+                <if test="type == 'C'.toString()">
+              and   revText like concat('%',#{keyword},'%')
+                </if>
+                <if test="type == 'W'.toString()">
+              and  memId like concat('%',#{keyword},'%' )
+                </if> 
                 order by revNo desc) as T1
         limit #{amount} OFFSET #{skip}
 
@@ -79,7 +88,17 @@
                 </if>
   	</select>
   	<select id="getTotalReview" resultType="int" >
-  		select count(*) from review where ctgId=#{ctgId} and deCtgId=#{deCtgId} 
+  		select count(*) from review 
+  		where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
+                <if test="type == 'T'.toString()">
+              and   revTitle like concat('%',#{keyword},'%') 
+                </if>
+                <if test="type == 'C'.toString()">
+              and   revText like concat('%',#{keyword},'%')
+                </if>
+                <if test="type == 'W'.toString()">
+              and  memId like concat('%',#{keyword},'%' )
+                </if>
   	</select>
   	
   	<insert id="insertBoard">

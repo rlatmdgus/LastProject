@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.multi.lastproject.model.CartVO;
 import com.multi.lastproject.service.CartService;
@@ -67,5 +68,33 @@ public class CartController {
 		model.addAttribute("clocartList", clocartList);
 		model.addAttribute("fdcartList", fdcartList);
 		return "cart/cartListView";
+	}
+	@ResponseBody
+	@RequestMapping("/deleteProduct")
+	public int deleteProduct(@RequestParam("chbox[]") ArrayList<String> chkArr) {
+		int result = 0;
+		String cartNo = "";
+		
+		if(chkArr != null) {
+			for(String i : chkArr) {
+				cartNo = i;
+				service.deleteProduct(cartNo);
+			}
+			result = 1;
+		}
+		
+		return result;
+	}
+	@ResponseBody
+	@RequestMapping("/deleteCart")
+	public int deleteCart(HttpSession session) {
+		int result = 0;
+			if((String)session.getAttribute("sid")!=null) {
+			service.deleteCart((String)session.getAttribute("sid"));
+			
+			result = 1;
+			}
+		
+		return result;
 	}
 }

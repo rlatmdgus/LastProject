@@ -37,18 +37,24 @@
   	<!-- 장바구니 목록 출력 -->
   	<select id="cartList" parameterType="string"
   	 				resultType="com.multi.lastproject.model.CartVO">
-  		SELECT c.cartNo, cp.cloPrdNo, cp.cloPrdImg, cp.cloPrdName, cp.cloPrdPrice, c.cartQty, c.memId
+  		SELECT c.cartNo, cp.cloPrdNo, cp.cloPrdImg, cp.cloPrdName, cp.cloPrdPrice, c.cartQty, c.memId,cp.cloPrdCost
   		FROM clothosproduct cp, cart c
   		WHERE cp.cloPrdNo = c.cloPrdNo  AND c.memId=#{memId}
   		ORDER BY c.cartNo
   	</select>
  	<select id="fdcartList" parameterType="string"
   	 				resultType="com.multi.lastproject.model.CartVO">
-  		SELECT c.cartNo, fp.fdPrdNo, fp.fdPrdImg, fp.fdPrdName, fp.fdPrdPrice, c.cartQty, c.memId
+  		SELECT c.cartNo, fp.fdPrdNo, fp.fdPrdImg, fp.fdPrdName, fp.fdPrdPrice, c.cartQty, c.memId,fp.fdPrdCost
   		FROM foodproduct fp, cart c
   		WHERE fp.fdPrdNo = c.fdPrdNo  AND c.memId=#{memId}
   		ORDER BY c.cartNo
   	</select>
+  	<delete id="deleteProduct" parameterType="String">
+  		delete  from cart where cartNo=#{cartNo}
+  	</delete>
+  	<delete id="deleteCart" parameterType="String" >
+  		delete  from cart where memId=#{memId}
+  	</delete>
   </mapper>
   
   

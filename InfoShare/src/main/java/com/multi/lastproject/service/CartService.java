@@ -54,5 +54,17 @@ public class CartService implements ICartService {
 		return dao.fdcartList(memId);
 	}
 
+	@Override
+	public void deleteProduct(String cartNo) {
+		// TODO Auto-generated method stub
+		dao.deleteProduct(cartNo);
+	}
+
+	@Override
+	public void deleteCart(String memId) {
+		// TODO Auto-generated method stub
+		dao.deleteCart(memId);
+	}
+
 
 }

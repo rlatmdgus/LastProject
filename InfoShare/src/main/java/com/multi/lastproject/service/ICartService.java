@@ -12,4 +12,6 @@ public interface ICartService {
 	int checkPrdInCart(String prdNo, String memId);
 	int checkFdPrdInCart(String prdNo, String memId);
 	ArrayList<CartVO> fdcartList(String memId);
+	void deleteProduct(String cartNo);
+	void deleteCart(String memId);
 }
