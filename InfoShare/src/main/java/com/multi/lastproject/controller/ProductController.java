@@ -48,12 +48,26 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/readProduct")
-	public String readProduct(Model model,FoodProductVO vo) {
+	public String readProduct(Model model,FoodProductVO vo,HttpSession session,HttpServletResponse response) throws IOException {
+		response.setHeader("Content-Type", "text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(session.getAttribute("sid")==null) {
+			out.println("<script>alert('로그인 먼저 하세요'); </script>");
+			out.flush();
+			return "/member/loginForm";
+		}
 		model.addAttribute("read", service.getPage(vo.getFdPrdNo()));
 		return "board/productDetailView";
 	}
 	@RequestMapping("/readCloProduct")
-	public String readProduct(Model model,ClothsProductVO vo) {
+	public String readProduct(Model model,ClothsProductVO vo,HttpSession session,HttpServletResponse response) throws IOException {
+		response.setHeader("Content-Type", "text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		if(session.getAttribute("sid")==null) {
+			out.println("<script>alert('로그인 먼저 하세요'); </script>");
+			out.flush();
+			return "/member/loginForm";
+		}
 		model.addAttribute("read", service.clogetPage(vo.getCloPrdNo()));
 		vo =service.clogetPage(vo.getCloPrdNo());
 		System.out.println(vo.getCloPrdSize());
