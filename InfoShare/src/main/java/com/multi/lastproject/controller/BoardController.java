@@ -49,8 +49,6 @@ public class BoardController {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
 		ArrayList<BoardVO> boardList=service.list(cri);
-		System.out.println(cri.getCtgId());
-		System.out.println(cri.getDeCtgId());
 		model.addAttribute("list", boardList);
 		int total=service.getTotal(cri);
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
@@ -74,8 +72,6 @@ public class BoardController {
 		cri.setDeCtgId(deCtgId);
 		cri.setAmount(9);
 		ArrayList<BoardVO> reviewList=service.reviewList(cri);
-		System.out.println(cri.getCtgId());
-		System.out.println(cri.getDeCtgId());
 		model.addAttribute("list", reviewList);
 		int total=service.getTotalReview(cri);
 		System.out.println("dsds"+total);

@@ -45,7 +45,6 @@ public class CartController {
 		String memId = (String)session.getAttribute("sid");
 		vo.setMemId(memId);
 		vo.setFdPrdNo(fdPrdNo);
-		System.out.println(fdPrdNo);
 		// 동일 상품이 존재하는 지 확인
 		int count = service.checkFdPrdInCart(vo.getFdPrdNo(), memId);
 				System.out.println(count);

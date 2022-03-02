@@ -73,7 +73,9 @@
    	<select id="hitlist" resultType="com.multi.lastproject.model.BoardVO">
   	   SELECT * FROM board ORDER BY boardHit DESC limit 8
   	</select>
-  	
+  	<select id="loginhitlist" resultType="com.multi.lastproject.model.BoardVO">
+  	   SELECT * FROM board where ctgId=#{ctgId} ORDER BY boardHit DESC limit 8
+  	</select>
   	<select id="getTotal" resultType="int">
   		select count(*) from board
   		      where ctgId=#{ctgId} and deCtgId=#{deCtgId}  

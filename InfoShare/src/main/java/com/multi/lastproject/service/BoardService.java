@@ -115,6 +115,12 @@ public class BoardService implements IBoardService {
 		dao.deleteReview(revNo);
 	}
 
+	@Override
+	public ArrayList<BoardVO> loginhitlist(Criteria cri) {
+		// TODO Auto-generated method stub
+		return dao.loginhitlist(cri);
+	}
+
 	
 	
 	

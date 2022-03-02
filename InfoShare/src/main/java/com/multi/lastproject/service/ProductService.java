@@ -61,4 +61,10 @@ public class ProductService implements IProductService {
 		return dao.clogetTotal(ctgId);
 	}
 
+	@Override
+	public ArrayList<FoodProductVO> loginfplist(PrdCriteria cri) {
+		// TODO Auto-generated method stub
+		return dao.loginfplist(cri);
+	}
+
 }

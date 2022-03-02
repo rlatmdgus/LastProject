@@ -15,7 +15,9 @@
    <select id="fplist" resultType="com.multi.lastproject.model.FoodProductVO">
   	   SELECT * FROM foodproduct ORDER BY fdPrdNo DESC limit 8
   	</select>
-  	
+  	 <select id="loginfplist" resultType="com.multi.lastproject.model.FoodProductVO">
+  	   SELECT * FROM foodproduct where ctgId=#{ctgId} ORDER BY fdPrdNo DESC limit 8
+  	</select>
  
   	<select id="clogetTotal" resultType="int">
   		select count(*) from clothosproduct where ctgId=#{ctgId};

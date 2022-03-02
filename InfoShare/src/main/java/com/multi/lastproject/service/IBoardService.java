@@ -13,7 +13,7 @@ public interface IBoardService {
 
 	public ArrayList<BoardVO> reviewList(Criteria cri);
 	public int getTotal(Criteria cri);//게시글 개수
-
+	public ArrayList<BoardVO> loginhitlist(Criteria cri);
 	public void deleteReview(int revNo);
 	public ArrayList<BoardVO> hitlist(Criteria cri);
 	public void modifyReview(ReviewVO vo);
