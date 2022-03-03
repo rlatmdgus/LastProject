@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <title>홈그라운드 장바구니</title>
     <link href="<c:url value="/css/boardListView.css"/>" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="/css/cartlist.css">
+     <link href="<c:url value="/css/cartlist.css"/>" rel="stylesheet" type="text/css">
     <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 		<script src="<c:url value='/js/cartListView.js'/>"></script>	
 		 <script type="text/javascript" src="<c:url value='/js/boardListView.js'/>"></script>
