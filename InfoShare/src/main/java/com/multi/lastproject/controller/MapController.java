@@ -10,4 +10,4 @@ public class MapController {
 	public String AreaCRET() {
 		return "/map/AreaCRET";
 	}
-}
+} 
