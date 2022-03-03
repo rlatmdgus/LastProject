@@ -124,9 +124,13 @@
   		update board set boardHit=boardHit+1 where boardNo=#{boardNo}
   	</update>
   	
-  	<insert id="insertReview">
-  		insert into review (revTitle,revText,fdPrdNo,cloPrdNo,ctgId,deCtgId,revImage,memId) 
-  					values (#{revTitle},#{revText},#{fdPrdNo},#{cloPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
+  	<insert id="insertReviewfd" parameterType="com.multi.lastproject.model.ReviewVO">
+  		insert into review (revTitle,revText,fdPrdNo,ctgId,deCtgId,revImage,memId) 
+  					values (#{revTitle},#{revText},#{fdPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
+  	</insert>
+  	<insert id="insertReviewclo" parameterType="com.multi.lastproject.model.ReviewVO">
+  		insert into review (revTitle,revText,cloPrdNo,ctgId,deCtgId,revImage,memId) 
+  					values (#{revTitle},#{revText},#{cloPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
   	</insert>
   	 <update id="modifyReview">
 		update review set 

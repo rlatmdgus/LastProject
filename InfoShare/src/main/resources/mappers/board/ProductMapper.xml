@@ -39,5 +39,10 @@
  <select id="clogetPage" resultType="com.multi.lastproject.model.ClothsProductVO">
    select * from clothosproduct where cloPrdNo=#{cloPrdNo}
    </select>
- 
+ 	<update id="updateCloRate" parameterType="string">
+ 	update clothosProduct set cloPrdGrade=#{cloPrdGrade} cloPrdAmount=cloPrdAmount+1 where cloPrdNo=#{cloPrdNo}
+ 	</update>
+ 	<update id="updatefdRate" parameterType="string">
+ 	update foodProduct set fdPrdGrade=#{fdPrdGrade} fdPrdAmount=fdPrdAmount+1 where fdPrdNo=#{fdPrdNo}
+ 	</update>
   </mapper>

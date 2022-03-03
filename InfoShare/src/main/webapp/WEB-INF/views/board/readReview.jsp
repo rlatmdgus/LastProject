@@ -28,7 +28,14 @@
 						<tr><td><h3>${read.revTitle }</h3></td></tr>
 						<tr><td>작성자 : ${read.memId }</td></tr>
 						<tr><td id="time">작성일 : <fmt:formatDate pattern = "yyyy/MM/dd hh:mm:ss" value="${read.revDate}"/></td>
-							<td>제품번호</td>
+							<td><c:if test="${not empty read.fdPrdNo  }">
+								제품번호 : ${read.fdPrdNo }
+							</c:if>
+							<c:if test="${not empty read.cloPrdNo  }">
+								제품번호 : ${read.cloPrdNo }
+							</c:if>
+							
+							</td>
 							</tr>
 						<tr><td colspan="2"><hr>${read.revText }</td></tr>	
 					</table>

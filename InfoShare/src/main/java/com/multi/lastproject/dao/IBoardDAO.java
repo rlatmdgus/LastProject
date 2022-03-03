@@ -25,7 +25,8 @@ public interface IBoardDAO {
 	public BoardVO getPage(int boardNo);
 	public ReviewVO getReview(int revNo);
 	public void updateHit(int boardNo);
-	public void insertReview(ReviewVO vo);
+	public void insertReviewfd(ReviewVO vo);
+	public void insertReviewclo(ReviewVO vo);
 	public void deleteBoard(int boardNo);
 	public void deleteReview(int revNo);
 	public void modifyBoard(BoardVO vo);

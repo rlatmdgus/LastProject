@@ -67,4 +67,16 @@ public class ProductService implements IProductService {
 		return dao.loginfplist(cri);
 	}
 
+	@Override
+	public void updateCloRate(ClothsProductVO vo) {
+		// TODO Auto-generated method stub
+		dao.updateCloRate(vo);
+	}
+
+	@Override
+	public void updatefdRate(FoodProductVO vo) {
+		// TODO Auto-generated method stub
+		dao.updatefdRate(vo);
+	}
+
 }

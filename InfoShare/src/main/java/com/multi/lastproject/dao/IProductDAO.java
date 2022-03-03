@@ -17,4 +17,6 @@ public interface IProductDAO {
 	public ArrayList<ClothsProductVO> clolist(PrdCriteria cri);
 	public ClothsProductVO clogetPage(String cloPrdNo);
 	public int clogetTotal(String ctgId);
+	public void updateCloRate(ClothsProductVO vo);
+	public void updatefdRate(FoodProductVO vo);
 }

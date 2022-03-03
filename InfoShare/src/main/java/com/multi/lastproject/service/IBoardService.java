@@ -21,7 +21,8 @@ public interface IBoardService {
 	public void insertBoard(BoardVO vo);//개시글 작성
 	public BoardVO getPage(int boardNo);//게시글 조회
 	public void updateHit(int boardNo);//조회수 갱신
-	public void insertReview(ReviewVO vo);
+	public void insertReviewfd(ReviewVO vo);
+	public void insertReviewclo(ReviewVO vo);
 	public int getTotalReview(Criteria cri);
 	public void deleteBoard(int boardNo);
 	public ReviewVO getReview(int revNo);

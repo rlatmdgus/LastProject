@@ -24,18 +24,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multi.lastproject.model.BoardVO;
+import com.multi.lastproject.model.ClothsProductVO;
 import com.multi.lastproject.model.Criteria;
+import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.PageMakerVO;
+import com.multi.lastproject.model.PrdCriteria;
 import com.multi.lastproject.model.ReviewVO;
 import com.multi.lastproject.model.SmarteditorVO;
 import com.multi.lastproject.service.BoardService;
+import com.multi.lastproject.service.ProductService;
 
 @Controller
 public class BoardController {
 	@Autowired
 	BoardService service;
-	
-	
+	@Autowired
+	ProductService prdService;
+
 	@RequestMapping("/list/{ctgId}/{deCtgId}")
 	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session,HttpServletResponse response) throws IOException {
 		response.setHeader("Content-Type", "text/html;charset=utf-8");
@@ -102,9 +107,10 @@ public class BoardController {
 		return "redirect:/list/"+vo.getCtgId()+"/"+vo.getDeCtgId();
 	}
 	@RequestMapping("/saveReview")
-	public String saveReview(ReviewVO vo,@RequestParam("smartEditor") String content,HttpSession session) {
+	public String saveReview(ReviewVO vo,@RequestParam("smartEditor") String content,HttpSession session,
+				@RequestParam("product") String product,@RequestParam("fdPrdNo") String fdPrdNo,@RequestParam("cloPrdNo") String cloPrdNo
+				) {
 		vo.setRevText(content);
-	
 		vo.setMemId((String)session.getAttribute("sid"));
 		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		 Matcher matcher = pattern.matcher(content);
@@ -112,8 +118,16 @@ public class BoardController {
 	            System.out.println(matcher.group(1));
 	            vo.setRevImage(matcher.group(1));
 	        }
-		 
-		service.insertReview(vo);
+		 if(product.equals("food")) {
+			 System.out.println(fdPrdNo);
+			 vo.setFdPrdNo(fdPrdNo);
+			 service.insertReviewfd(vo);
+		 }else if(product.equals("cloths")) {
+			 vo.setCloPrdNo(cloPrdNo);
+			 System.out.println(" saddsadas"+vo.getCloPrdNo());
+			 service.insertReviewclo(vo);
+		 }
+		
 		
 		return "redirect:/reviewlist/"+vo.getCtgId()+"/"+vo.getDeCtgId();
 	}
@@ -157,9 +171,16 @@ public class BoardController {
 		return "redirect:/reviewlist/"+ctgId+"/"+deCtgId;
 	}
 	@RequestMapping("/writeReview")
-	public String insertReview(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
+	public String insertReview(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId,
+			PrdCriteria cri) {
 		model.addAttribute("ctgId", ctgId);
 		model.addAttribute("deCtgId", deCtgId);
+		cri.setCtgId(ctgId);
+		ArrayList<ClothsProductVO> cloList=prdService.clolist(cri);
+		
+		model.addAttribute("cloList", cloList);
+		ArrayList<FoodProductVO> fdList=prdService.list(cri);
+		model.addAttribute("fdList", fdList);
 		return "board/reviewInsert";
 	}
 	

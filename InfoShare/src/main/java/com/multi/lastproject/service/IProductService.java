@@ -17,5 +17,6 @@ public interface IProductService {
 	public int getTotalBoard(String ctgId);
 	public int clogetTotal(String ctgId);
 	public ClothsProductVO clogetPage(String cloPrdNo);
-	
+	public void updateCloRate(ClothsProductVO vo);
+	public void updatefdRate(FoodProductVO vo);
 }
