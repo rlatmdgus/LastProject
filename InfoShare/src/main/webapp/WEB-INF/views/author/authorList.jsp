@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Ȩ�׶��� �۰� ��û</title>
+<title>홈그라운드 작가 요청</title>
 <link rel="stylesheet" href="/css/authorList.css">
     <style>
         .authorlist-wrap {
@@ -22,13 +22,13 @@
     <jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
 
     <div class="authorlist-wrap">
-        <span>�� ��ȣ</span>
-        <span>�ۼ���</span>
-        <span>�ۼ��ð�</span>
+        <span>글 번호</span>
+        <span>작성자</span>
+        <span>작성시간</span>
     </div>
 
     <div class="author-reg-bottom">
-        <a class="author-reg" href="/authorInsert">�۰� ����ϱ�</a>
+        <a class="author-reg" href="/authorInsert">작가 등록하기</a>
     </div>
 
 </body>
