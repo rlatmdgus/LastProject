@@ -31,6 +31,7 @@ public interface IBoardDAO {
 	public void deleteReview(int revNo);
 	public void modifyBoard(BoardVO vo);
 	public void modifyReview(ReviewVO vo);
+	
 	 // 댓글 개수
     public int commentCount() ;
  

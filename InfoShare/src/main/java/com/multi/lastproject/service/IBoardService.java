@@ -26,6 +26,7 @@ public interface IBoardService {
 	public int getTotalReview(Criteria cri);
 	public void deleteBoard(int boardNo);
 	public ReviewVO getReview(int revNo);
+	
 	 // 댓글 개수
     public int commentCount() ;
  

@@ -13,7 +13,7 @@ $(function(){
 			$("#fdPrdNo").css("display","none");
 			$("#cloPrdNo").css("display","inline");
 		}
-	})
+	});
 	
 	
 });

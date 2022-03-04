@@ -10,6 +10,10 @@ h2 {margin-top:20px;
 	height:40px;
 	font-size:20px;
 }
+p{
+	font-size:20px;
+	font-weight:bold;
+}
 #list{
 	float:right
 }

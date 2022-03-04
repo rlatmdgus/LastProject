@@ -18,7 +18,7 @@
 				<h3>리뷰</h3>
 			  <a href="<c:url value='/'/>" class="btn btn-success" >홈</a> <a href="<c:url value='/reviewlist/${read.ctgId }/${read.deCtgId }'/>" class="btn btn-success" > 목록</a>
 			  <c:if test="${read.memId ==sessionScope.sid }">
-			  	<button class="btn btn-success" id="delete" >삭제</button> <a href="<c:url value='/updateReview?revNo=${read.revNo}&ctgId=${ctgId }&deCtgId=${deCtgId }'/>" class="btn btn-success" > 수정</a>
+			  	<button class="btn btn-success" id="delete" >삭제</button> <a href="<c:url value='/updateReview?revNo=${read.revNo}&ctgId=${ctgId }&deCtgId=${deCtgId }&fdPrdNo=${read.fdPrdNo }&cloPrdNo=${read.cloPrdNo }'/>" class="btn btn-success" > 수정</a>
 			  </c:if>
 			</nav>
 			<hr />

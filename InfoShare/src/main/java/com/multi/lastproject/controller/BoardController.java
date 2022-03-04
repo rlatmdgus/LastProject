@@ -42,13 +42,12 @@ public class BoardController {
 	ProductService prdService;
 
 	@RequestMapping("/list/{ctgId}/{deCtgId}")
-	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session,HttpServletResponse response) throws IOException {
-		response.setHeader("Content-Type", "text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session) throws IOException {
+		
 		if(session.getAttribute("sid")==null) {
-			out.println("<script>alert('로그인 먼저 하세요'); </script>");
-			out.flush();
-			return "/member/loginForm";
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
 		}
 		else {
 		cri.setCtgId(ctgId);
@@ -65,13 +64,12 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/reviewlist/{ctgId}/{deCtgId}")
-	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session,HttpServletResponse response) throws IOException {
-		response.setHeader("Content-Type", "text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session) throws IOException {
+		
 		if(session.getAttribute("sid")==null) {
-			out.println("<script>alert('로그인 먼저 하세요'); </script>");
-			out.flush();
-			return "/member/loginForm";
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
 		}else {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
@@ -119,12 +117,10 @@ public class BoardController {
 	            vo.setRevImage(matcher.group(1));
 	        }
 		 if(product.equals("food")) {
-			 System.out.println(fdPrdNo);
 			 vo.setFdPrdNo(fdPrdNo);
 			 service.insertReviewfd(vo);
 		 }else if(product.equals("cloths")) {
 			 vo.setCloPrdNo(cloPrdNo);
-			 System.out.println(" saddsadas"+vo.getCloPrdNo());
 			 service.insertReviewclo(vo);
 		 }
 		
@@ -145,7 +141,8 @@ public class BoardController {
 		return "redirect:/list/"+ctgId+"/"+vo.getDeCtgId();
 	}
 	@RequestMapping("/updateReviewPost")
-	public String updateReviewPost(ReviewVO vo,@RequestParam("smartEditor") String content,@RequestParam("ctgId") String ctgId,HttpSession session) {
+	public String updateReviewPost(ReviewVO vo,@RequestParam("smartEditor") String content,@RequestParam("ctgId") String ctgId,HttpSession session
+			) {
 		vo.setRevText(content);
 		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		 Matcher matcher = pattern.matcher(content);
@@ -153,9 +150,13 @@ public class BoardController {
 	            System.out.println(matcher.group(1));
 	            vo.setRevImage(matcher.group(1));
 	        } 
+		 
 		 System.out.println(" :::"+vo.getRevNo());
 		 vo.setMemId((String)session.getAttribute("sid"));
-		service.modifyReview(vo);
+		 
+			 service.modifyReview(vo);
+		 
+		
 		return "redirect:/reviewlist/"+ctgId+"/"+vo.getDeCtgId();
 	}
 	@RequestMapping("/boardDelete")
@@ -185,13 +186,12 @@ public class BoardController {
 	}
 	
 	@RequestMapping("/readView")
-	public String boardReadView(BoardVO vo,Model model,HttpServletResponse response,HttpSession session) throws IOException {
-		response.setHeader("Content-Type", "text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+	public String boardReadView(BoardVO vo,Model model,HttpSession session) throws IOException {
+		
 		if(session.getAttribute("sid")==null) {
-			out.println("<script>alert('로그인 먼저 하세요'); </script>");
-			out.flush();
-			return "/member/loginForm";
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
 		}
 		model.addAttribute("read",service.getPage(vo.getBoardNo()));
 		service.updateHit(vo.getBoardNo());
@@ -215,10 +215,19 @@ public class BoardController {
 		return "board/boardupdate";
 	}
 	@RequestMapping("/updateReview")
-	public String updateReview(ReviewVO vo,Model model) {
+	public String updateReview(ReviewVO vo,Model model,PrdCriteria cri) {
 		model.addAttribute("read",service.getReview(vo.getRevNo()));
 		model.addAttribute("ctgId",vo.getCtgId());
 		model.addAttribute("deCtgId", vo.getDeCtgId());
+		model.addAttribute("vo", vo);
+		cri.setCtgId(vo.getCtgId());
+		ArrayList<ClothsProductVO> cloList=prdService.clolist(cri);
+		
+		model.addAttribute("cloList", cloList);
+		ArrayList<FoodProductVO> fdList=prdService.list(cri);
+		model.addAttribute("fdList", fdList);
+		System.out.println(vo.getCloPrdNo());
+		System.out.println(vo.getFdPrdNo());
 		return "board/reviewUpdate";
 	}
 	@RequestMapping("/singleImageUpload")

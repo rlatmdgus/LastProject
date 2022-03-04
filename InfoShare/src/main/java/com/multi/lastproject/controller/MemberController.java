@@ -2,6 +2,7 @@ package com.multi.lastproject.controller;
 
 import java.util.HashMap;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,12 +30,11 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping("/login")
 	public String loginCheck(@RequestParam HashMap<String, Object> param,
-											   HttpSession session) {
+											   HttpSession session,HttpServletResponse response) {
 		
 		// 로그인 체크 결과
 		MemberVO vo = service.loginCheck(param);
 		String result = "fail";
-		
 		if(vo != null) {
 			// 로그인 성공하면 세션 변수 지정
 			session.setAttribute("sid", vo.getMemId());

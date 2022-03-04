@@ -25,16 +25,15 @@ public class ProductController {
 	ProductService service;
 
 	@RequestMapping("/foodListView/{ctgId}")
-	public String foodproductListView(@PathVariable String ctgId,Model model,PrdCriteria cri,HttpSession session,HttpServletResponse response
+	public String foodproductListView(@PathVariable String ctgId,Model model,PrdCriteria cri,HttpSession session
 			) throws IOException {
 		// 이때 contentType을 먼저하지 않으면, 한글이 깨질 수 있습니다.
 		
-		response.setHeader("Content-Type", "text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+		;
 		if(session.getAttribute("sid")==null) {
-			out.println("<script>alert('로그인 먼저 하세요'); </script>");
-			out.flush();
-			return "/member/loginForm";
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
 		}else {
 		cri.setCtgId(ctgId);
 	ArrayList<FoodProductVO> foodProductList=service.list(cri);
@@ -48,25 +47,23 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/readProduct")
-	public String readProduct(Model model,FoodProductVO vo,HttpSession session,HttpServletResponse response) throws IOException {
-		response.setHeader("Content-Type", "text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+	public String readProduct(Model model,FoodProductVO vo,HttpSession session) throws IOException {
+	
 		if(session.getAttribute("sid")==null) {
-			out.println("<script>alert('로그인 먼저 하세요'); </script>");
-			out.flush();
-			return "/member/loginForm";
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
 		}
 		model.addAttribute("read", service.getPage(vo.getFdPrdNo()));
 		return "board/productDetailView";
 	}
 	@RequestMapping("/readCloProduct")
-	public String readProduct(Model model,ClothsProductVO vo,HttpSession session,HttpServletResponse response) throws IOException {
-		response.setHeader("Content-Type", "text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+	public String readProduct(Model model,ClothsProductVO vo,HttpSession session) throws IOException {
+		
 		if(session.getAttribute("sid")==null) {
-			out.println("<script>alert('로그인 먼저 하세요'); </script>");
-			out.flush();
-			return "/member/loginForm";
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
 		}
 		model.addAttribute("read", service.clogetPage(vo.getCloPrdNo()));
 		vo =service.clogetPage(vo.getCloPrdNo());
@@ -86,13 +83,12 @@ public class ProductController {
 		return "board/cloproductDetailView";
 	}
 	@RequestMapping("/clothsListView/{ctgId}")
-	public String clothsproductListView(@PathVariable String ctgId,Model model,PrdCriteria cri,HttpServletResponse response,HttpSession session) throws IOException {
-		response.setHeader("Content-Type", "text/html;charset=utf-8");
-		PrintWriter out = response.getWriter();
+	public String clothsproductListView(@PathVariable String ctgId,Model model,PrdCriteria cri,HttpSession session) throws IOException {
+		
 		if(session.getAttribute("sid")==null) {
-			out.println("<script>alert('로그인 먼저 하세요'); </script>");
-			out.flush();
-			return "/member/loginForm";
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
 		}else {
 		cri.setCtgId(ctgId);
 		System.out.println("ctgId : "+ctgId);
