@@ -6,9 +6,12 @@
     <meta charset="UTF-8">
     <title>홈그라운드 작가 등록</title>
     <link rel="stylesheet" href="/css/authorinsert.css">
+    <script src="/js/jquery-3.6.0.min.js"></script>
+    <script src="/js/authorinsert.js"></script>
 </head>
 <body>
 <jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
+<jsp:include page="/WEB-INF/views/layout/side.jsp" flush="true"/>
 <div class="authorInsert-wrap">
     <h1 class="author-insert-title">작가 등록 신청</h1>
     <form action="/insertAuthor" method="post" enctype="multipart/form-data">
@@ -48,9 +51,10 @@
         </table>
 
         <div class="author-insert-bottom">
-            <a class="author-insert-update" href="/authorList">취소하기</a>&nbsp;&nbsp;&nbsp;
-            <input class="author-insert-update" type="submit" value="글 올리기"/>
-        </div>
+            <a class="author-insert-update" href="/">취소하기</a>&nbsp;&nbsp;&nbsp;
+            <button class="author-insert-update" type="" value="글 올리기">글올리기</button>
+             
+	</div>
     </form>
 
 
