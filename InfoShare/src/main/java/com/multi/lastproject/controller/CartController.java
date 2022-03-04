@@ -1,6 +1,8 @@
 package com.multi.lastproject.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.multi.lastproject.model.CartVO;
 import com.multi.lastproject.model.MemberVO;
+import com.multi.lastproject.model.OrderInfoVO;
 import com.multi.lastproject.service.CartService;
 
 @Controller
@@ -127,8 +130,40 @@ public class CartController {
 			model.addAttribute("fdcartList", fdcartList);
 			return "cart/orderForm"; 
 		}
+		//주문완료
 		@RequestMapping("/orderComplete")
-		public String orderComplete(){
+		public String orderInsert(OrderInfoVO ordInfoDto,
+													@RequestParam String hp1,
+													@RequestParam String hp2,
+													@RequestParam String hp3) {
+			System.out.println("ss");
+			
+			//전화 번호 설정
+			String hp = hp1 + "-" + hp2 + "-" + hp3;
+			ordInfoDto.setOrdRcvPhone(hp);
+			
+			//주문번호 생성 및 설정
+			//주문번호 생성 : 오늘날짜시분초_랜덤숫자4개
+			long timeNum = System.currentTimeMillis();
+			//날짜시간 포맷 : MM(월), mm(분), HH(시:24시간제) 
+			SimpleDateFormat dayTime = new SimpleDateFormat("yyyyMMddHHmmss");
+			String  strTime = dayTime.format(new Date(timeNum));
+			
+			//랜덤 숫자 4개 생성
+			String rNum = "";
+			for(int i=1; i<=4; i++) {
+				rNum += (int)(Math.random() * 10);
+			}
+			
+			String ordNo = strTime + "_" + rNum;
+			
+			//주문번호 설정
+			ordInfoDto.setOrdNo(ordNo);		
+			
+			//주문 정보 입력 (주문 상품 정보는 장바구니에서 바로 주문 테이블로 입력)
+			service.insertOrderInfo(ordInfoDto);	
+			
+			service.deleteCart(ordInfoDto.getMemId());
 			return "cart/orderComplete";
 		}
 }

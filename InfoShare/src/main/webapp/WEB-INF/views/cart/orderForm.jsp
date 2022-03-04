@@ -115,7 +115,7 @@
 							      <td align="right"><fmt:formatNumber value="${fd.fdPrdPrice}" pattern="#,###" /> 원 </td> 						      			
 							      <td>		${fd.cartQty}
 											<input type="hidden" name="cartQty" value="${fd.cartQty}" size="1">
-							      			<input type="hidden" name="prdNo" value="${fd.fdPrdNo}">
+							      			<input type="hidden" name="fdPrdNo" value="${fd.fdPrdNo}">
 							      			<input type="hidden" name="prdPrice" value="${fd.fdPrdPrice}">
 							      			
 								  </td>		

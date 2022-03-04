@@ -1,9 +1,11 @@
 package com.multi.lastproject.service;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import com.multi.lastproject.model.CartVO;
 import com.multi.lastproject.model.MemberVO;
+import com.multi.lastproject.model.OrderInfoVO;
 
 public interface ICartService {
 	void insertCart(CartVO vo);	// 장바구니에 추가
@@ -15,4 +17,6 @@ public interface ICartService {
 	void deleteProduct(String cartNo);
 	void deleteCart(String memId);
 	MemberVO getMemberInfo(String memId); //주문서에 사용할 회원정보 알아오기
+	void insertOrderInfo(OrderInfoVO ordInfoDto); //주문 정보 저장
+	
 }

@@ -64,6 +64,13 @@
 			WHERE memId=#{memId}			
 		</select> 
 		
+		<insert id="insertOrderInfo" 
+	  				 parameterType="com.multi.lastproject.model.OrderInfoVO">
+			INSERT INTO order_info (memID, ordReceiver, ordRcvZipcode, 
+									ordRcvAddress1, ordRcvAddress2, ordRcvPhone, ordRcvMsg, ordPay)
+			VALUES (#{memId}, #{ordReceiver}, #{ordRcvZipcode},
+							#{ordRcvAddress1}, #{ordRcvAddress2}, #{ordRcvPhone}, #{ordRcvMsg}, #{ordPay})
+		</insert>
 		
   </mapper>
   
