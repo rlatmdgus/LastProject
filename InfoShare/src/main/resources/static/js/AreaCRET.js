@@ -18,6 +18,7 @@ var map = new naver.maps.Map('map', {
 	zoom: 17                  // 지도 줌 레벨
 });
 
+
 // Map 사용자 정의 컨트롤 이벤트 추가 (현재위치로 이동 버튼을 추가)
 naver.maps.Event.once(map, 'init_stylemap', function() {
 	/*
@@ -49,6 +50,7 @@ naver.maps.Event.once(map, 'init_stylemap', function() {
 var nowmarker = "";
 var pcy = "";
 var pcx = "";
+
 // getCurrentPosition 성공 콜백 함수
 var onSuccessGeolocation = function(position) {
 	// 현재위치
@@ -70,9 +72,14 @@ var onSuccessGeolocation = function(position) {
 	});
 
 	var nowmarkerClick = function() {
-		return function(e) { alert("현재 위치 "+pcy+","+pcx); }
+		return function(e) {
+			//alert("현재 위치 " + pcy + "," + pcx);
+			const result = searchCoordinateToAddress(e.coord);
+			alert("현재 위치: "+result);
+		}
 	}
 	naver.maps.Event.addListener(nowmarker, 'click', nowmarkerClick());
+	
 }
 
 // getCurrentPosition 에러 콜백 함수
@@ -101,15 +108,58 @@ else {
 	console.log("Geolocation Not supported Required");
 }
 
-$.ajax({
-	type: "post",
-	url: "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/gc?coords={입력_좌표}&sourcecrs={좌표계}&orders={변환_작업_이름}&output={출력_형식}" ,
-	headers:{'X-NCP-APIGW-API-KEY-ID':'client id','X-NCP-APIGW-API-KEY':'client secret'},
-	data: {}, dataType: 'text',
-	success: function(result) {
-		
-	},
-	error: function(data, textStatus) {
-		alert("전송 실패");
-	},
+var infoWindow = new naver.maps.InfoWindow({
+  anchorSkew: true
 });
+
+map.setCursor('pointer');
+
+var area = "";
+
+function searchCoordinateToAddress(latlng) {
+
+  infoWindow.close();
+
+  naver.maps.Service.reverseGeocode({
+    coords: latlng,
+    orders: [
+      naver.maps.Service.OrderType.ADDR,
+      naver.maps.Service.OrderType.ROAD_ADDR
+    ].join(',')
+  }, function(status, response) {
+    if (status === naver.maps.Service.Status.ERROR) {
+      if (!latlng) {
+        return alert('ReverseGeocode Error, Please check latlng');
+      }
+      if (latlng.toString) {
+        return alert('ReverseGeocode Error, latlng:' + latlng.toString());
+      }
+      if (latlng.x && latlng.y) {
+        return alert('ReverseGeocode Error, x:' + latlng.x + ', y:' + latlng.y);
+      }
+      return alert('ReverseGeocode Error, Please check latlng');
+    }
+
+    var address = response.v2.address;
+    console.log(address);
+    
+    if (address.jibunAddress !== '' || address.roadAddress !== ''){
+		if(address.jibunAddress.substr(0,4) == '경상북도' || address.jibunAddress.substr(0,4) == '경상남도' 
+		|| address.jibunAddress.substr(0,4) == '전라북도' || address.jibunAddress.substr(0,4) == '전라남도'
+		|| address.jibunAddress.substr(0,4) == '충청북도' || address.jibunAddress.substr(0,4) == '충청남도'){
+			area = address.jibunAddress.substr(0,1)+address.jibunAddress.substr(2,1);
+		}
+		else{
+			area = address.jibunAddress.substr(0,2);
+		}
+	}
+  });
+  return area;
+}
+
+$(document).ready(function() {
+	$('#locCheck').on('click', function() {
+		
+	});
+});
+

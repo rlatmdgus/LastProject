@@ -9,10 +9,12 @@
     <link href="<c:url value='/css/join.css'/>" rel="stylesheet" type="text/css">
 
     <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+    <script src="<c:url value='/js/wichipopup.js'/>"></script>
+    <script src="<c:url value='/js/AreaCRET.js'/>"></script>
     <script src="<c:url value='/js/join.js'/>"></script>
     <script src="<c:url value='/js/memIdCheck.js'/>"></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="<c:url value='/js/searchZip.js'/>"></script>	
 </head>
 <body>
@@ -133,6 +135,17 @@
                         	<div>
                         		<input type="text"  id="address1"  name="address1" class="int" readonly><br> 
 								<input type="text" id="address2"  name="address2" class="int" style="margin-top: 0px; margin-bottom: 30px;" placeholder="상세 주소 입력">
+                        	</div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td class="Cn"><label for="myLOC">현재위치</label></td>
+                        <td class="Cn2">
+                        	<div style="height: 0px;">
+                        		<input type="text"  id="myLOCint"  name="myLOCint" class="myLOCint" readonly><br>
+                        	</div>
+                        	<div>
+								<input type="button" id="myLOC" name="myLOC" value="현재위치" class="myLOCbtn" onclick="wichiPopUp()">
                         	</div>
                         </td>
                     </tr>

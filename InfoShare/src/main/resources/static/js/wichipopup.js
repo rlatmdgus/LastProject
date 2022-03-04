@@ -3,7 +3,7 @@
  */
 function wichiPopUp() {
 	//창 크기 지정 
-	var width = 515; var height = 515;
+	var width = 530; var height = 550;
 	//pc화면기준 가운데 정렬 
 	var left = (window.screen.width / 2) - (width / 2); var top = (window.screen.height / 4);
 	//윈도우 속성 지정 
