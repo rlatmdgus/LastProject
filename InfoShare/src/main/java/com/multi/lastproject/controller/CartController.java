@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.multi.lastproject.model.CartVO;
+import com.multi.lastproject.model.MemberVO;
 import com.multi.lastproject.service.CartService;
 
 @Controller
@@ -96,4 +97,38 @@ public class CartController {
 		
 		return result;
 	}
+	
+	//주문서 작성
+		@RequestMapping("/orderForm")
+		public String viewOrderForm(@RequestParam String[] memId,HttpSession session, 
+															@RequestParam("fdcartNo") int[] fdcartNo,
+															@RequestParam("cartNo") int[] clocartNo,
+															@RequestParam("fdcartQty") int[] fdcartQty,
+															@RequestParam("clocartQty") int[] clocartQty,
+															Model model) {		
+			
+
+			//주문서에 정보 출력 (주문자 정보 + 장바구니 목록)
+			//주문자 정보 가져오기
+			MemberVO memVo = service.getMemberInfo(memId[0]);
+			//전화번호 split
+			String[] hp = (memVo.getMemHp()).split("-");
+			
+			//주문자 정보 출력하기 위해 model에 저장
+			model.addAttribute("memDto", memVo);
+			model.addAttribute("hp1", hp[0]);
+			model.addAttribute("hp2", hp[1]);
+			model.addAttribute("hp3", hp[2]);
+			
+			//장바구니 목록 출력
+			ArrayList<CartVO> clocartList = service.cartList((String)session.getAttribute("sid"));
+			ArrayList<CartVO> fdcartList = service.fdcartList((String)session.getAttribute("sid"));		
+			model.addAttribute("clocartList", clocartList);
+			model.addAttribute("fdcartList", fdcartList);
+			return "cart/orderForm"; 
+		}
+		@RequestMapping("/orderComplete")
+		public String orderComplete(){
+			return "cart/orderComplete";
+		}
 }

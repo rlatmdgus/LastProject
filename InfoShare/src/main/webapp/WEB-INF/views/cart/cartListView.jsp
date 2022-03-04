@@ -18,7 +18,7 @@
 <div class="cart-wrap">
     <h1>장바구니</h1>
     <hr>
-    <form action="<c:url value='/'/>" method="post">
+    <form action="<c:url value='/orderForm'/>" method="post">
     <div class="cart-product">
     	<table id="product" >
     	<tr id="cart-header">
@@ -54,6 +54,14 @@
     <div class="cart-bottom">
     
     <input type="hidden" id="memId" name="memId" value="${sessionScope.sid }">
+    <input type="hidden" id="fdcartQty" name="fdcartQty" value="${fd.cartQty}">
+    <input type="hidden" id="clocartQty" name="clocartQty" value="${cart.cartQty}">
+    <input type="hidden" id="fdcartNo" name="fdcartNo" value="${fd.cartNo }">
+    <input type="hidden" id="cartNo" name="cartNo" value="${clo.cartNo }">
+    <input type="hidden" id="fdPrdNo" name="fdPrdNo" value="${fd.fdPrdNo }">
+    <input type="hidden" id="cloPrdNo" name="cloPrdNo" value="${clo.cloPrdNo }">
+    <input type="hidden" name="fdPrdPrice" id="fdPrdPrice" value="${fd.fdPrdPrice}">
+    <input type="hidden" name="cloPrdPrice" id="cloPrdPrice" value="${clo.cloPrdPrice}">
     </div>
     <hr>
     <div id="delete">

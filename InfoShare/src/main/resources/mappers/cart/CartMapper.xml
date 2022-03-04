@@ -55,6 +55,16 @@
   	<delete id="deleteCart" parameterType="String" >
   		delete  from cart where memId=#{memId}
   	</delete>
+  	
+  	
+  	<select id="getMemberInfo" parameterType="string" 
+			resultType="com.multi.lastproject.model.MemberVO">
+			SELECT memId, memName, memHP, memAddress
+			FROM member
+			WHERE memId=#{memId}			
+		</select> 
+		
+		
   </mapper>
   
   

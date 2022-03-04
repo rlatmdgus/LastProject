@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.multi.lastproject.dao.ICartDAO;
 import com.multi.lastproject.model.CartVO;
+import com.multi.lastproject.model.MemberVO;
 @Service
 public class CartService implements ICartService {
 @Autowired
@@ -64,6 +65,12 @@ public class CartService implements ICartService {
 	public void deleteCart(String memId) {
 		// TODO Auto-generated method stub
 		dao.deleteCart(memId);
+	}
+
+	@Override
+	public MemberVO getMemberInfo(String memId) {
+		// TODO Auto-generated method stub
+		return dao.getMemberInfo(memId);
 	}
 
 
