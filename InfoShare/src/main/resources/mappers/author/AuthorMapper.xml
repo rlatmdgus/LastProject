@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.multi.lastproject.dao.IAuthorDAO">
-  <resultMap id="memResult" type="com.multi.lastproject.model.AuthorVO">
+  <resultMap id="authorResult" type="com.multi.lastproject.model.AuthorVO">
 		<result property="authorId" column="authorId" />
 		<result property="authorName" column="authorName" />
 		<result property="authorNick" column="authorNick" />
@@ -15,7 +15,12 @@
 		<result property="authorAddress" column="authorAddress" />
 		<result property="authorImage" column="authorImage" />
 	</resultMap>
-
+	
+	<!-- 전체 작가 조회 -->
+  		<select id="listAllAuthor" resultMap="authorResult">
+  			SELECT * FROM author ORDER BY authorId
+  		</select>  
+  		
   	<!-- 작가 등록 신청 -->
 	<insert id="insertAuthor" parameterType="com.multi.lastproject.model.AuthorVO">
 		INSERT INTO author

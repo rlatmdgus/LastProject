@@ -407,7 +407,7 @@
 							<span>새로운 작품</span>
 						</li>
 						<li id="ui_guide_menu">
-							<span>작가님들 소개</span>
+							<a id="menu" href="<c:url value='/author/listAllAuthor'/>"><span>작가님들 소개</span></a>
 						</li>
 						<li id="ui_guide_menu">
 							<div class="tooltip">지역별 커뮤니티

@@ -2,10 +2,12 @@ package com.multi.lastproject.controller;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
@@ -17,10 +19,29 @@ import com.multi.lastproject.service.MemberService;
 
 @Controller
 public class AuthorController {
+
+	// DI 설정
+	@Autowired
+	AuthorService service;
+
 	
+	  // 실행 시 index 페이지 열기
+	  
+		/*
+		 * @RequestMapping("/") public String viewIndex() { return "index"; }
+		 */
+
+	// 전체 작가 조회
+	@RequestMapping("/author/listAllAuthor")
+	public String listAllAuthor(Model model) {
+		ArrayList<AuthorVO> authorList = service.listAllAuthor();
+		model.addAttribute("authorList", authorList);
+		return "author/authorListView";
+	}
+
 	@Autowired
 	AuthorService authorService;
-	
+
 	@Autowired
 	MemberService memberService;
 
@@ -28,23 +49,19 @@ public class AuthorController {
 	public String authorinsert() {
 		return "/author/authorInsert";
 	}
-	
+
 	@RequestMapping("authorList")
 	public String authorList() {
 		return "/author/authorList";
 	}
-	
+
 	@RequestMapping("/insertAuthor")
-	public String insertAuthor(@RequestParam("authorId") String authorId,
-								@RequestParam("authorName") String authorName,
-								@RequestParam("authorNick") String authorNick,
-								@RequestParam("authorClass") String authorClass,
-								@RequestParam("authorDescript") String authorDescript,
-								@RequestParam("authorHp") String authorHp,
-								@RequestParam("authorEmail") String authorEmail,
-								@RequestParam("authorAddress") String authorAddress,
-								@RequestParam("authorImage") MultipartFile file) throws IOException {
-		
+	public String insertAuthor(@RequestParam("authorId") String authorId, @RequestParam("authorName") String authorName,
+			@RequestParam("authorNick") String authorNick, @RequestParam("authorClass") String authorClass,
+			@RequestParam("authorDescript") String authorDescript, @RequestParam("authorHp") String authorHp,
+			@RequestParam("authorEmail") String authorEmail, @RequestParam("authorAddress") String authorAddress,
+			@RequestParam("authorImage") MultipartFile file) throws IOException {
+
 		String savedFileName = "";
 		AuthorVO vo = new AuthorVO();
 
@@ -63,9 +80,9 @@ public class AuthorController {
 
 		// 5. 서버로 전송
 		file.transferTo(file1);
-		
+
 		MemberVO memberVO = memberService.memberInfo(authorId);
-		
+
 		vo.setAuthorId(authorId);
 		vo.setAuthorName(memberVO.getMemName());
 		vo.setAuthorNick(authorNick);
@@ -75,9 +92,9 @@ public class AuthorController {
 		vo.setAuthorEmail(memberVO.getMemEmail());
 		vo.setAuthorAddress(memberVO.getMemAddress());
 		vo.setAuthorImage(savedFileName);
-		
+
 		authorService.insertAuthor(vo);
-		
+
 		return "author/authorList";
 	}
 }
