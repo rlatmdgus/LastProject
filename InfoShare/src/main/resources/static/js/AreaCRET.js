@@ -47,67 +47,67 @@ naver.maps.Event.once(map, 'init_stylemap', function() {
 	});
 });
 
-var nowmarker = "";
-var pcy = "";
-var pcx = "";
-
-// getCurrentPosition 성공 콜백 함수
-var onSuccessGeolocation = function(position) {
-	// 현재위치
-	pcy = position.coords.latitude;
-	pcx = position.coords.longitude;
-	curtLoca = new naver.maps.LatLng(pcy, pcx);//
-	console.log(pcy, pcx);
-	// 얻은 좌표를 지도의 중심으로 설정합니다.
-	map.setCenter(curtLoca);
-
-	// 지도의 줌 레벨을 변경합니다.
-	map.setZoom(10);
-
-	// 현재 위치에 마커 표시
-	nowmarker = new naver.maps.Marker({
-		position: curtLoca,
-		map: map,
-		icon: { url: "/imgs/maker.png"}
-	});
-
-	var nowmarkerClick = function() {
-		return function(e) {
-			//alert("현재 위치 " + pcy + "," + pcx);
-			const result = searchCoordinateToAddress(e.coord);
-			alert("현재 위치: "+result);
-		}
-	}
-	naver.maps.Event.addListener(nowmarker, 'click', nowmarkerClick());
-	
-}
-
-// getCurrentPosition 에러 콜백 함수
-var onErrorGeolocation = function() {
-
-	var agent = navigator.userAgent.toLowerCase(), name = navigator.appName;
-
-	if (name === 'Microsoft Internet Explorer' || agent.indexOf('trident') > -1 || agent.indexOf('edge/') > -1) {
-		alert("지원하지 않는 브라우져입니다.");
-	}
-	else {
-		console.log("현재 위치를 가져오는데 에러가 발생하였습니다.");
-	}
-}
-
-// Geolocation HTML5 API를 통해 얻은 현재 위치 좌표로 지도를 이동합니다.
-if (navigator.geolocation) {
-	/**
-	 * navigator.geolocation 은 Chrome 50 버젼 이후로 HTTP 환경에서 사용이 Deprecate 되어 HTTPS 환경에서만 사용 가능 합니다.
-	 * http://localhost 에서는 사용이 가능하며, 테스트 목적으로, Chrome 의 바로가기를 만들어서 아래와 같이 설정하면 접속은 가능합니다.
-	 * chrome.exe --unsafely-treat-insecure-origin-as-secure="http://example.com"
-	 */
-	navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
-}
-else {
-	console.log("Geolocation Not supported Required");
-}
-
+//var nowmarker = "";
+//var pcy = "";
+//var pcx = "";
+//
+//// getCurrentPosition 성공 콜백 함수
+//var onSuccessGeolocation = function(position) {
+//	// 현재위치
+//	pcy = position.coords.latitude;
+//	pcx = position.coords.longitude;
+//	curtLoca = new naver.maps.LatLng(pcy, pcx);//
+//	console.log(pcy, pcx);
+//	// 얻은 좌표를 지도의 중심으로 설정합니다.
+//	map.setCenter(curtLoca);
+//
+//	// 지도의 줌 레벨을 변경합니다.
+//	map.setZoom(10);
+//
+//	// 현재 위치에 마커 표시
+//	nowmarker = new naver.maps.Marker({
+//		position: curtLoca,
+//		map: map,
+//		icon: { url: "/imgs/maker.png"}
+//	});
+//
+//	var nowmarkerClick = function() {
+//		return function(e) {
+//			//alert("현재 위치 " + pcy + "," + pcx);
+//			const result = searchCoordinateToAddress(e.coord);
+//			alert("현재 위치: "+result);
+//		}
+//	}
+//	naver.maps.Event.addListener(nowmarker, 'click', nowmarkerClick());
+//	
+//}
+//
+//// getCurrentPosition 에러 콜백 함수
+//var onErrorGeolocation = function() {
+//
+//	var agent = navigator.userAgent.toLowerCase(), name = navigator.appName;
+//
+//	if (name === 'Microsoft Internet Explorer' || agent.indexOf('trident') > -1 || agent.indexOf('edge/') > -1) {
+//		alert("지원하지 않는 브라우져입니다.");
+//	}
+//	else {
+//		console.log("현재 위치를 가져오는데 에러가 발생하였습니다.");
+//	}
+//}
+//
+//// Geolocation HTML5 API를 통해 얻은 현재 위치 좌표로 지도를 이동합니다.
+//if (navigator.geolocation) {
+//	/**
+//	 * navigator.geolocation 은 Chrome 50 버젼 이후로 HTTP 환경에서 사용이 Deprecate 되어 HTTPS 환경에서만 사용 가능 합니다.
+//	 * http://localhost 에서는 사용이 가능하며, 테스트 목적으로, Chrome 의 바로가기를 만들어서 아래와 같이 설정하면 접속은 가능합니다.
+//	 * chrome.exe --unsafely-treat-insecure-origin-as-secure="http://example.com"
+//	 */
+//	navigator.geolocation.getCurrentPosition(onSuccessGeolocation, onErrorGeolocation);
+//}
+//else {
+//	console.log("Geolocation Not supported Required");
+//}
+//
 var infoWindow = new naver.maps.InfoWindow({
   anchorSkew: true
 });
@@ -158,8 +158,45 @@ function searchCoordinateToAddress(latlng) {
 }
 
 $(document).ready(function() {
+
+	
+	const data = navigator.geolocation.getCurrentPosition(
+		(data) => { // success
+			console.log(data);
+			const lat = data.coords.latitude;
+			const long = data.coords.longitude;
+			console.log("현재 위치 " + lat + ", " + long);
+
+			curtLoca = new naver.maps.LatLng(lat, long);
+
+			map.setCenter(curtLoca);
+
+			// 지도의 줌 레벨을 변경합니다.
+			map.setZoom(10);
+
+			// 현재 위치에 마커 표시
+			nowmarker = new naver.maps.Marker({
+				position: curtLoca,
+				map: map,
+				icon: { url: "/imgs/maker.png" }
+			});
+
+			var nowmarkerClick = function() {
+				return function(e) {
+					//alert("현재 위치 " + pcy + "," + pcx);
+					const result = searchCoordinateToAddress(e.coord);
+					alert("현재 위치: " + result);
+				}
+			}
+
+			naver.maps.Event.addListener(nowmarker, 'click', nowmarkerClick());
+
+		}, (error, status) => { // error
+
+			console.log(error, status);
+
+		});
 	$('#locCheck').on('click', function() {
-		
+		self.close();
 	});
 });
-
