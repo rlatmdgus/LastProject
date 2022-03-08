@@ -51,12 +51,14 @@
 					<tr><td>용량</td><td> ${read.fdPrdWeight }</td></tr>
 					<tr><td>가격</td><td><fmt:formatNumber value="${read.fdPrdPrice}" pattern="#,###원"/></td></tr>
 					<tr><td>배송비</td><td><fmt:formatNumber value="${read.fdPrdCost }" pattern="#,###원"/></td></tr>
-					<tr><td><input type="button" value="-" onClick="qtyChange(-1)">
+					<tr><td>설명</td><td>${read.fdPrdDescript }</td>
+					<tr><td><input type="button" value="-" onClick="qtyChange(-1)" class="qty">
 										<input type="text" id="cartQty" name="cartQty" value="1" size="1" readonly>
-										<input type="button" value="+" onClick="qtyChange(1)"> 개
+										<input type="button" value="+" onClick="qtyChange(1)" class="qty">
 								</td>
 						<td><span id="amount"><fmt:formatNumber value="${read.fdPrdPrice+read.fdPrdCost}" pattern="#,###원"/></span></td>
 								</tr>
+								
 					</table>
 					<input type="hidden" id="fdPrdNo" name="fdPrdNo" value="${read.fdPrdNo }">
 					<input type="submit" value="장바구니" class="b">
@@ -65,11 +67,6 @@
 				</div>
 				
 				
-			</section>
-			<section id="textBox">
-			<div id="descriptBox">
-					${read.fdPrdDescript }
-				</div>
 			</section>
 		</div>
 	</body>

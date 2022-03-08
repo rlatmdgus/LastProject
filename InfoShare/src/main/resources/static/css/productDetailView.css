@@ -13,7 +13,7 @@
 	width:600px;
 	height:450px;
 	float:left;
-	margin-left:50px;
+	
 }
 #prdBox{
 	width:600px;
@@ -36,7 +36,12 @@ td{
 	margin-left:100px;
 	margin-top:25px;
 	width:400px;
-	height:50px;
+	height:60px;
+	background:#28CC71;
+	color:white;
+	border-radius:30px;
+	font-size:20px;
+	font-weight:bold;
 	
 }
 #textBox{
@@ -45,4 +50,13 @@ td{
 	height:300px;
 	text-align:center;
 	border:solid 1px;
+}
+.qty{
+	color:#28CC71;
+	background:white;
+	
+}
+#cartQty{
+	text-align:center;
+	font-weight:bold;
 }
