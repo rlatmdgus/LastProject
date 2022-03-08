@@ -1,5 +1,6 @@
 package com.multi.lastproject.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpServletResponse;
@@ -13,14 +14,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.multi.lastproject.model.ClothsProductVO;
+import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.MemberVO;
+import com.multi.lastproject.model.OrderInfoVO;
+import com.multi.lastproject.model.OrderProductVO;
+import com.multi.lastproject.service.CartService;
 import com.multi.lastproject.service.MemberService;
+import com.multi.lastproject.service.ProductService;
 
 @Controller
 public class MemberController {
 	@Autowired
 	MemberService service;
-	
+	@Autowired
+	CartService cartservice;
+	@Autowired
+	ProductService prdservice;
 	// 로그인 폼 이동
 	@RequestMapping("/loginForm")
 	public String loginForm() {
@@ -137,5 +147,18 @@ public class MemberController {
 			return 0;
 		}
 	}
-	
+	@RequestMapping("/member/myorderInfo")
+	public String myorderInfo(Model model,HttpSession session) {
+		String memId=(String)session.getAttribute("sid");
+		ArrayList<OrderInfoVO> ordInfoList=cartservice.orderInfoList(memId);
+		ArrayList<OrderProductVO> ordProductList=cartservice.orderProductList(memId);
+		ArrayList<FoodProductVO> Alllist=prdservice.Alllist();
+		ArrayList<ClothsProductVO> cloAlllist=prdservice.cloAlllist();
+		
+		model.addAttribute("ordProductList", ordProductList);
+		model.addAttribute("ordInfoList", ordInfoList);
+		model.addAttribute("Alllist", Alllist);
+		model.addAttribute("cloAlllist", cloAlllist);
+		return "/member/myorderInfo";
+	}
 }

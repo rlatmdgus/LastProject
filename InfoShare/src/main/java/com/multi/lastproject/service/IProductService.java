@@ -19,4 +19,6 @@ public interface IProductService {
 	public ClothsProductVO clogetPage(String cloPrdNo);
 	public void updateCloRate(ClothsProductVO vo);
 	public void updatefdRate(FoodProductVO vo);
+	public ArrayList<FoodProductVO> Alllist();
+	public ArrayList<ClothsProductVO> cloAlllist();
 }

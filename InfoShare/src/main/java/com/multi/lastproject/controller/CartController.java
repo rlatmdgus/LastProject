@@ -3,6 +3,7 @@ package com.multi.lastproject.controller;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
 
@@ -132,7 +133,7 @@ public class CartController {
 		}
 		//주문완료
 		@RequestMapping("/orderComplete")
-		public String orderInsert(OrderInfoVO ordInfoDto,
+		public String orderInsert(OrderInfoVO ordInfoDto,HttpSession session,Model model,
 													@RequestParam String hp1,
 													@RequestParam String hp2,
 													@RequestParam String hp3) {
@@ -162,8 +163,16 @@ public class CartController {
 			
 			//주문 정보 입력 (주문 상품 정보는 장바구니에서 바로 주문 테이블로 입력)
 			service.insertOrderInfo(ordInfoDto);	
+			HashMap<String,Object>map=new HashMap<String,Object>();
+			String memId=(String)session.getAttribute("sid");
+			map.put("ordNo", ordNo);
+			map.put("memId",memId );
 			
+			service.insertOrderProduct(map);
 			service.deleteCart(ordInfoDto.getMemId());
+			model.addAttribute("msg", "주문이 완료되었습니다");
+			model.addAttribute("url", "/");
 			return "cart/orderComplete";
+		
 		}
 }

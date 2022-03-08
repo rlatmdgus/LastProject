@@ -66,12 +66,21 @@
 		
 		<insert id="insertOrderInfo" 
 	  				 parameterType="com.multi.lastproject.model.OrderInfoVO">
-			INSERT INTO order_info (memID, ordReceiver, ordRcvZipcode, 
+			INSERT INTO order_info (ordNo,memID, ordReceiver, ordRcvZipcode, 
 									ordRcvAddress1, ordRcvAddress2, ordRcvPhone, ordRcvMsg, ordPay)
-			VALUES (#{memId}, #{ordReceiver}, #{ordRcvZipcode},
+			VALUES (#{ordNo},#{memId}, #{ordReceiver}, #{ordRcvZipcode},
 							#{ordRcvAddress1}, #{ordRcvAddress2}, #{ordRcvPhone}, #{ordRcvMsg}, #{ordPay})
 		</insert>
-		
+		<select id="orderInfoList" parameterType="String" resultType="com.multi.lastproject.model.OrderInfoVO">
+			select * from order_info where memId=#{memId}
+		</select>
+		<select id="orderProductList" parameterType="String" resultType="com.multi.lastproject.model.OrderProductVO">
+			select * from order_product where memId=#{memId}
+		</select>
+		<insert id="insertOrderProduct" parameterType="hashmap" >
+			INSERT INTO order_product (ordNo, cloPrdNo,fdPrdNo, ordQty,memId)
+					SELECT #{ordNo}, cloPrdNo,fdPrdNo, cartQty,#{memId} FROM cart WHERE memId = #{memId}
+		</insert>
   </mapper>
   
   

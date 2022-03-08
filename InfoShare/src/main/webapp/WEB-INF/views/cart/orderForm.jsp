@@ -95,9 +95,9 @@
 							      <td align="right"><fmt:formatNumber value="${clo.cloPrdPrice}" pattern="#,###" /> 원 </td> 						      			
 							      <td>		
 							      			${clo.cartQty }
-											<input type="hidden" name="cartQty" value="${clo.cartQty}" >
-							      			<input type="hidden" name="prdNo" value="${clo.cloPrdNo}">
-							      			<input type="hidden" name="prdPrice" value="${clo.cloPrdPrice}">
+											<input type="hidden" name="clocartQty" value="${clo.cartQty}" >
+							      			<input type="hidden" name="cloPrdNo" value="${clo.cloPrdNo}">
+							      			<input type="hidden" name="cloPrdPrice" value="${clo.cloPrdPrice}">
 							      			
 								  </td>		
 								  <td  align="right"> <span class="amount">
@@ -114,9 +114,9 @@
 							      <td>${fd.fdPrdName}</td>	      
 							      <td align="right"><fmt:formatNumber value="${fd.fdPrdPrice}" pattern="#,###" /> 원 </td> 						      			
 							      <td>		${fd.cartQty}
-											<input type="hidden" name="cartQty" value="${fd.cartQty}" size="1">
+											<input type="hidden" name="fdcartQty" value="${fd.cartQty}" size="1">
 							      			<input type="hidden" name="fdPrdNo" value="${fd.fdPrdNo}">
-							      			<input type="hidden" name="prdPrice" value="${fd.fdPrdPrice}">
+							      			<input type="hidden" name="fdPrdPrice" value="${fd.fdPrdPrice}">
 							      			
 								  </td>		
 								  <td  align="right"> <span class="amount">

@@ -19,7 +19,7 @@
 					<b class="my-menu-tite">나의 메뉴</b>
 					<nav class="my-menu-nav">
 						<a href="<c:url value=''/>" class="my-menu-a">
-							<span>주문내역</span>
+							<a href="<c:url value='/member/myorderInfo'/>"  class="my-menu-a"><span>주문내역</span></a>
 						</a>
 						<a href="<c:url value=''/>"  class="my-menu-a"><span>취소 & 환불내역</span></a>
 						<a href="<c:url value=''/>" class="my-menu-a"><span>내가 쓴 후기</span></a>

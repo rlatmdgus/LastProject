@@ -11,6 +11,22 @@
         limit #{amount} OFFSET #{skip}
 
    </select>
+   <select id="Alllist" resultType="com.multi.lastproject.model.FoodProductVO" >
+   select * from (
+                select * 
+                from foodproduct) as T1 
+       
+
+   </select>
+   
+    <select id="cloAlllist" resultType="com.multi.lastproject.model.ClothsProductVO" >
+   select * from (
+                select * 
+                from clothosproduct) as T1 
+       
+   </select>
+   
+   
    
    <select id="fplist" resultType="com.multi.lastproject.model.FoodProductVO">
   	   SELECT * FROM foodproduct ORDER BY fdPrdNo DESC limit 8

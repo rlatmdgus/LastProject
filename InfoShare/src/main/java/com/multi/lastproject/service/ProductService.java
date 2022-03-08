@@ -79,4 +79,16 @@ public class ProductService implements IProductService {
 		dao.updatefdRate(vo);
 	}
 
+	@Override
+	public ArrayList<FoodProductVO> Alllist() {
+		// TODO Auto-generated method stub
+		return dao.Alllist();
+	}
+
+	@Override
+	public ArrayList<ClothsProductVO> cloAlllist() {
+		// TODO Auto-generated method stub
+		return dao.cloAlllist();
+	}
+
 }

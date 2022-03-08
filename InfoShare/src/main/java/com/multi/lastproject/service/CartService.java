@@ -10,6 +10,7 @@ import com.multi.lastproject.dao.ICartDAO;
 import com.multi.lastproject.model.CartVO;
 import com.multi.lastproject.model.MemberVO;
 import com.multi.lastproject.model.OrderInfoVO;
+import com.multi.lastproject.model.OrderProductVO;
 @Service
 public class CartService implements ICartService {
 @Autowired
@@ -80,6 +81,26 @@ public class CartService implements ICartService {
 		dao.insertOrderInfo(ordInfoDto);
 	}
 
+	@Override
+	public void insertOrderProduct(HashMap<String, Object> map) {
+		// TODO Auto-generated method stub
+		dao.insertOrderProduct(map);
+	}
+
+	@Override
+	public ArrayList<OrderInfoVO> orderInfoList(String memId) {
+		// TODO Auto-generated method stub
+		return dao.orderInfoList(memId);
+	}
+
+	@Override
+	public ArrayList<OrderProductVO> orderProductList(String memId) {
+		// TODO Auto-generated method stub
+		return dao.orderProductList(memId);
+	}
+
+
+	
 
 
 }
