@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+.reviewListbox{
+	width: 1280px;
+	padding-left: 40px;
+}
+
+.reviewListView{
+	width: 1280px;
+}
+
+.reviewbox{
+	margin-left: 40px;
+	margin-right: 40px;
+	margin-bottom: 20px;
+	margin-top: 20px;
+	width: 252px;
+	float: left;
+}
+
+
+.review_title{
+	font-size: 17px;
+	font-weight: 10px;
+}
+
+.review_date{
+	margin: 0px;
+	font-size: 11px;
+}

@@ -52,4 +52,5 @@ public class MemberService implements IMemberService {
 	public MemberVO memberInfo(String memId) {
 		return dao.memberInfo(memId);
 	}
+
 }

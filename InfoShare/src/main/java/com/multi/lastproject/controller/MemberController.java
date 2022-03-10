@@ -19,6 +19,8 @@ import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.MemberVO;
 import com.multi.lastproject.model.OrderInfoVO;
 import com.multi.lastproject.model.OrderProductVO;
+import com.multi.lastproject.model.ReviewVO;
+import com.multi.lastproject.service.BoardService;
 import com.multi.lastproject.service.CartService;
 import com.multi.lastproject.service.MemberService;
 import com.multi.lastproject.service.ProductService;
@@ -31,6 +33,10 @@ public class MemberController {
 	CartService cartservice;
 	@Autowired
 	ProductService prdservice;
+	@Autowired
+	BoardService service2;
+	
+
 	// 로그인 폼 이동
 	@RequestMapping("/loginForm")
 	public String loginForm() {
@@ -147,6 +153,7 @@ public class MemberController {
 			return 0;
 		}
 	}
+
 	@RequestMapping("/member/myorderInfo")
 	public String myorderInfo(Model model,HttpSession session) {
 		String memId=(String)session.getAttribute("sid");
@@ -161,4 +168,21 @@ public class MemberController {
 		model.addAttribute("cloAlllist", cloAlllist);
 		return "/member/myorderInfo";
 	}
+
+    
+    // 내 리뷰 리스트
+ 	@RequestMapping("/myreviewList")
+ 	public String myreviewList( Model model, HttpSession session) {
+		String id = (String) session.getAttribute("sid");
+ 		ArrayList<ReviewVO> myreviewList = service2.myreviewList(id);
+ 		
+ 		model.addAttribute("list", myreviewList);
+ 		
+// 		int total=service.getTotal(cri);
+//		PageMakerVO pageMaker=new PageMakerVO(cri,total);
+//		model.addAttribute("pageMaker", pageMaker);
+		
+ 		return "/member/myreviewForm";
+ 	}
+
 }

@@ -34,7 +34,7 @@ function commentUpdate(comNo, comText){
     
 };
  
-//댓글 수정
+/*//댓글 수정
 function commentUpdateProc(comNo){
     var updateContent = $('[name=content_'+comNo+']').val();
     
@@ -57,7 +57,7 @@ function commentDelete(comNo){
             if(data == 1) commentList(boardNo); //댓글 삭제후 목록 출력 
         }
     });
-};
+};*/
  
 //댓글 목록 
 function commentList(boardNo){
@@ -80,8 +80,8 @@ function commentList(boardNo){
 					var time=year + '-' + month  + '-' + day+" "+hours + ':' + minutes  + ':' + seconds;
                 a += '<div class="commentArea" style="border-bottom:1px solid darkgray; margin-bottom: 15px;">';
                 a += '<div class="commentInfo'+value.comNo+'">'+'작성자 : '+value.memId+"</div>";
-                a += '<div style="float:right;font-size:12px"><a style="cursor:pointer"  onclick="commentUpdate('+value.comNo+',\''+value.comText+'\')"> 수정 </a>';
-                a += '<a style="cursor:pointer" href="javascript:void(0); onclick="commentDelete('+value.comNo+')"> 삭제 </a> </div>';
+               // a += '<div style="float:right;font-size:12px"><a style="cursor:pointer"  onclick="commentUpdate('+value.comNo+',\''+value.comText+'\')"> 수정 </a>';
+               // a += '<a style="cursor:pointer" href="javascript:void(0); onclick="commentDelete('+value.comNo+')"> 삭제 </a> </div>';
                 a += '<div class="commentContent'+value.comNo+'"><p>'+value.comText +'</p>';
                 a +='<p id="date">'+time+'</p>';
                 a += '</div></div>';

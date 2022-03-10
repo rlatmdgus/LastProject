@@ -48,5 +48,5 @@
 		WHERE memId = #{memId}
 		AND memPw = #{memPw} 
 	</delete>
-
+	
 </mapper>
