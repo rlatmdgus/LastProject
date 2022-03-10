@@ -1,3 +1,12 @@
+@font-face {
+  font-family: MelonaFont; 
+  src: url("/font/BinggraeMelona.woff"); 
+}
+
+* {
+	font-family: MelonaFont;
+}
+
 .point-color {
 	color: #F40022;
 }
@@ -295,7 +304,7 @@ b {
 	margin-left: -45px;
 	font-size: 14px;
 	color: #007F66;
-	background: #FFA100;
+	background: #CCB11F;
 	z-index: 1;
 }
 
@@ -307,7 +316,7 @@ b {
 	bottom: 100%;
 	left: 10%;
 	margin-left: -10px;
-	border-color: transparent transparent #FFA100 transparent;
+	border-color: transparent transparent #CCB11F transparent;
 }
 
 .tooltipmenumenumenu:hover .tooltipmenumenumenu-text {

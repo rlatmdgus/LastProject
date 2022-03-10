@@ -1,4 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@font-face {
+  font-family: MelonaFont; 
+  src: url("/font/BinggraeMelona.woff"); 
+}
+
+* {
+	font-family: MelonaFont;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
 
 :root {
 	--checkbox-size: 15px;
@@ -12,7 +21,6 @@ body{
 	width: 100vw;
 	height: 100vh;
 	text-align: center;
-	font-family: 'Nunito', sans-serif;
 	background-color: var(--bg-color);
 	
 	margin: 0;
@@ -160,12 +168,6 @@ input[type="checkbox"]:focus + label {
     right: 1px;
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
-
-* {
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    border-radius: 5px;
-}
 
 textarea{
     background-color: #ffffff;

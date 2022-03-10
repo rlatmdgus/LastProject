@@ -20,8 +20,7 @@
 		<div class="findpw-form">
 			<form id="findpwForm" name="findpwForm">
 				<h2 class="title_pw">비밀번호 찾기</h2>
-				<h4 id="pw_value" class="pw_notice">
-					</h2>
+				<h4 id="pw_value" class="pw_notice"></h4>
 					<input type="text" id="memId" name="memId" class="memId"
 						placeholder="회원가입한 아이디를 입력하세요" required> 
 					<input type="text"
