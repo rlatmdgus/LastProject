@@ -42,4 +42,7 @@ public interface IBoardService {
 	void modifyBoard(BoardVO vo);
 	ArrayList<BoardVO> searchBoard(HashMap<String, Object> map);
 	
+	// 게시판 검색
+	ArrayList<BoardVO> selectBoard(String keyword);
+	
 }

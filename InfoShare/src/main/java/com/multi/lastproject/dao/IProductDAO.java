@@ -12,4 +12,5 @@ public interface IProductDAO {
 	public int getTotal();
 	public FoodProductVO getPage(String fdPrdNo);
 	public int getTotalBoard(String ctgId);
+	public ArrayList<FoodProductVO> selectProudct(String prdName);
 }

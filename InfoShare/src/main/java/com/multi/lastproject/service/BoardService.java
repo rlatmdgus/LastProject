@@ -115,6 +115,12 @@ public class BoardService implements IBoardService {
 		dao.deleteReview(revNo);
 	}
 
+	@Override
+	public ArrayList<BoardVO> selectBoard(String keyword) {
+		
+		return dao.selectBoard(keyword);
+	}
+
 	
 	
 	
