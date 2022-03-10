@@ -21,10 +21,10 @@
             1.
 
         -->
-			<input type="hidden" name="authorId" value="${sessionScope.sid}" />
-			<input type="hidden" name="authorHp" value="010-1234-5678" />
-			<input type="hidden" name="authorEmail" value="tmdgus123@naver.com" /> 
-			<input type="hidden" name="authorAddress" value="관악구 어딘가" />
+<%-- 			<input type="hidden" name="authorId" value="${sessionScope.sid}" /> --%>
+<!-- 			<input type="hidden" name="authorHp" value="010-1234-5678" /> -->
+<!-- 			<input type="hidden" name="authorEmail" value="tmdgus123@naver.com" />  -->
+<!-- 			<input type="hidden" name="authorAddress" value="관악구 어딘가" /> -->
 
 			<table>
 				<tr>

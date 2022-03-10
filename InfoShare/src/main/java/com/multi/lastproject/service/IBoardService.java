@@ -40,11 +40,13 @@ public interface IBoardService {
     // 댓글 삭제
     public int commentDelete(int comNo);
 	void modifyBoard(BoardVO vo);
-	ArrayList<BoardVO> searchBoard(HashMap<String, Object> map);
+	public ArrayList<BoardVO> searchBoard(HashMap<String, Object> map);
 
 	public ArrayList<ReviewVO> myreviewList(String memId);
 	
 	// 게시판 검색
-	ArrayList<BoardVO> selectBoard(String keyword);
+	public ArrayList<BoardVO> selectBoard(String keyword);
+
+	public ArrayList<ReviewVO> selectreview(String keyword);
 	
 }

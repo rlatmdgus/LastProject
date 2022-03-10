@@ -123,6 +123,13 @@ public class BoardService implements IBoardService {
 		
 		return dao.selectBoard(keyword);
 	}
+	
+	@Override
+	public ArrayList<ReviewVO> selectreview(String keyword) {
+		
+		return dao.selectreview(keyword);
+	}
+	
 
 	@Override
 	public ArrayList<ReviewVO> myreviewList(String memId) {
