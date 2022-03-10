@@ -1,5 +1,5 @@
 ![header](https://capsule-render.vercel.app/api?type=waving&color=gradient&height=300&section=header&text=Home%20Ground&fontSize=90)
-<h2>프로젝트 참여자들</h2>
+<h2>🌹프로젝트 참여자 🌹</h2>
 <table>
   <thead>
     <tr>
