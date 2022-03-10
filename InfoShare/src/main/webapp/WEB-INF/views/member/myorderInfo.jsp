@@ -39,7 +39,8 @@
 			<td colspan="3"><img src="${fd.fdPrdImg }" class="prd"></td>
 			</c:if>
 			</c:forEach></c:if>
-			<td colspan="2">${prd.ordQty }</td>
+			<td>${prd.cartPrdOption }</td>
+			<td>수량 : ${prd.ordQty }</td>
 			</c:if>
 			</tr>
 			</c:forEach>

@@ -161,7 +161,6 @@ public class MemberController {
 		ArrayList<OrderProductVO> ordProductList=cartservice.orderProductList(memId);
 		ArrayList<FoodProductVO> Alllist=prdservice.Alllist();
 		ArrayList<ClothsProductVO> cloAlllist=prdservice.cloAlllist();
-		
 		model.addAttribute("ordProductList", ordProductList);
 		model.addAttribute("ordInfoList", ordInfoList);
 		model.addAttribute("Alllist", Alllist);

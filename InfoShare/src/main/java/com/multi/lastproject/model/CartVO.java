@@ -10,6 +10,34 @@ public class CartVO {
 	private String fdPrdImg;
 	private String cloPrdCost;
 	private String fdPrdCost;
+	private String cartPrdOption;
+	private String cloPrdcolor;
+	private String cloPrdSize;
+	private String fdPrdWeight;
+	public String getFdPrdWeight() {
+		return fdPrdWeight;
+	}
+	public void setFdPrdWeight(String fdPrdWeight) {
+		this.fdPrdWeight = fdPrdWeight;
+	}
+	public String getCloPrdcolor() {
+		return cloPrdcolor;
+	}
+	public void setCloPrdcolor(String cloPrdcolor) {
+		this.cloPrdcolor = cloPrdcolor;
+	}
+	public String getCloPrdSize() {
+		return cloPrdSize;
+	}
+	public void setCloPrdSize(String cloPrdSize) {
+		this.cloPrdSize = cloPrdSize;
+	}
+	public String getCartPrdOption() {
+		return cartPrdOption;
+	}
+	public void setCartPrdOption(String cartPrdOption) {
+		this.cartPrdOption = cartPrdOption;
+	}
 	public String getCloPrdCost() {
 		return cloPrdCost;
 	}

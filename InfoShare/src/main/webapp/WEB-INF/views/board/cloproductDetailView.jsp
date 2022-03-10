@@ -52,21 +52,24 @@
 					<table>
 					<tr><td>작가 </td><td>${read.authorId }</td></tr>
 					<tr><td>평점</td><td> ${read.cloPrdGrade }</td></tr>
-					<tr><td>사이즈</td><td><select>
+					<tr><td>사이즈</td><td>
+					<select name="size" id="size">
 					<c:forEach items="${list }" var="li">
 					<option>${li }</option>
 					</c:forEach>
 					</select> </td></tr>
-					<tr><td>색상</td><td><select>
+					<tr><td>색상</td><td>
+					<select name="color" id="color">
 					<c:forEach items="${colorlist }" var="coli">
 					<option>${coli }</option>
 					</c:forEach>
 					</select> </td></tr>
 					<tr><td>가격</td><td><fmt:formatNumber value="${read.cloPrdPrice}" pattern="#,###원"/></td></tr>
 					<tr><td>배송비</td><td><fmt:formatNumber value="${read.cloPrdCost }" pattern="#,###원"/></td></tr>
-					<tr><td><input type="button" value="-" onClick="qtyChange(-1)">
+					<tr><td>설명</td><td>${read.cloPrdDescript }</td>
+					<tr><td><input type="button" value="-" onClick="qtyChange(-1)" class="qty">
 										<input type="text" id="cartQty" name="cartQty" value="1" size="1" readonly>
-										<input type="button" value="+" onClick="qtyChange(1)"> 개
+										<input type="button" value="+" onClick="qtyChange(1)" class="qty">
 								</td>
 						<td><span id="amount"><fmt:formatNumber value="${read.cloPrdPrice+read.cloPrdCost}" pattern="#,###원"/></span></td>
 								</tr>
@@ -78,11 +81,6 @@
 				</div>
 				
 				
-			</section>
-			<section id="textBox">
-			<div id="descriptBox">
-					${read.cloPrdDescript }
-				</div>
 			</section>
 		</div>
 	</body>

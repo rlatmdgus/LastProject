@@ -60,6 +60,7 @@
 								</tr>
 								
 					</table>
+					<input type="hidden" id="fdPrdWeight" name="fdPrdWeight" value="${read.fdPrdWeight }">
 					<input type="hidden" id="fdPrdNo" name="fdPrdNo" value="${read.fdPrdNo }">
 					<input type="submit" value="장바구니" class="b">
 					<input type="button" value="주문하기" class="b">

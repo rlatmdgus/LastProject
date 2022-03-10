@@ -27,7 +27,7 @@
 				<ul class="item">
 					<li><a
 						href="<c:url value='/readReview?revNo=${li.revNo }&ctgId=${ctgId}&deCtgId=${deCtgId }'/> "><img
-							class="move" src="<c:url value='${li.revImage }'/>"></a></li>
+							class="move" src="<c:url value='${li.revImage }'/>" onerror="this.src='<c:url value="/image/noimage.jpg"/>'"></a></li>
 					<li class="a"><a
 						href="<c:url value='/readReview?revNo=${li.revNo }&ctgId=${ctgId}&deCtgId=${deCtgId }'/> ">${li.revTitle }</a></li>
 					<li class="b">${li.memId }</li>

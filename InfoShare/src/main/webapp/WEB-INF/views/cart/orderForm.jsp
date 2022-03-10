@@ -50,7 +50,7 @@
 				<br>
 				<form method="post"  action="<c:url value="/orderComplete"/>">
 					<h3>주문자 정보</h3>
-					<table border="1" width="700">
+					<table  width="700">
 						<tr><th>주문자</th>
 								<td width="200">${memDto.memName}
 															<input type="hidden" name="memId" value="${memDto.memId}"></td>
@@ -59,7 +59,7 @@
 					</table>
 					<br>
 					<h3>수령인 정보</h3>
-					<table border="1" width="700">
+					<table width="700">
 						<tr><th>받는분</th><td width="200"><input type="text" name="ordReceiver" value="${memDto.memName}" ></td>
 						<th>연락처</th>
 								<td><input type="text" name="hp1" size="3" value="${hp1}"> - 
@@ -67,8 +67,8 @@
 										<input type="text" name="hp3" size="4"  value="${hp3}"></td></tr>
 						<tr><th>배송지 주소</th>
 								<td colspan="3">
-										<input type="text" id="ordRcvZipcode" name="ordRcvZipcode"   size="5"  value="" > 
-										<input type="button" id="searchZip" name="searchZip" value="우편번호찾기" readonly 
+										<input type="text" id="ordRcvZipcode" name="ordRcvZipcode"   size="5"  value="" readonly > 
+										<input type="button" id="searchZip" name="searchZip" value="우편번호찾기"  
 													onclick="searchZipcode()"><br>
 										<input type="text"  id="ordRcvAddress1"  name="ordRcvAddress1" size="70"  
 													value="${memDto.memAddress}"  readonly><br> 
@@ -84,22 +84,24 @@
 					</table><br>				
 					
 					<h3>주문 상품 목록</h3>
-					<table id="cartTable" border="1" width="700">
+					<table id="cartTable"  width="700">
 						<tr><th>상품번호</th><th>사진</th><th>상품명</th><th>가격</th>
-							    <th>주문수량 </th><th>구매예정금액</th></tr>				 
+							   <th>옵션</th> <th>주문수량 </th><th>구매예정금액</th></tr>				 
 				   		<c:forEach items="${clocartList}" var="clo">   
 							 <tr>  
 							 	  <td>${clo.cloPrdNo}</td>     					      
-							      <td><img  src="<c:url value='${clo.cloPrdImg }'/>" width="50px" height="30px"></td>					      	
+							      <td><img  src="<c:url value='${clo.cloPrdImg }'/>" width="100px" height="50px"></td>					      	
 							      <td>${clo.cloPrdName}</td>	      
 							      <td align="right"><fmt:formatNumber value="${clo.cloPrdPrice}" pattern="#,###" /> 원 </td> 						      			
+							      <td>${clo.cartPrdOption }</td>
 							      <td>		
 							      			${clo.cartQty }
 											<input type="hidden" name="clocartQty" value="${clo.cartQty}" >
 							      			<input type="hidden" name="cloPrdNo" value="${clo.cloPrdNo}">
 							      			<input type="hidden" name="cloPrdPrice" value="${clo.cloPrdPrice}">
 							      			
-								  </td>		
+								  </td>
+								  
 								  <td  align="right"> <span class="amount">
 								  				<c:set var="amount" value="${clo.cloPrdPrice * clo.cartQty+clo.cloPrdCost }" />
 								  				<c:set var="sum" value="${sum + amount }" />
@@ -110,15 +112,17 @@
 								  <c:forEach items="${fdcartList }" var="fd">
 								  <tr>
 								  <td>${fd.fdPrdNo}</td>     					      
-							      <td><img  src="<c:url value='${fd.fdPrdImg }'/>" width="50px" height="30px"></td>					      	
+							      <td><img  src="<c:url value='${fd.fdPrdImg }'/>" width="100px" height="50px"></td>					      	
 							      <td>${fd.fdPrdName}</td>	      
-							      <td align="right"><fmt:formatNumber value="${fd.fdPrdPrice}" pattern="#,###" /> 원 </td> 						      			
+							      <td align="right"><fmt:formatNumber value="${fd.fdPrdPrice}" pattern="#,###" /> 원 </td>
+							      <td>${fd.cartPrdOption }</td> 						      			
 							      <td>		${fd.cartQty}
 											<input type="hidden" name="fdcartQty" value="${fd.cartQty}" size="1">
 							      			<input type="hidden" name="fdPrdNo" value="${fd.fdPrdNo}">
 							      			<input type="hidden" name="fdPrdPrice" value="${fd.fdPrdPrice}">
 							      			
 								  </td>		
+							
 								  <td  align="right"> <span class="amount">
 								  				<c:set var="amount" value="${fd.fdPrdPrice * fd.cartQty+fd.fdPrdCost }" />
 								  				<c:set var="sum" value="${sum + amount }" />
@@ -126,12 +130,12 @@
 										    </span> 원 </td>	
 						     </tr>							     						
 							</c:forEach>
-						<tr><td colspan="5" >총구매예정금액 </td>
-								<td align="right"><fmt:formatNumber value="${sum}" pattern="#,###" /> 원<br></td></tr>			
+						<tr><td colspan="6" >총구매예정금액 </td>
+								<td align="center"><fmt:formatNumber value="${sum}" pattern="#,###" /> 원<br></td></tr>			
 					</table><br>
 					
 					<h3>결제 정보</h3>
-					<table  border="1" width="700">
+					<table width="700">
 						<tr><th>결제방법</th>
 								<td ><input type="radio" name="ordPay" value="card" checked>신용카드
                                    <input type="radio" name="ordPay" value="bank">실시간계좌이체</td></tr>

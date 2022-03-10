@@ -6,11 +6,11 @@
   <mapper namespace="com.multi.lastproject.dao.ICartDAO">
   	
   	<!-- 장바구니에 동일 상품이 존재하는지 확인 -->
-  	<select id="checkPrdInCart" parameterType="hashmap"
+  	<select id="checkPrdInCart" parameterType="com.multi.lastproject.model.CartVO"
   												  resultType="int">
   		SELECT COUNT(*)
   		FROM cart
-  		WHERE cloPrdNo=#{cloPrdNo} AND memId=#{memId}
+  		WHERE cloPrdNo=#{cloPrdNo} AND memId=#{memId} AND cloPrdcolor=#{cloPrdcolor} AND cloPrdSize=#{cloPrdSize}
   									  
   	</select>
   	<select id="checkFdPrdInCart" parameterType="hashmap"
@@ -22,8 +22,8 @@
   	</select>
   	<!-- 장바구니에 동일 상품이 존재하지 않으면 장바구니에 추가  -->
   	<insert id="insertCart"  parameterType="com.multi.lastproject.model.CartVO">
-  		INSERT INTO cart(memId, cloPrdNo,fdPrdNo, cartQty)
-  		VALUES (#{memId}, #{cloPrdNo},#{fdPrdNo}, #{cartQty})
+  		INSERT INTO cart(memId, cloPrdNo,fdPrdNo, cartQty,cartPrdOption,cloPrdcolor,cloPrdSize,fdPrdWeight)
+  		VALUES (#{memId}, #{cloPrdNo},#{fdPrdNo}, #{cartQty},#{cartPrdOption},#{cloPrdcolor},#{cloPrdSize},#{fdPrdWeight})
   	</insert>
   	
   	<!-- 장바구니에 동일 상품이 존재하면 주문수량 변경 -->
@@ -37,14 +37,16 @@
   	<!-- 장바구니 목록 출력 -->
   	<select id="cartList" parameterType="string"
   	 				resultType="com.multi.lastproject.model.CartVO">
-  		SELECT c.cartNo, cp.cloPrdNo, cp.cloPrdImg, cp.cloPrdName, cp.cloPrdPrice, c.cartQty, c.memId,cp.cloPrdCost
+  		SELECT c.cartNo, cp.cloPrdNo, cp.cloPrdImg, cp.cloPrdName, cp.cloPrdPrice, c.cartQty, c.memId,cp.cloPrdCost,
+  		c.cartPrdOption,c.cloPrdcolor,c.cloPrdSize
   		FROM clothosproduct cp, cart c
   		WHERE cp.cloPrdNo = c.cloPrdNo  AND c.memId=#{memId}
   		ORDER BY c.cartNo
   	</select>
  	<select id="fdcartList" parameterType="string"
   	 				resultType="com.multi.lastproject.model.CartVO">
-  		SELECT c.cartNo, fp.fdPrdNo, fp.fdPrdImg, fp.fdPrdName, fp.fdPrdPrice, c.cartQty, c.memId,fp.fdPrdCost
+  		SELECT c.cartNo, fp.fdPrdNo, fp.fdPrdImg, fp.fdPrdName, fp.fdPrdPrice, c.cartQty, c.memId,fp.fdPrdCost,
+  		c.cartPrdOption,c.fdPrdWeight
   		FROM foodproduct fp, cart c
   		WHERE fp.fdPrdNo = c.fdPrdNo  AND c.memId=#{memId}
   		ORDER BY c.cartNo
@@ -78,8 +80,9 @@
 			select * from order_product where memId=#{memId}
 		</select>
 		<insert id="insertOrderProduct" parameterType="hashmap" >
-			INSERT INTO order_product (ordNo, cloPrdNo,fdPrdNo, ordQty,memId)
-					SELECT #{ordNo}, cloPrdNo,fdPrdNo, cartQty,#{memId} FROM cart WHERE memId = #{memId}
+			INSERT INTO order_product (ordNo, cloPrdNo,fdPrdNo, ordQty,memId,cartPrdOption,cloPrdcolor,cloPrdSize,fdPrdWeight)
+					SELECT #{ordNo}, cloPrdNo,fdPrdNo, cartQty,#{memId},cartPrdOption,cloPrdcolor,cloPrdSize,fdPrdWeight
+					 FROM cart WHERE memId = #{memId}
 		</insert>
   </mapper>
   

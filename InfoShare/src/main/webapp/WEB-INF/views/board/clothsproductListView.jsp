@@ -70,7 +70,7 @@
 				<div class="box">
 			<c:forEach items="${list }" var="clo">
 				<ul class="item">										
-					<li><a href="<c:url value='/readCloProduct?cloPrdNo=${clo.cloPrdNo }'/> " ><img class="move" src="<c:url value='${clo.cloPrdImg }'/>"></a></li>
+					<li><a href="<c:url value='/readCloProduct?cloPrdNo=${clo.cloPrdNo }'/> " ><img class="move" src="<c:url value='${clo.cloPrdImg }'  />" onerror="this.src='<c:url value="/image/noimage.jpg"/>'"></a></li>
 					<li class="a">${clo.cloPrdName }</li>
 					<li class="b">${clo.cloPrdPrice }</li>
 					<li class="c">${clo.cloPrdDescript }</li>

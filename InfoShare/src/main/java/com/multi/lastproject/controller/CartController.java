@@ -27,9 +27,14 @@ public class CartController {
 	
 	// 장바구니에 추가
 	@RequestMapping("/insertCart")
-	public String insertCart(CartVO vo, HttpSession session,@RequestParam("cloPrdNo") String cloPrdNo) {
+	public String insertCart(CartVO vo, HttpSession session,@RequestParam("cloPrdNo") String cloPrdNo,
+			@RequestParam("color") String color,@RequestParam("size") String size) {
 		// 로그인 성공 시 설정한 세션 sid 값 가져와서 memId에 저장
 		String memId = (String)session.getAttribute("sid");
+		String descript="색상 : "+color+" 사이즈 : "+size;
+		vo.setCartPrdOption(descript);
+		vo.setCloPrdcolor(color);
+		vo.setCloPrdSize(size);
 		vo.setMemId(memId);
 		vo.setCloPrdNo(cloPrdNo);
 		// 동일 상품이 존재하는 지 확인
@@ -45,8 +50,11 @@ public class CartController {
 		return "redirect:/cartList";
 	}
 	@RequestMapping("/insertFoodCart")
-	public String insertFoodCart(CartVO vo, HttpSession session,@RequestParam("fdPrdNo") String fdPrdNo) {
+	public String insertFoodCart(CartVO vo, HttpSession session,@RequestParam("fdPrdNo") String fdPrdNo
+			) {
+		String descript="용량 : "+vo.getFdPrdWeight();
 		// 로그인 성공 시 설정한 세션 sid 값 가져와서 memId에 저장
+		vo.setCartPrdOption(descript);
 		String memId = (String)session.getAttribute("sid");
 		vo.setMemId(memId);
 		vo.setFdPrdNo(fdPrdNo);
@@ -109,6 +117,11 @@ public class CartController {
 															@RequestParam("cartNo") int[] clocartNo,
 															@RequestParam("fdcartQty") int[] fdcartQty,
 															@RequestParam("clocartQty") int[] clocartQty,
+															@RequestParam("cartPrdOption") String cartPrdOption,
+															@RequestParam("fdcartPrdOption") String fdcartPrdOption,
+															@RequestParam("cloPrdSize") String cloPrdSize,
+															@RequestParam("cloPrdcolor") String cloPrdcolor,
+															@RequestParam("fdPrdWeight") String fdPrdWeight,
 															Model model) {		
 			
 

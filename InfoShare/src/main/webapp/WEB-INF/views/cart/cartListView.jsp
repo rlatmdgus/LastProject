@@ -23,10 +23,11 @@
     	<table id="product" >
     	<tr id="cart-header">
     	<td><input type="checkbox" id="allCheck" name="allCheck">전체 선택</td>
-    	<td>이미지</td><td>상품명</td><td>가격</td><td>수량</td><td>배송비</td><td>합계</td>
+    	<td>이미지</td><td>옵션</td><td>상품명</td><td>가격</td><td>수량</td><td>배송비</td><td>합계</td>
     	<c:forEach items="${ clocartList}" var="cart">
     	<tr><td><input type="checkbox" class="chkDelete" name="chkDelete" data-cartNo=${cart.cartNo }></td>
     	<td><img class="prdImg" src="${cart.cloPrdImg}"></td>
+    	<td>${cart.cartPrdOption }</td>
     	<td>${cart.cloPrdName }</td>
     	<td>${cart.cloPrdPrice }</td>
     	<td>${cart.cartQty }</td>
@@ -39,6 +40,7 @@
     	<c:forEach items="${ fdcartList}" var="fd">
     	<tr><td><input type="checkbox" class="chkDelete" name="chkDelete" data-cartNo=${fd.cartNo }></td>
     	<td><img class="prdImg"  src="${fd.fdPrdImg}"></td>
+    	<td>${fd.cartPrdOption }</td>
     	<td>${fd.fdPrdName }</td>
     	<td>${fd.fdPrdPrice }</td>
     	<td>${fd.cartQty }</td>
@@ -62,6 +64,11 @@
     <input type="hidden" id="cloPrdNo" name="cloPrdNo" value="${clo.cloPrdNo }">
     <input type="hidden" name="fdPrdPrice" id="fdPrdPrice" value="${fd.fdPrdPrice}">
     <input type="hidden" name="cloPrdPrice" id="cloPrdPrice" value="${clo.cloPrdPrice}">
+    <input type="hidden" id="cartPrdOption" name="cartPrdOption" value="${clo.cartPrdOption }">
+    <input type="hidden" id="fdcartPrdOption" name="fdcartPrdOption" value="${fd.cartPrdOption }">
+    <input type="hidden" name="cloPrdcolor" id="cloPrdcolor" value="${clo.cloPrdcolor}">
+    <input type="hidden" name="cloPrdSize" id="cloPrdSize" value="${clo.cloPrdSize}">
+    <input type="hidden" name="fdPrdWeight" id="fdPrdWeight" value="${fd.fdPrdWeight}">
     </div>
     <hr>
     <div id="delete">

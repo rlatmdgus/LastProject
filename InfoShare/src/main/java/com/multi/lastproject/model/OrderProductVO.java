@@ -6,6 +6,34 @@ public class OrderProductVO {
 	private String fdPrdNo;
 	private int ordQty;
 	private String memId;
+	private String cartPrdOption;
+	private String cloPrdcolor;
+	private String cloPrdSize;
+	private String fdPrdWeight;
+	public String getCartPrdOption() {
+		return cartPrdOption;
+	}
+	public void setCartPrdOption(String cartPrdOption) {
+		this.cartPrdOption = cartPrdOption;
+	}
+	public String getCloPrdcolor() {
+		return cloPrdcolor;
+	}
+	public void setCloPrdcolor(String cloPrdcolor) {
+		this.cloPrdcolor = cloPrdcolor;
+	}
+	public String getCloPrdSize() {
+		return cloPrdSize;
+	}
+	public void setCloPrdSize(String cloPrdSize) {
+		this.cloPrdSize = cloPrdSize;
+	}
+	public String getFdPrdWeight() {
+		return fdPrdWeight;
+	}
+	public void setFdPrdWeight(String fdPrdWeight) {
+		this.fdPrdWeight = fdPrdWeight;
+	}
 	public String getMemId() {
 		return memId;
 	}
