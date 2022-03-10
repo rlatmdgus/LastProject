@@ -1,6 +1,8 @@
 package com.multi.lastproject.service;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -52,4 +54,15 @@ public class MemberService implements IMemberService {
 	public MemberVO memberInfo(String memId) {
 		return dao.memberInfo(memId);
 	}
+	
+	@Override
+	public ArrayList<MemberVO> serachid(HashMap<String, Object> map) {
+		return dao.serachid(map);
+	}
+	
+	@Override
+	public ArrayList<MemberVO> serachpw(HashMap<String, Object> map) {
+		return dao.serachpw(map);
+	}
+
 }

@@ -111,6 +111,7 @@
                             </select> -
                             <input type="text" name="hp2" id="hp2" class="int_email_input" style="width: 130px"> -
                             <input type="text" name="hp3" id="hp3" class="int_email_input" style="width: 130px">
+                            <div id="hpError" class="error"></div>
                         </td>
                     </tr>
                     <tr>
@@ -123,6 +124,7 @@
                                 <option value="nate.com">nate.com
                                 <option value="hanmail.net">hanmail.net
                             </select>
+                            <div id="emailError" class="error"></div>
                         </td>
                     </tr>
                     <tr>
@@ -134,21 +136,22 @@
                         	</div>
                         	<div>
                         		<input type="text"  id="address1"  name="address1" class="int" readonly><br> 
-								<input type="text" id="address2"  name="address2" class="int" style="margin-top: 0px; margin-bottom: 30px;" placeholder="상세 주소 입력">
+								<input type="text" id="address2"  name="address2" class="int" style="margin-top: 0px; margin-bottom: 20px;" placeholder="상세 주소 입력">
                         	</div>
+                        	<div id="zipError" class="error"></div>
                         </td>
                     </tr>
-                    <tr>
-                    	<td class="Cn"><label for="myLOC">현재위치</label></td>
-                        <td class="Cn2">
-                        	<div style="height: 0px;">
-                        		<input type="text"  id="myLOCint"  name="myLOCint" class="myLOCint" readonly><br>
-                        	</div>
-                        	<div>
-								<input type="button" id="myLOC" name="myLOC" value="현재위치" class="myLOCbtn" onclick="wichiPopUp()">
-                        	</div>
-                        </td>
-                    </tr>
+<!--                     <tr> -->
+<!--                     	<td class="Cn"><label for="myLOC">현재위치</label></td> -->
+<!--                         <td class="Cn2"> -->
+<!--                         	<div style="height: 0px;"> -->
+<!--                         		<input type="text"  id="myLOCint"  name="myLOCint" class="myLOCint" readonly><br> -->
+<!--                         	</div> -->
+<!--                         	<div> -->
+<!-- 								<input type="button" id="myLOC" name="myLOC" value="현재위치" class="myLOCbtn" onclick="wichiPopUp()"> -->
+<!--                         	</div> -->
+<!--                         </td> -->
+<!--                     </tr> -->
                     <tr>
                         <td class="create" colspan="2">
                             <input class="CelBtu" type="button" value="취    소" onclick="cancel()">

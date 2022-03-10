@@ -1,6 +1,8 @@
 package com.multi.lastproject.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import com.multi.lastproject.model.MemberVO;
 
@@ -15,5 +17,6 @@ public interface IMemberDAO {
 	int accountDelete(MemberVO vo);
 	void infoedit(MemberVO vo);
 	MemberVO memberInfo(String memId);
-	
+	ArrayList<MemberVO> serachid(HashMap<String, Object> map);
+	ArrayList<MemberVO> serachpw(HashMap<String, Object> map);
 }

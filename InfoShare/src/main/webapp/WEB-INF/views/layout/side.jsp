@@ -22,7 +22,7 @@
 							<span>주문내역</span>
 						</a>
 						<a href="<c:url value=''/>"  class="my-menu-a"><span>취소 & 환불내역</span></a>
-						<a href="<c:url value=''/>" class="my-menu-a"><span>내가 쓴 후기</span></a>
+						<a href="<c:url value='/myreviewList'/>" class="my-menu-a"><span>내가 쓴 후기</span></a>
 						<a href="<c:url value=''/>" class="my-menu-a"><span>찜 목록</span></a>
 						<a href="<c:url value=''/>" class="my-menu-a"><span>팔로우하는 작가</span></a>
 						<a href="<c:url value='/infoedit/${sessionScope.sid}'/>" class="my-menu-a"><span>내 정보 관리</span></a>

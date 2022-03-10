@@ -1,10 +1,14 @@
 package com.multi.lastproject.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,13 +16,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.multi.lastproject.model.BoardVO;
+import com.multi.lastproject.model.Criteria;
 import com.multi.lastproject.model.MemberVO;
+import com.multi.lastproject.model.PageMakerVO;
+import com.multi.lastproject.model.ReviewVO;
+import com.multi.lastproject.service.BoardService;
 import com.multi.lastproject.service.MemberService;
 
 @Controller
 public class MemberController {
 	@Autowired
 	MemberService service;
+	@Autowired
+	BoardService service2;
+
 	
 	// 로그인 폼 이동
 	@RequestMapping("/loginForm")
@@ -134,5 +146,55 @@ public class MemberController {
 			return 0;
 		}
 	}
+    
+    // 내 리뷰 리스트
+ 	@RequestMapping("/myreviewList")
+ 	public String myreviewList( Model model, HttpSession session) {
+		String id = (String) session.getAttribute("sid");
+ 		ArrayList<ReviewVO> myreviewList = service2.myreviewList(id);
+ 		
+ 		model.addAttribute("list", myreviewList);
+ 		
+// 		int total=service.getTotal(cri);
+//		PageMakerVO pageMaker=new PageMakerVO(cri,total);
+//		model.addAttribute("pageMaker", pageMaker);
+		
+ 		return "/member/myreviewForm";
+ 	}
+ 	
+ 	//아이디 찾기 폼으로 이동
+ 	@RequestMapping("/findid")
+	public String findid() {
+		return "/member/findidform";
+	}
+ 	
+ 	//아이디 찾기 
+ 	@ResponseBody
+	@RequestMapping("/serachid")
+ 	public ArrayList<MemberVO> serachid(@RequestParam HashMap<String, Object> param, 
+			Model model){
+
+		ArrayList<MemberVO> memList = service.serachid(param);
+		model.addAttribute("memList", memList);
+
+		return memList;
+	}
+ 	
+	// 비밀번호 찾기 폼으로 이동
+	@RequestMapping("/findpw")
+	public String findpw() {
+		return "/member/findpwform";
+	}
 	
+	//아이디 찾기 
+	 	@ResponseBody
+		@RequestMapping("/serachpw")
+	 	public ArrayList<MemberVO> serachpw(@RequestParam HashMap<String, Object> param, 
+				Model model){
+
+			ArrayList<MemberVO> memList = service.serachpw(param);
+			model.addAttribute("memList", memList);
+
+			return memList;
+		}
 }

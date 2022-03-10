@@ -1,18 +1,26 @@
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@font-face {
+  font-family: MelonaFont; 
+  src: url("/font/BinggraeMelona.woff"); 
+}
+
+* {
+	font-family: MelonaFont;
+    box-sizing: border-box;
+    border-radius: 5px;
+}
 
 :root {
 	--checkbox-size: 15px;
 	--bg-color: #FFA69E;
-	--checkbox-color: #1bbc9b;
+	--checkbox-color: #28CC71;
 	--hover-color: #FF686B;
-	--tick-color: #1bbc9b;
+	--tick-color: #28CC71;
 }
 
 body{
 	width: 100vw;
 	height: 100vh;
 	text-align: center;
-	font-family: 'Nunito', sans-serif;
 	background-color: var(--bg-color);
 	
 	margin: 0;
@@ -137,7 +145,7 @@ input[type="checkbox"]:focus + label {
 }
 
 .btn {
-    background-color: #49dfc1;
+    background-color: #28CC71;
     font-weight: bold;
     color: white;
     padding: 10px 16px;
@@ -149,8 +157,9 @@ input[type="checkbox"]:focus + label {
   }
 
   .btn:hover {
-    background-color: #43b39c;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    background-color: #0D8040;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
+		rgba(0, 0, 0, 0.23);
   }
 
   .btn:active {
@@ -160,22 +169,16 @@ input[type="checkbox"]:focus + label {
     box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   }
 
-* {
-    box-sizing: border-box;
-    font-family: 'Noto Sans KR', sans-serif;
-    border-radius: 5px;
-}
-
 textarea{
     background-color: #ffffff;
     height: 240px;
-    border: solid 1px #1BBC9B;
+    border: solid 1px #28CC71;
     resize: none;
     font-size: 10pt;
 }
 
 .req{
-    color: #1bbc9b;
+    color: #28CC71;
 }
 
 .btB{

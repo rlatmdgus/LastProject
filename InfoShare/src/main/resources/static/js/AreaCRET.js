@@ -143,59 +143,69 @@ function searchCoordinateToAddress(latlng) {
     var address = response.v2.address;
     console.log(address);
     
-    if (address.jibunAddress !== '' || address.roadAddress !== ''){
-		if(address.jibunAddress.substr(0,4) == '경상북도' || address.jibunAddress.substr(0,4) == '경상남도' 
-		|| address.jibunAddress.substr(0,4) == '전라북도' || address.jibunAddress.substr(0,4) == '전라남도'
-		|| address.jibunAddress.substr(0,4) == '충청북도' || address.jibunAddress.substr(0,4) == '충청남도'){
-			area = address.jibunAddress.substr(0,1)+address.jibunAddress.substr(2,1);
-		}
-		else{
-			area = address.jibunAddress.substr(0,2);
-		}
+//    if (address.jibunAddress !== '' || address.roadAddress !== ''){
+//		if(address.jibunAddress.substr(0,4) == '경상북도' || address.jibunAddress.substr(0,4) == '경상남도' 
+//		|| address.jibunAddress.substr(0,4) == '전라북도' || address.jibunAddress.substr(0,4) == '전라남도'
+//		|| address.jibunAddress.substr(0,4) == '충청북도' || address.jibunAddress.substr(0,4) == '충청남도'){
+//			area = address.jibunAddress.substr(0,1)+address.jibunAddress.substr(2,1);
+//		}
+//		else{
+//			area = address.jibunAddress.substr(0,2);
+//		}
+//	}
+	if(address.roadAddress == ''){
+		area = address.jibunAddress;
+	}
+	else{
+		area = address.roadAddress;
 	}
   });
   return area;
 }
 
 $(document).ready(function() {
-
 	
-	const data = navigator.geolocation.getCurrentPosition(
-		(data) => { // success
-			console.log(data);
-			const lat = data.coords.latitude;
-			const long = data.coords.longitude;
-			console.log("현재 위치 " + lat + ", " + long);
-
-			curtLoca = new naver.maps.LatLng(lat, long);
-
-			map.setCenter(curtLoca);
-
-			// 지도의 줌 레벨을 변경합니다.
-			map.setZoom(10);
-
-			// 현재 위치에 마커 표시
-			nowmarker = new naver.maps.Marker({
-				position: curtLoca,
-				map: map,
-				icon: { url: "/imgs/maker.png" }
-			});
-
-			var nowmarkerClick = function() {
-				return function(e) {
-					//alert("현재 위치 " + pcy + "," + pcx);
-					const result = searchCoordinateToAddress(e.coord);
-					alert("현재 위치: " + result);
-				}
-			}
-
-			naver.maps.Event.addListener(nowmarker, 'click', nowmarkerClick());
-
-		}, (error, status) => { // error
-
-			console.log(error, status);
-
+	var lat = "";
+	var long = "";
+	
+	$.getJSON('http://www.geoplugin.net/json.gp', function(data) {
+		console.log(JSON.stringify(data, null, 2));
+		
+		lat = data.geoplugin_latitude;
+		long = data.geoplugin_longitude;
+		console.log("위도, 경도 얻는 부분: "+lat + ", " + long);
+		Position();
+	});
+	
+	function Position(){
+		console.log("현재 위치 " + lat + ", " + long);
+	
+		curtLoca = new naver.maps.LatLng(lat, long);
+		console.log(curtLoca);
+		map.setCenter(curtLoca);
+	
+		// 지도의 줌 레벨을 변경합니다.
+		map.setZoom(10);
+	
+		// 현재 위치에 마커 표시
+		nowmarker = new naver.maps.Marker({
+			position: curtLoca,
+			map: map,
+			icon: { url: "/imgs/maker.png" }
 		});
+		
+		var nowmarkerClick = function() {
+			return function(e) {
+				//alert("현재 위치 " + pcy + "," + pcx);
+				const result = searchCoordinateToAddress(curtLoca);
+				alert("현재 위치: " + result);
+			}
+		}
+	
+		naver.maps.Event.addListener(nowmarker, 'click', nowmarkerClick());
+	}
+		
+
 	$('#locCheck').on('click', function() {
 		self.close();
 	});

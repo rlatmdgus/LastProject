@@ -11,6 +11,7 @@ import com.multi.lastproject.model.BoardVO;
 import com.multi.lastproject.model.CommentVO;
 import com.multi.lastproject.model.Criteria;
 import com.multi.lastproject.model.ReviewVO;
+
 @Service
 public class BoardService implements IBoardService {
 @Autowired
@@ -97,6 +98,8 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		return dao.reviewList(cri);
 	}
+	
+	
 	@Override
 	public ReviewVO getReview(int revNo) {
 		// TODO Auto-generated method stub
@@ -121,7 +124,10 @@ public class BoardService implements IBoardService {
 		return dao.selectBoard(keyword);
 	}
 
-	
-	
+	@Override
+	public ArrayList<ReviewVO> myreviewList(String memId) {
+		// TODO Auto-generated method stub
+		return dao.myreviewList(memId);
+	}
 	
 }

@@ -45,7 +45,10 @@ public interface IBoardDAO {
     public int commentDelete(int comNo);
 
     ArrayList<BoardVO> searchBoard(HashMap<String, Object> map);
-
+  
 	public ArrayList<BoardVO> selectBoard(String keyword);
+
+	public ArrayList<ReviewVO> myreviewList(String memId);
+
 
 }

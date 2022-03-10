@@ -1,68 +1,79 @@
-.title{
-      margin-top: auto;
-      text-align: center;
-      color: #1bbc9b;
-      margin-bottom: 20px;
+.title {
+	margin-top: auto;
+	text-align: center;
+	color: #28CC71;
+	margin-bottom: 20px;
 }
- 
-.lg-body {
-    margin: 0;
-    background-color: #F8F9FA;
-}
-   
+
 .login-form {
-  width: 300px;
-  background-color: #EEEFF1;
-  margin-right: auto;
-  margin-left: auto;
-  margin-top: 50px;
-  padding: 20px;
-  text-align: center;
-  border: none;
-  /*box-shadow: 10px 10px 12px 3px rgba(0,0,0,0.39);*/
+	width: 300px;
+	background-color: #EEEFF1;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 50px;
+	padding: 20px;
+	text-align: center;
+	border: none;
+	/*box-shadow: 10px 10px 12px 3px rgba(0,0,0,0.39);*/
 }
-   
-  .text-field {
-        font-size: 14px;
-        padding: 10px;
-        border: none;
-        width: 260px;
-        margin-bottom: 10px;
-   
-  }
-  
-  .links {
-      text-align: center;
-      margin-top: 10px;
-	  margin-bottom: 0px;
-  }
-   
-  .links a {
-    font-size: 12px;
-    color: #9B9B9B;
-  }
 
-  .bt {
-    width: 260px;
-    background-color: #49dfc1;
-    font-weight: bold;
-    color: white;
-    padding: 10px 16px;
-    font-size: 1rem;
-    border-radius: .5rem;
-    transition: all .15s cubic-bezier(0.4,0,0.2,1);
-    border: none;
-    cursor: pointer;
-  }
+.text-field {
+	font-size: 14px;
+	padding: 10px;
+	border: none;
+	width: 260px;
+	margin-bottom: 10px;
+}
 
-  .bt:hover {
-    background-color: #43b39c;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
-  }
+.links {
+	text-align: center;
+	margin-top: 10px;
+	margin-bottom: 0px;
+	font-weight:bold;
+	font-size: 15px;
+	color: #0F4D2B;
+}
 
-  .bt:active {
-    position: relative;
-    top: 1px;
-    right: 1px;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-  }
+.links a {
+	font-size: 12px;
+	color: #9B9B9B;
+}
+
+.bt {
+	width: 260px;
+	background-color: #28CC71;
+	font-weight: bold;
+	color: white;
+	padding: 10px 16px;
+	font-size: 1rem;
+	border-radius: .5rem;
+	transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+	border: none;
+	cursor: pointer;
+}
+
+.bt:hover {
+	background-color: #0D8040;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
+		rgba(0, 0, 0, 0.23);
+}
+
+.bt:active {
+	position: relative;
+	top: 1px;
+	right: 1px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.findbox{
+	display: flex;
+	justify-content: flex-end;
+	margin-top: 10px;
+	margin-right: 10px;
+}
+
+.find-a {
+	margin: 0px;
+	text-decoration: none !important;
+	color: #666
+}
