@@ -4,4 +4,5 @@ import com.multi.lastproject.model.AuthorVO;
 
 public interface IAuthorService {
 	void insertAuthor(AuthorVO vo);
+	
 }

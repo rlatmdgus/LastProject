@@ -44,4 +44,7 @@ public interface IBoardService {
 
 	public ArrayList<ReviewVO> myreviewList(String memId);
 	
+	// 게시판 검색
+	ArrayList<BoardVO> selectBoard(String keyword);
+	
 }
