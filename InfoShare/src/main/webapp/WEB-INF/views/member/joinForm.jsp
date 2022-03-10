@@ -9,10 +9,12 @@
     <link href="<c:url value='/css/join.css'/>" rel="stylesheet" type="text/css">
 
     <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+    <script src="<c:url value='/js/wichipopup.js'/>"></script>
+    <script src="<c:url value='/js/AreaCRET.js'/>"></script>
     <script src="<c:url value='/js/join.js'/>"></script>
     <script src="<c:url value='/js/memIdCheck.js'/>"></script>
     <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
-    <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script src="<c:url value='/js/searchZip.js'/>"></script>	
 </head>
 <body>
@@ -81,8 +83,8 @@
                             <label for="memBirth">생년원일</label>
                         </td>
                         <td class="Cn2">
-                            <input type="text" name="memBirth" id="memBirth" class="int" placeholder="ex.20220101"
-                                onfocus="this.placeholder=''" onblur="this.placeholder='ex.20220101'">
+                            <input type="text" name="memBirth" id="memBirth" class="int" placeholder="ex.2022-01-01"
+                                onfocus="this.placeholder=''" onblur="this.placeholder='ex.2022-01-01'">
                             <div id="BirthError" class="error"></div>
                         </td>
                     </tr>
@@ -100,15 +102,15 @@
                     <tr>
                         <td class="Cn"><label for="hp1">전화번호</label></td>
                         <td class="Cn2">
-                            <select name="hp1" class="int_hp" id="hp1">
+                            <select name="hp1" class="int_email_input" id="hp1" style="width: 130px">
                                 <option value="010" selected>010
                                 <option value="011">011
                                 <option value="016">016
                                 <option value="018">018
                                 <option value="019">019
                             </select> -
-                            <input type="text" name="hp2" id="hp2" class="int_hp_input"> -
-                            <input type="text" name="hp3" id="hp3" class="int_hp_input">
+                            <input type="text" name="hp2" id="hp2" class="int_email_input" style="width: 130px"> -
+                            <input type="text" name="hp3" id="hp3" class="int_email_input" style="width: 130px">
                         </td>
                     </tr>
                     <tr>
@@ -126,10 +128,25 @@
                     <tr>
                     	<td class="Cn"><label for="searchZip">주소</label></td>
                         <td class="Cn2">
-                        	<input type="text" id="zipcode" name="zipcode"   size="5" > 
-							<input type="button" id="searchZip" name="searchZip" value="우편번호찾기" readonly><br>
-							<input type="text"  id="address1"  name="address1" size="70" readonly><br> 
-							<input type="text" id="address2"  name="address2" size="70" placeholder="상세 주소 입력">
+                        	<div>
+	                        	<input type="text" id="zipcode" name="zipcode"  style="width: 50px; float: left;" class="int"> 
+								<input type="button" id="searchZip" name="searchZip" value="주소찾기" class="searchZipbtn" readonly><br>
+                        	</div>
+                        	<div>
+                        		<input type="text"  id="address1"  name="address1" class="int" readonly><br> 
+								<input type="text" id="address2"  name="address2" class="int" style="margin-top: 0px; margin-bottom: 30px;" placeholder="상세 주소 입력">
+                        	</div>
+                        </td>
+                    </tr>
+                    <tr>
+                    	<td class="Cn"><label for="myLOC">현재위치</label></td>
+                        <td class="Cn2">
+                        	<div style="height: 0px;">
+                        		<input type="text"  id="myLOCint"  name="myLOCint" class="myLOCint" readonly><br>
+                        	</div>
+                        	<div>
+								<input type="button" id="myLOC" name="myLOC" value="현재위치" class="myLOCbtn" onclick="wichiPopUp()">
+                        	</div>
                         </td>
                     </tr>
                     <tr>

@@ -193,9 +193,9 @@
 				$("#chatBox").scrollTop($("#chatBox").prop("scrollHeight"));	
 						
             },
-            error:function(data){
-               alert("오류가 발생했습니다.");				
-            }
+//            error:function(data){
+//               alert("오류가 발생했습니다.");				
+//            }
        });
 	}
 	

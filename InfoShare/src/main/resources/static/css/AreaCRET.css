@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.locCheckbtn {
+	width: auto;
+	color: white;
+	font-size: 12px;
+	background-color: #28CC71;
+	border: none;
+	padding: 10px 16px;
+	font-size: 14px;
+	border-radius: 5px;
+	transition: all .15s cubic-bezier(0.4, 0, 0.2, 1);
+	cursor: pointer;
+}
+
+.locCheckbtn:hover {
+	background-color: #0D8040;
+	box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px
+		rgba(0, 0, 0, 0.23);
+}
+
+.locCheckbtn:active{
+	position: relative;
+	top: 1px;
+	right: 1px;
+	box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.pos{
+	display: flex;
+	justify-content: center;
+}
