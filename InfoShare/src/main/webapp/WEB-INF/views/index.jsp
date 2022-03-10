@@ -6,7 +6,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>index 페이지</title>
+		<title>홈그라운드</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 	</head>
 	<body>
 		<!-- TOP -->

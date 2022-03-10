@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>top</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 		<link href="<c:url value='/css/home.css'/>" rel="stylesheet" type="text/css">
 		<link href="<c:url value='/css/tabMenu.css'/>" rel="stylesheet" type="text/css">
 		<link href="<c:url value='/css/login.css'/>" rel="stylesheet" type="text/css">
@@ -19,6 +20,8 @@
 		<script src="<c:url value='/js/rank-list.js'/>"></script>
 		<script src="<c:url value='/js/slideShow.js'/>"></script>
 		<script src="<c:url value='/js/category.js'/>"></script>
+		
+		
 	</head>
 	<body>
 		<header>

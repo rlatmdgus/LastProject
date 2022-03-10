@@ -6,6 +6,7 @@
     <head>
         <meta charset="UTF-8">
         <title>약관동의</title>
+        <link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
         <link href="<c:url value='/css/consent.css'/>" rel="stylesheet" type="text/css">
         <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
         <script src="<c:url value='/js/consentChk.js'/>"></script>

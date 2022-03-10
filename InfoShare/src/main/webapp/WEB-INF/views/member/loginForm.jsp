@@ -6,10 +6,11 @@
   <head>
       <meta charset="UTF-8">
       <title>로그인 창</title>
+      <link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
       <link href="<c:url value='/css/login.css'/>" rel="stylesheet" type="text/css">
       <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
   </head>
-<body class="lg-body">
+<body>
 
   <!-- TOP -->
   

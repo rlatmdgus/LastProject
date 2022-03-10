@@ -6,6 +6,7 @@
   <head>
       <meta charset="UTF-8">
       <title>아이디 찾기</title>
+      <link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
       <link href="<c:url value='/css/findid.css'/>" rel="stylesheet" type="text/css">
       <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 	  <script src="<c:url value='/js/findId.js'/>"></script>
