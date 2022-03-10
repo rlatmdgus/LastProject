@@ -49,4 +49,14 @@
 		AND memPw = #{memPw} 
 	</delete>
 	
+	<!-- 아이디 찾기 -->
+	<select id="serachid" resultType="com.multi.lastproject.model.MemberVO" parameterType="hashmap">
+		SELECT * FROM member WHERE memEmail = #{memEmail} and memName = #{memName}
+	</select>
+	
+	<!-- 비밀번호 찾기 -->
+	<select id="serachpw" resultType="com.multi.lastproject.model.MemberVO" parameterType="hashmap">
+		SELECT * FROM member WHERE memId=#{memId} and memEmail = #{memEmail} and memName = #{memName}
+	</select>
+	
 </mapper>

@@ -2,10 +2,13 @@ package com.multi.lastproject.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +30,7 @@ public class MemberController {
 	MemberService service;
 	@Autowired
 	BoardService service2;
+
 	
 	// 로그인 폼 이동
 	@RequestMapping("/loginForm")
@@ -157,4 +161,40 @@ public class MemberController {
 		
  		return "/member/myreviewForm";
  	}
+ 	
+ 	//아이디 찾기 폼으로 이동
+ 	@RequestMapping("/findid")
+	public String findid() {
+		return "/member/findidform";
+	}
+ 	
+ 	//아이디 찾기 
+ 	@ResponseBody
+	@RequestMapping("/serachid")
+ 	public ArrayList<MemberVO> serachid(@RequestParam HashMap<String, Object> param, 
+			Model model){
+
+		ArrayList<MemberVO> memList = service.serachid(param);
+		model.addAttribute("memList", memList);
+
+		return memList;
+	}
+ 	
+	// 비밀번호 찾기 폼으로 이동
+	@RequestMapping("/findpw")
+	public String findpw() {
+		return "/member/findpwform";
+	}
+	
+	//아이디 찾기 
+	 	@ResponseBody
+		@RequestMapping("/serachpw")
+	 	public ArrayList<MemberVO> serachpw(@RequestParam HashMap<String, Object> param, 
+				Model model){
+
+			ArrayList<MemberVO> memList = service.serachpw(param);
+			model.addAttribute("memList", memList);
+
+			return memList;
+		}
 }

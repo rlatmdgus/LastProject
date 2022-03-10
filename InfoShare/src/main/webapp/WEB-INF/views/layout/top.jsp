@@ -29,7 +29,7 @@
 						<!-- 로그인 하지 않은 경우 보여줄 메뉴 항목  -->
 						<c:if test="${empty sessionScope.sid }">
 							<a href="<c:url value='/loginForm'/>" id="top-a">로그인</a>&nbsp; 
-							<a href="<c:url value='/joinForm'/>" id="top-a">회원가입</a>&nbsp; 
+							<a href="<c:url value='/consentForm'/>" id="top-a">회원가입</a>&nbsp; 
 							<a href="<c:url value='/chatbotForm'/>" id="top-a">챗봇</a> &nbsp;
 						</c:if>
 							
