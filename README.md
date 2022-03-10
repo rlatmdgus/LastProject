@@ -22,3 +22,4 @@
 <h2>💫기술💫</h2>
 
 ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=JavaScript&logoColor=black)
+![jQ](https://img.shields.io/badge/jQuery-#0769AD?style=flat-square&logo=JavaScript&logoColor=black)
