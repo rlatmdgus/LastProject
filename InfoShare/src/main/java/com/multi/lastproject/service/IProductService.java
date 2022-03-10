@@ -12,4 +12,7 @@ public interface IProductService {
 	public int getTotal();
 	public FoodProductVO getPage(String fdPrdNo);
 	public int getTotalBoard(String ctgId);
+	
+	// 상품 검색
+	public ArrayList<FoodProductVO> selectProduct(String prdName);
 }

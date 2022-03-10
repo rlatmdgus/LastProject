@@ -25,5 +25,11 @@
   	<select id="getPage" resultType="com.multi.lastproject.model.FoodProductVO">
    select * from foodproduct where fdPrdNo=#{fdPrdNo}
    </select>
+   
+   <select id="selectProudct" parameterType="string" resultType="com.multi.lastproject.model.FoodProductVO">
+   		SELECT *
+   		FROM foodproduct
+   		WHERE fdPrdName=#{keyword}
+   </select>
  
   </mapper>

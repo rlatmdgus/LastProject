@@ -19,6 +19,7 @@
 		<script src="<c:url value='/js/rank-list.js'/>"></script>
 		<script src="<c:url value='/js/slideShow.js'/>"></script>
 		<script src="<c:url value='/js/category.js'/>"></script>
+		<script src="<c:url value='/js/postSearch.js'/>"></script>
 	</head>
 	<body>
 		<header>
@@ -46,8 +47,8 @@
 							<a href="<c:url value='/'/>" id="Name-home">홈 그라운드</a>
 						</div>
 						<div id="SearchInput">
-							<form id="SearchInput-Form">
-								<input id="Header-Search" type="text" autocapitalize="off">
+							<form id="SearchInput-Form" action="searchAll">
+								<input id="Header-Search" name="keyword" type="text">
 								<label for="Header-Search">
 									<button id="SearchBtn">
 									 	<img id="SearchIcon" src="<c:url value="/imgs/search_icon.png"/>">
