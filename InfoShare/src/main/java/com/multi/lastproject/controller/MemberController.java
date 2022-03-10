@@ -1,5 +1,6 @@
 package com.multi.lastproject.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.servlet.http.HttpSession;
@@ -12,13 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.multi.lastproject.model.BoardVO;
+import com.multi.lastproject.model.Criteria;
 import com.multi.lastproject.model.MemberVO;
+import com.multi.lastproject.model.PageMakerVO;
+import com.multi.lastproject.model.ReviewVO;
+import com.multi.lastproject.service.BoardService;
 import com.multi.lastproject.service.MemberService;
 
 @Controller
 public class MemberController {
 	@Autowired
 	MemberService service;
+	@Autowired
+	BoardService service2;
 	
 	// 로그인 폼 이동
 	@RequestMapping("/loginForm")
@@ -134,5 +142,19 @@ public class MemberController {
 			return 0;
 		}
 	}
-	
+    
+    // 내 리뷰 리스트
+ 	@RequestMapping("/myreviewList")
+ 	public String myreviewList( Model model, HttpSession session) {
+		String id = (String) session.getAttribute("sid");
+ 		ArrayList<ReviewVO> myreviewList = service2.myreviewList(id);
+ 		
+ 		model.addAttribute("list", myreviewList);
+ 		
+// 		int total=service.getTotal(cri);
+//		PageMakerVO pageMaker=new PageMakerVO(cri,total);
+//		model.addAttribute("pageMaker", pageMaker);
+		
+ 		return "/member/myreviewForm";
+ 	}
 }

@@ -41,5 +41,7 @@ public interface IBoardService {
     public int commentDelete(int comNo);
 	void modifyBoard(BoardVO vo);
 	ArrayList<BoardVO> searchBoard(HashMap<String, Object> map);
+
+	public ArrayList<ReviewVO> myreviewList(String memId);
 	
 }

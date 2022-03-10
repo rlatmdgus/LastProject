@@ -46,4 +46,7 @@ public interface IBoardDAO {
 
     ArrayList<BoardVO> searchBoard(HashMap<String, Object> map);
 
+	public ArrayList<ReviewVO> myreviewList(String memId);
+	
+
 }

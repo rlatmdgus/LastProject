@@ -35,12 +35,11 @@
         limit #{amount} OFFSET #{skip}
 
    </select>
- 
- 
 
- 
-
- 
+ 	<!-- 나의 후기 리스트 -->
+	<select id="myreviewList" parameterType="string" resultType="com.multi.lastproject.model.ReviewVO">
+		SELECT * FROM review where memId = #{memId} order by revDate desc
+	</select>
  
    <select id="list" resultType="com.multi.lastproject.model.BoardVO">
    select * from (

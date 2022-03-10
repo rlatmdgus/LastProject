@@ -138,17 +138,17 @@
                         	</div>
                         </td>
                     </tr>
-                    <tr>
-                    	<td class="Cn"><label for="myLOC">현재위치</label></td>
-                        <td class="Cn2">
-                        	<div style="height: 0px;">
-                        		<input type="text"  id="myLOCint"  name="myLOCint" class="myLOCint" readonly><br>
-                        	</div>
-                        	<div>
-								<input type="button" id="myLOC" name="myLOC" value="현재위치" class="myLOCbtn" onclick="wichiPopUp()">
-                        	</div>
-                        </td>
-                    </tr>
+<!--                     <tr> -->
+<!--                     	<td class="Cn"><label for="myLOC">현재위치</label></td> -->
+<!--                         <td class="Cn2"> -->
+<!--                         	<div style="height: 0px;"> -->
+<!--                         		<input type="text"  id="myLOCint"  name="myLOCint" class="myLOCint" readonly><br> -->
+<!--                         	</div> -->
+<!--                         	<div> -->
+<!-- 								<input type="button" id="myLOC" name="myLOC" value="현재위치" class="myLOCbtn" onclick="wichiPopUp()"> -->
+<!--                         	</div> -->
+<!--                         </td> -->
+<!--                     </tr> -->
                     <tr>
                         <td class="create" colspan="2">
                             <input class="CelBtu" type="button" value="취    소" onclick="cancel()">
