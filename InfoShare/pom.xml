@@ -86,7 +86,6 @@
             <artifactId>spring-boot-devtools</artifactId>
             <optional>true</optional>
         </dependency>
-        
         <!-- Maven Plugins 의존성 -->
 			<dependency>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -108,6 +107,14 @@
 			 <artifactId>slf4j-log4j12</artifactId>
 			 <version>1.7.30</version>
 		 </dependency>
+
+
+		<!-- SMTP -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
+
 	</dependencies>
 
 	<build>

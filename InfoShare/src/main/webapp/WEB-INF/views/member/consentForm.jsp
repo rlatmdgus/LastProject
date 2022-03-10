@@ -7,9 +7,10 @@
         <meta charset="UTF-8">
         <title>약관동의</title>
         <link href="<c:url value='/css/consent.css'/>" rel="stylesheet" type="text/css">
+        <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
+        <script src="<c:url value='/js/consentChk.js'/>"></script>
     </head>
 <body>
-  	<jsp:include page="/WEB-INF/views/layout/top.jsp" flush="true"/>
         <div>
             <form name="form" method="post" class="consent-form">
                 <table>
