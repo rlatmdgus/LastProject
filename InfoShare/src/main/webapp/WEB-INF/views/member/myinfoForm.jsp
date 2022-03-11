@@ -5,7 +5,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>내 정보</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 	</head>
 	<body>
 		<!-- TOP -->

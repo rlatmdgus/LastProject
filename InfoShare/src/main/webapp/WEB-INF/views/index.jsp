@@ -6,7 +6,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>index 페이지</title>
+		<title>홈 그라운드</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 	</head>
 	<body>
 		<!-- TOP -->
@@ -17,23 +18,23 @@
 			<div class="slideshow-container">
 				<div class="mySlides fade">
 					<img class="main_slideImg" src="imgs/slide_img_01.jpg">
-					<div class="text">One</div>
+					<div class="text"></div>
 				</div>
 				<div class="mySlides fade">
 					<img class="main_slideImg" src="imgs/slide_img_02.jpg">
-					<div class="text">Two</div>
+					<div class="text"></div>
 				</div>
 				<div class="mySlides fade">
 					<img class="main_slideImg" src="imgs/slide_img_03.jpg">
-					<div class="text">Three</div>
+					<div class="text"></div>
 				</div>
 				<div class="mySlides fade">
 					<img class="main_slideImg" src="imgs/slide_img_04.jpg">
-					<div class="text">Four</div>
+					<div class="text"></div>
 				</div>
 				<div class="mySlides fade">
 					<img class="main_slideImg" src="imgs/slide_img_05.jpg">
-					<div class="text">Five</div>
+					<div class="text"></div>
 				</div>
 				<a class="prev" onclick="moveSlides(-1)">❮</a>
 				<a class="next"onclick="moveSlides(1)">❯</a>

@@ -90,5 +90,11 @@ public class ProductService implements IProductService {
 		// TODO Auto-generated method stub
 		return dao.cloAlllist();
 	}
+	@Override
+	public ArrayList<FoodProductVO> selectProduct(String prdName) {
+		// TODO Auto-generated method stub
+		return dao.selectProudct(prdName);
+
+	}
 
 }

@@ -6,6 +6,7 @@
   <head>
       <meta charset="UTF-8">
       <title>아이디 찾기</title>
+      <link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
       <link href="<c:url value='/css/findid.css'/>" rel="stylesheet" type="text/css">
       <script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 	  <script src="<c:url value='/js/findId.js'/>"></script>
@@ -20,8 +21,7 @@
 		<div class="findid-form">
 			<form id="findidForm" name="findidForm">
 				<h2 class="title_id">아이디 찾기</h2>
-				<h4 id="id_value" class="id_notice">
-					</h2>
+				<h4 id="id_value" class="id_notice"></h4>
 					<input type="text" id="memName" name="memName" class="memName"
 						placeholder="회원가입한 이름을 입력하세요" required> <input type="text"
 						id="memEmail" name="memEmail" class="memEmail"
@@ -34,8 +34,6 @@
 			</form>
 		</div>
 	</section>
-
-
 
 	<!-- -->
 

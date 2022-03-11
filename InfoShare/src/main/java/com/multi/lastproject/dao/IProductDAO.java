@@ -21,4 +21,7 @@ public interface IProductDAO {
 	public void updatefdRate(FoodProductVO vo);
 	public ArrayList<FoodProductVO> Alllist();
 	public ArrayList<ClothsProductVO> cloAlllist();
+
+	public ArrayList<FoodProductVO> selectProudct(String prdName);
+
 }

@@ -131,7 +131,20 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		dao.insertReviewclo(vo);
 	}
+	@Override
+	public ArrayList<BoardVO> selectBoard(String keyword) {
+		
+		return dao.selectBoard(keyword);
+	}
+	
+	@Override
+	public ArrayList<ReviewVO> selectreview(String keyword) {
+		
+		return dao.selectreview(keyword);
+	}
+	
 
+	@Override
 	public ArrayList<ReviewVO> myreviewList(String memId) {
 		// TODO Auto-generated method stub
 		return dao.myreviewList(memId);

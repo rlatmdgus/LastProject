@@ -1,5 +1,15 @@
 @charset "UTF-8";
 
+@font-face {
+  font-family: MelonaFont; 
+  src: url("/font/BinggraeMelona.woff"); 
+}
+
+* {
+	font-family: MelonaFont;
+}
+
+
 .locCheckbtn {
 	width: auto;
 	color: white;

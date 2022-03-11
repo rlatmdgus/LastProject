@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>top</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 		<link href="<c:url value='/css/home.css'/>" rel="stylesheet" type="text/css">
 		<link href="<c:url value='/css/tabMenu.css'/>" rel="stylesheet" type="text/css">
 		<link href="<c:url value='/css/login.css'/>" rel="stylesheet" type="text/css">
@@ -19,6 +20,7 @@
 		<script src="<c:url value='/js/rank-list.js'/>"></script>
 		<script src="<c:url value='/js/slideShow.js'/>"></script>
 		<script src="<c:url value='/js/category.js'/>"></script>
+		<script src="<c:url value='/js/postSearch.js'/>"></script>
 	</head>
 	<body>
 		<header>
@@ -46,8 +48,8 @@
 							<a href="<c:url value='/'/>" id="Name-home">홈 그라운드</a>
 						</div>
 						<div id="SearchInput">
-							<form id="SearchInput-Form">
-								<input id="Header-Search" type="text" autocapitalize="off">
+							<form id="SearchInput-Form" action="/Allsearch" >
+								<input id="Header-Search" name="Allkeyword" type="text">
 								<label for="Header-Search">
 									<button id="SearchBtn">
 									 	<img id="SearchIcon" src="<c:url value="/imgs/search_icon.png"/>">

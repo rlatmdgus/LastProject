@@ -5,6 +5,7 @@
 <head>
 <meta charset="EUC-KR">
 <title>홈그라운드 작가 요청</title>
+<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 <link rel="stylesheet" href="/css/authorList.css">
     <style>
         .authorlist-wrap {

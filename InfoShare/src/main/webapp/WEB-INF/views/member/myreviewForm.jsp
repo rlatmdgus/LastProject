@@ -6,7 +6,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>내가 쓴 후기</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 		<link rel="stylesheet" href="<c:url value='/css/review.css'/>">
 	  	<script type="text/javascript" src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
 	</head>

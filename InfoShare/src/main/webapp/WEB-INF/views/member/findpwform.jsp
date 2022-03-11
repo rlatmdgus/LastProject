@@ -6,6 +6,7 @@
 	<head>
 		<meta charset="UTF-8">
 		<title>비밀번호 찾기</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 	</head>
 	<body>
 	<!-- TOP -->
@@ -20,8 +21,7 @@
 		<div class="findpw-form">
 			<form id="findpwForm" name="findpwForm">
 				<h2 class="title_pw">비밀번호 찾기</h2>
-				<h4 id="pw_value" class="pw_notice">
-					</h2>
+				<h4 id="pw_value" class="pw_notice"></h4>
 					<input type="text" id="memId" name="memId" class="memId"
 						placeholder="회원가입한 아이디를 입력하세요" required> 
 					<input type="text"

@@ -169,5 +169,21 @@
     <delete id="deleteBoard" parameterType="int">
       DELETE FROM board where boardNo=#{boardNo}
     </delete>
+    
+    <select id="selectBoard" parameterType="string" resultType="com.multi.lastproject.model.BoardVO">
+    	SELECT *
+    	FROM board
+    	WHERE (boardTitle like CONCAT('%', #{keyword}, '%')
+					or boardContext like CONCAT('%', #{keyword}, '%'))
+		order by boardDate desc
+    </select>
+    
+    <select id="selectreview" parameterType="string" resultType="com.multi.lastproject.model.ReviewVO">
+    	SELECT *
+    	FROM review
+    	WHERE (revTitle like CONCAT('%', #{keyword}, '%')
+					or revText like CONCAT('%', #{keyword}, '%'))
+		order by revDate desc
+    </select>
 
   </mapper>

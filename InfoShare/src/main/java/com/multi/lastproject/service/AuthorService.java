@@ -22,7 +22,6 @@ public class AuthorService implements IAuthorService {
 	@Override
 	public void insertAuthor(AuthorVO vo) {
 		dao.insertAuthor(vo);
-
 	}
 
 }

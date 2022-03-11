@@ -5,7 +5,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<title>Insert title here</title>
+		<title>회원탈퇴</title>
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon.ico/favicon-96x96.png">
 		<link href="<c:url value='/css/accountDelete.css'/>" rel="stylesheet" type="text/css">
 		
 		<script src="<c:url value='/js/jquery-3.6.0.min.js'/>"></script>
