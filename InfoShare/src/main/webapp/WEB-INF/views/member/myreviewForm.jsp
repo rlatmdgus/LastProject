@@ -22,26 +22,33 @@
 		<div class="mymenu-box">
 			<div class="title-style">
 				<h2 class="title-txt">내가 쓴 후기</h2>
+				<c:if test="${empty list }">
+		      	 	<div class="searchDiv">
+		         		<p class="prsearch">작성한 후기가 없습니다.</p>
+		         	</div>
+		    	</c:if>
 				<div class="grid-box">
-					<form class="reviewListbox" id="revieListView" method="post" action="">
-						<c:forEach items="${list}" var="rlist">
-							<div class="reviewbox"
-								onclick="location.href='<c:url value="/readReview?revNo=${rlist.revNo}&ctgId=${rlist.ctgId}&deCtgId=${rlist.deCtgId}"/>'">
-								<div class="reviewindex">
-									<div class="review_titleindex">
-										<span class="review_title" type="text" name="review_Title">${rlist.revTitle}</span>
-										<img src="${rlist.revImage}"
-											style="width: 252px; height: 252px;">
-									</div>
-									<div class="posttitleBottom">
-										<span class="review_date" type="text" name="review_date">
-											<fmt:formatDate pattern="yyyy/MM/dd hh:mm:ss" value="${rlist.revDate}" />
-										</span>
+					<c:if test="${not empty list }">
+						<form class="reviewListbox" id="revieListView" method="post" action="">
+							<c:forEach items="${list}" var="rlist">
+								<div class="reviewbox"
+									onclick="location.href='<c:url value="/readReview?revNo=${rlist.revNo}&ctgId=${rlist.ctgId}&deCtgId=${rlist.deCtgId}"/>'">
+									<div class="reviewindex">
+										<div class="review_titleindex">
+											<span class="review_title" type="text" name="review_Title">${rlist.revTitle}</span>
+											<img src="${rlist.revImage}"
+												style="width: 252px; height: 252px;">
+										</div>
+										<div class="posttitleBottom">
+											<span class="review_date" type="text" name="review_date">
+												<fmt:formatDate pattern="yyyy/MM/dd hh:mm:ss" value="${rlist.revDate}" />
+											</span>
+										</div>
 									</div>
 								</div>
-							</div>
-						</c:forEach>
-					</form>
+							</c:forEach>
+						</form>
+					</c:if>
 				</div>
 			</div>
 		</div>
