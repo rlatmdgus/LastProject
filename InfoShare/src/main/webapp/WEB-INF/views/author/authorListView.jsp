@@ -28,9 +28,9 @@
 			
 			   <c:forEach items="${authorList }" var="author">
 			   		<tr>
-			   			<td><img src="<c:url value='/images/${author.authorId}.jpg'/>" width="30" height="20">
+			   			<td><img src="<c:url value='/images/${author.authorId}.jpg' />" width="30" height="20" onerror="this.src='<c:url value="/image/noimage.jpg"/>'">
 			   					<!-- 또는  -->
-			   			        <img src="/images/${author.authorId}.jpg" width="30" height="20"></td>
+			   			        <img src="/images/${author.authorId}.jpg" width="30" height="20" onerror="this.src='<c:url value="/image/noimage.jpg"/>'"></td>
 			   			<td><a href="<c:url value='/author/detailViewAuthor/${author.authorId}'/>">${author.authorId }</a></td>
 			   			<td>${author.authorNick }</td>
 			   			

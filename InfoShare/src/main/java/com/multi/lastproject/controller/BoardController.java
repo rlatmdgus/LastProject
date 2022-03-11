@@ -242,7 +242,7 @@ public class BoardController {
 	            name = vo.getFiledata().getOriginalFilename().substring(vo.getFiledata().getOriginalFilename().lastIndexOf(File.separator)+1);
 				String filename_ext = name.substring(name.lastIndexOf(".")+1);
 				filename_ext = filename_ext.toLowerCase();
-			   	String[] allow_file = {"jpg","png","bmp","gif"};
+			   	String[] allow_file = {"jpg","png","bmp","gif","jfif"};
 			   	int cnt = 0;
 			   	for(int i=0; i<allow_file.length; i++) {
 			   		if(filename_ext.equals(allow_file[i])){

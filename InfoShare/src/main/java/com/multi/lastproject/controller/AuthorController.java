@@ -5,6 +5,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -56,10 +58,9 @@ public class AuthorController {
 	}
 
 	@RequestMapping("/insertAuthor")
-	public String insertAuthor(@RequestParam("authorId") String authorId, @RequestParam("authorName") String authorName,
+	public String insertAuthor( @RequestParam("authorName") String authorName,HttpSession session,
 			@RequestParam("authorNick") String authorNick, @RequestParam("authorClass") String authorClass,
-			@RequestParam("authorDescript") String authorDescript, @RequestParam("authorHp") String authorHp,
-			@RequestParam("authorEmail") String authorEmail, @RequestParam("authorAddress") String authorAddress,
+			@RequestParam("authorDescript") String authorDescript, 
 			@RequestParam("authorImage") MultipartFile file) throws IOException {
 
 		String savedFileName = "";
@@ -81,9 +82,9 @@ public class AuthorController {
 		// 5. 서버로 전송
 		file.transferTo(file1);
 
-		MemberVO memberVO = memberService.memberInfo(authorId);
+		MemberVO memberVO = memberService.memberInfo((String)session.getAttribute("sid"));
 
-		vo.setAuthorId(authorId);
+		vo.setAuthorId((String)session.getAttribute("sid"));
 		vo.setAuthorName(memberVO.getMemName());
 		vo.setAuthorNick(authorNick);
 		vo.setAuthorClass(authorClass);
