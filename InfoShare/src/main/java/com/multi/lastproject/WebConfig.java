@@ -11,5 +11,6 @@ public class WebConfig implements WebMvcConfigurer {
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
 		registry.addResourceHandler("/images/**")
 		.addResourceLocations("file:///E://git//LastProject//InfoShare//src//main//webapp//resource//photo_upload/");
+		
 	}
 }

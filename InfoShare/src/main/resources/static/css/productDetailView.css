@@ -1,19 +1,19 @@
 @charset "UTF-8";
 *{margin:0 auto;}
 #wrap{
-	width:1400px;
+	width:1280px;
 }
 #itemBox{
-	width:1400px;
-	height:450px;
-	margin-top:150px;
+	width:1280px;
+	height:500px;
+	margin-top:50px;
 	border:solid 1px;
 }
 #imageBox{
 	width:600px;
 	height:450px;
 	float:left;
-	margin-left:50px;
+	
 }
 #prdBox{
 	width:600px;
@@ -22,11 +22,11 @@
 }
 img{
 	width:600px;
-	height:300px;
+	height:450px;
 }
 table{
 	width:400px;
-	height:300px;
+	height:250px;
 	text-align:center;
 }
 td{
@@ -36,13 +36,27 @@ td{
 	margin-left:100px;
 	margin-top:25px;
 	width:400px;
-	height:50px;
+	height:60px;
+	background:#28CC71;
+	color:white;
+	border-radius:30px;
+	font-size:20px;
+	font-weight:bold;
 	
 }
 #textBox{
 	margin-top:30px;
-	width:1400px;
+	width:1280px;
 	height:300px;
 	text-align:center;
 	border:solid 1px;
+}
+.qty{
+	color:#28CC71;
+	background:white;
+	
+}
+#cartQty{
+	text-align:center;
+	font-weight:bold;
 }

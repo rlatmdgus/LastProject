@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.multi.lastproject.dao.ICartDAO">
+  	
+  	<!-- 장바구니에 동일 상품이 존재하는지 확인 -->
+  	<select id="checkPrdInCart" parameterType="com.multi.lastproject.model.CartVO"
+  												  resultType="int">
+  		SELECT COUNT(*)
+  		FROM cart
+  		WHERE cloPrdNo=#{cloPrdNo} AND memId=#{memId} AND cloPrdcolor=#{cloPrdcolor} AND cloPrdSize=#{cloPrdSize}
+  									  
+  	</select>
+  	<select id="checkFdPrdInCart" parameterType="hashmap"
+  												  resultType="int">
+  		SELECT COUNT(*)
+  		FROM cart
+  		WHERE fdPrdNo=#{fdPrdNo} AND memId=#{memId}
+  									  
+  	</select>
+  	<!-- 장바구니에 동일 상품이 존재하지 않으면 장바구니에 추가  -->
+  	<insert id="insertCart"  parameterType="com.multi.lastproject.model.CartVO">
+  		INSERT INTO cart(memId, cloPrdNo,fdPrdNo, cartQty,cartPrdOption,cloPrdcolor,cloPrdSize,fdPrdWeight)
+  		VALUES (#{memId}, #{cloPrdNo},#{fdPrdNo}, #{cartQty},#{cartPrdOption},#{cloPrdcolor},#{cloPrdSize},#{fdPrdWeight})
+  	</insert>
+  	
+  	<!-- 장바구니에 동일 상품이 존재하면 주문수량 변경 -->
+  	<update id="updateQtyInCart" parameterType="com.multi.lastproject.model.CartVO">
+  		UPDATE cart
+  		SET cartQty = cartQty + #{cartQty}
+  		WHERE (cloPrdNo=#{cloPrdNo} AND memId=#{memId})
+  		OR 	(fdPrdNo=#{fdPrdNo} AND memId=#{memId})	
+  	</update>
+  	
+  	<!-- 장바구니 목록 출력 -->
+  	<select id="cartList" parameterType="string"
+  	 				resultType="com.multi.lastproject.model.CartVO">
+  		SELECT c.cartNo, cp.cloPrdNo, cp.cloPrdImg, cp.cloPrdName, cp.cloPrdPrice, c.cartQty, c.memId,cp.cloPrdCost,
+  		c.cartPrdOption,c.cloPrdcolor,c.cloPrdSize
+  		FROM clothosproduct cp, cart c
+  		WHERE cp.cloPrdNo = c.cloPrdNo  AND c.memId=#{memId}
+  		ORDER BY c.cartNo
+  	</select>
+ 	<select id="fdcartList" parameterType="string"
+  	 				resultType="com.multi.lastproject.model.CartVO">
+  		SELECT c.cartNo, fp.fdPrdNo, fp.fdPrdImg, fp.fdPrdName, fp.fdPrdPrice, c.cartQty, c.memId,fp.fdPrdCost,
+  		c.cartPrdOption,c.fdPrdWeight
+  		FROM foodproduct fp, cart c
+  		WHERE fp.fdPrdNo = c.fdPrdNo  AND c.memId=#{memId}
+  		ORDER BY c.cartNo
+  	</select>
+  	<delete id="deleteProduct" parameterType="String">
+  		delete  from cart where cartNo=#{cartNo}
+  	</delete>
+  	<delete id="deleteCart" parameterType="String" >
+  		delete  from cart where memId=#{memId}
+  	</delete>
+  	
+  	
+  	<select id="getMemberInfo" parameterType="string" 
+			resultType="com.multi.lastproject.model.MemberVO">
+			SELECT memId, memName, memHP, memAddress
+			FROM member
+			WHERE memId=#{memId}			
+		</select> 
+		
+		<insert id="insertOrderInfo" 
+	  				 parameterType="com.multi.lastproject.model.OrderInfoVO">
+			INSERT INTO order_info (ordNo,memID, ordReceiver, ordRcvZipcode, 
+									ordRcvAddress1, ordRcvAddress2, ordRcvPhone, ordRcvMsg, ordPay)
+			VALUES (#{ordNo},#{memId}, #{ordReceiver}, #{ordRcvZipcode},
+							#{ordRcvAddress1}, #{ordRcvAddress2}, #{ordRcvPhone}, #{ordRcvMsg}, #{ordPay})
+		</insert>
+		<select id="orderInfoList" parameterType="String" resultType="com.multi.lastproject.model.OrderInfoVO">
+			select * from order_info where memId=#{memId}
+		</select>
+		<select id="orderProductList" parameterType="String" resultType="com.multi.lastproject.model.OrderProductVO">
+			select * from order_product where memId=#{memId}
+		</select>
+		<insert id="insertOrderProduct" parameterType="hashmap" >
+			INSERT INTO order_product (ordNo, cloPrdNo,fdPrdNo, ordQty,memId,cartPrdOption,cloPrdcolor,cloPrdSize,fdPrdWeight)
+					SELECT #{ordNo}, cloPrdNo,fdPrdNo, cartQty,#{memId},cartPrdOption,cloPrdcolor,cloPrdSize,fdPrdWeight
+					 FROM cart WHERE memId = #{memId}
+		</insert>
+  </mapper>
+  
+  
+  
+  
+  
+  
+  

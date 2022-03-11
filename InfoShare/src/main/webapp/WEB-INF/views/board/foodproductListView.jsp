@@ -70,8 +70,8 @@
 				<h4>음식</h4>
 				<div class="box">
 			<c:forEach items="${list }" var="fd">
-				<ul class="item">
-					<li><img class="move" src="<c:url value='${fd.fdPrdImg}'/>"></li>
+				<ul class="item">										
+					<li><a href="<c:url value='/readProduct?fdPrdNo=${fd.fdPrdNo }'/> " ><img class="move" src="<c:url value='${fd.fdPrdImg }'/>" onerror="this.src='<c:url value="/image/noimage.jpg"/>'"></a></li>
 					<li class="a">${fd.fdPrdName }</li>
 					<li class="b">${fd.fdPrdPrice }</li>
 					<li class="c">${fd.fdPrdDescript }</li>

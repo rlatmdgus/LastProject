@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,22 +17,30 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.multi.lastproject.model.BoardVO;
-import com.multi.lastproject.model.Criteria;
+import com.multi.lastproject.model.ClothsProductVO;
+import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.MemberVO;
-import com.multi.lastproject.model.PageMakerVO;
+import com.multi.lastproject.model.OrderInfoVO;
+import com.multi.lastproject.model.OrderProductVO;
 import com.multi.lastproject.model.ReviewVO;
 import com.multi.lastproject.service.BoardService;
+import com.multi.lastproject.service.CartService;
 import com.multi.lastproject.service.MemberService;
+import com.multi.lastproject.service.ProductService;
 
 @Controller
 public class MemberController {
 	@Autowired
 	MemberService service;
 	@Autowired
+	CartService cartservice;
+	@Autowired
+	ProductService prdservice;
+	@Autowired
 	BoardService service2;
 
 	
+
 	// 로그인 폼 이동
 	@RequestMapping("/loginForm")
 	public String loginForm() {
@@ -41,17 +50,19 @@ public class MemberController {
 	@ResponseBody
 	@RequestMapping("/login")
 	public String loginCheck(@RequestParam HashMap<String, Object> param,
-											   HttpSession session) {
+											   HttpSession session,HttpServletResponse response) {
 		
 		// 로그인 체크 결과
 		MemberVO vo = service.loginCheck(param);
 		String result = "fail";
-		
 		if(vo != null) {
 			// 로그인 성공하면 세션 변수 지정
 			session.setAttribute("sid", vo.getMemId());
 			session.setAttribute("sname", vo.getMemName());
 			result = "success";
+			String []address=vo.getMemAddress().split(" ");
+			session.setAttribute("saddress", address[0]);
+			System.out.println(address[0]);
 		}
 		
 		return result;
@@ -146,6 +157,21 @@ public class MemberController {
 			return 0;
 		}
 	}
+
+	@RequestMapping("/member/myorderInfo")
+	public String myorderInfo(Model model,HttpSession session) {
+		String memId=(String)session.getAttribute("sid");
+		ArrayList<OrderInfoVO> ordInfoList=cartservice.orderInfoList(memId);
+		ArrayList<OrderProductVO> ordProductList=cartservice.orderProductList(memId);
+		ArrayList<FoodProductVO> Alllist=prdservice.Alllist();
+		ArrayList<ClothsProductVO> cloAlllist=prdservice.cloAlllist();
+		model.addAttribute("ordProductList", ordProductList);
+		model.addAttribute("ordInfoList", ordInfoList);
+		model.addAttribute("Alllist", Alllist);
+		model.addAttribute("cloAlllist", cloAlllist);
+		return "/member/myorderInfo";
+	}
+
     
     // 내 리뷰 리스트
  	@RequestMapping("/myreviewList")
@@ -161,7 +187,7 @@ public class MemberController {
 		
  		return "/member/myreviewForm";
  	}
- 	
+
  	//아이디 찾기 폼으로 이동
  	@RequestMapping("/findid")
 	public String findid() {

@@ -29,8 +29,17 @@
  <select id="reviewList" resultType="com.multi.lastproject.model.ReviewVO">
    select * from (
                 select revNo, revTitle, revImage, revDate,memId
-                from review 
+                from review      
                 where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
+                <if test="type == 'T'.toString()">
+              and   revTitle like concat('%',#{keyword},'%') 
+                </if>
+                <if test="type == 'C'.toString()">
+              and   revText like concat('%',#{keyword},'%')
+                </if>
+                <if test="type == 'W'.toString()">
+              and  memId like concat('%',#{keyword},'%' )
+                </if> 
                 order by revNo desc) as T1
         limit #{amount} OFFSET #{skip}
 
@@ -63,7 +72,9 @@
    	<select id="hitlist" resultType="com.multi.lastproject.model.BoardVO">
   	   SELECT * FROM board ORDER BY boardHit DESC limit 8
   	</select>
-  	
+  	<select id="loginhitlist" resultType="com.multi.lastproject.model.BoardVO">
+  	   SELECT * FROM board where ctgId=#{ctgId} ORDER BY boardHit DESC limit 8
+  	</select>
   	<select id="getTotal" resultType="int">
   		select count(*) from board
   		      where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
@@ -78,7 +89,17 @@
                 </if>
   	</select>
   	<select id="getTotalReview" resultType="int" >
-  		select count(*) from review where ctgId=#{ctgId} and deCtgId=#{deCtgId} 
+  		select count(*) from review 
+  		where ctgId=#{ctgId} and deCtgId=#{deCtgId}  
+                <if test="type == 'T'.toString()">
+              and   revTitle like concat('%',#{keyword},'%') 
+                </if>
+                <if test="type == 'C'.toString()">
+              and   revText like concat('%',#{keyword},'%')
+                </if>
+                <if test="type == 'W'.toString()">
+              and  memId like concat('%',#{keyword},'%' )
+                </if>
   	</select>
   	
   	<insert id="insertBoard">
@@ -102,16 +123,21 @@
   		update board set boardHit=boardHit+1 where boardNo=#{boardNo}
   	</update>
   	
-  	<insert id="insertReview">
-  		insert into review (revTitle,revText,fdPrdNo,cloPrdNo,ctgId,deCtgId,revImage,memId) 
-  					values (#{revTitle},#{revText},#{fdPrdNo},#{cloPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
+  	<insert id="insertReviewfd" parameterType="com.multi.lastproject.model.ReviewVO">
+  		insert into review (revTitle,revText,fdPrdNo,ctgId,deCtgId,revImage,memId) 
+  					values (#{revTitle},#{revText},#{fdPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
+  	</insert>
+  	<insert id="insertReviewclo" parameterType="com.multi.lastproject.model.ReviewVO">
+  		insert into review (revTitle,revText,cloPrdNo,ctgId,deCtgId,revImage,memId) 
+  					values (#{revTitle},#{revText},#{cloPrdNo},#{ctgId},#{deCtgId},#{revImage},#{memId})
   	</insert>
   	 <update id="modifyReview">
 		update review set 
-		revTitle=#{revTitle},revText=#{revText},fdPrdNo=#{fdPrdNo},cloPrdNo=#{cloPrdNo},ctgId=#{ctgId},deCtgId=#{deCtgId},
+		revTitle=#{revTitle},revText=#{revText},ctgId=#{ctgId},deCtgId=#{deCtgId},
 		revImage=#{revImage},memId=#{memId}
 		where revNo=#{revNo}
 	</update>
+	
 	<delete id="deleteReview" parameterType="int">
 		delete from review where revNo=#{revNo}
 	</delete>

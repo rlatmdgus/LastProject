@@ -2,6 +2,7 @@ package com.multi.lastproject.controller;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
 import java.io.PrintWriter;
@@ -23,25 +24,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.multi.lastproject.model.BoardVO;
+import com.multi.lastproject.model.ClothsProductVO;
 import com.multi.lastproject.model.Criteria;
+import com.multi.lastproject.model.FoodProductVO;
 import com.multi.lastproject.model.PageMakerVO;
+import com.multi.lastproject.model.PrdCriteria;
 import com.multi.lastproject.model.ReviewVO;
 import com.multi.lastproject.model.SmarteditorVO;
 import com.multi.lastproject.service.BoardService;
+import com.multi.lastproject.service.ProductService;
 
 @Controller
 public class BoardController {
 	@Autowired
 	BoardService service;
-	
-	
+	@Autowired
+	ProductService prdService;
+
 	@RequestMapping("/list/{ctgId}/{deCtgId}")
-	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
+	public String boardListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session) throws IOException {
+		
+		if(session.getAttribute("sid")==null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
+		}
+		else {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
 		ArrayList<BoardVO> boardList=service.list(cri);
-		System.out.println(cri.getCtgId());
-		System.out.println(cri.getDeCtgId());
 		model.addAttribute("list", boardList);
 		int total=service.getTotal(cri);
 		PageMakerVO pageMaker=new PageMakerVO(cri,total);
@@ -49,16 +60,21 @@ public class BoardController {
 		model.addAttribute("deCtgId", deCtgId);
 		model.addAttribute("pageMaker", pageMaker);
 		return "board/boardListView";
+		}
 	}
 	
 	@RequestMapping("/reviewlist/{ctgId}/{deCtgId}")
-	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri) {
+	public String reviewListView(@PathVariable String ctgId,@PathVariable String deCtgId,Model model,Criteria cri,HttpSession session) throws IOException {
+		
+		if(session.getAttribute("sid")==null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
+		}else {
 		cri.setCtgId(ctgId);
 		cri.setDeCtgId(deCtgId);
 		cri.setAmount(9);
 		ArrayList<BoardVO> reviewList=service.reviewList(cri);
-		System.out.println(cri.getCtgId());
-		System.out.println(cri.getDeCtgId());
 		model.addAttribute("list", reviewList);
 		int total=service.getTotalReview(cri);
 		System.out.println("dsds"+total);
@@ -67,6 +83,7 @@ public class BoardController {
 		model.addAttribute("deCtgId", deCtgId);
 		model.addAttribute("pageMaker", pageMaker);
 		return "board/reviewListView";
+		}
 	}
 	@RequestMapping("/write")
 	public String insertBoard(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
@@ -88,9 +105,10 @@ public class BoardController {
 		return "redirect:/list/"+vo.getCtgId()+"/"+vo.getDeCtgId();
 	}
 	@RequestMapping("/saveReview")
-	public String saveReview(ReviewVO vo,@RequestParam("smartEditor") String content,HttpSession session) {
+	public String saveReview(ReviewVO vo,@RequestParam("smartEditor") String content,HttpSession session,
+				@RequestParam("product") String product,@RequestParam("fdPrdNo") String fdPrdNo,@RequestParam("cloPrdNo") String cloPrdNo
+				) {
 		vo.setRevText(content);
-	
 		vo.setMemId((String)session.getAttribute("sid"));
 		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		 Matcher matcher = pattern.matcher(content);
@@ -98,8 +116,14 @@ public class BoardController {
 	            System.out.println(matcher.group(1));
 	            vo.setRevImage(matcher.group(1));
 	        }
-		 
-		service.insertReview(vo);
+		 if(product.equals("food")) {
+			 vo.setFdPrdNo(fdPrdNo);
+			 service.insertReviewfd(vo);
+		 }else if(product.equals("cloths")) {
+			 vo.setCloPrdNo(cloPrdNo);
+			 service.insertReviewclo(vo);
+		 }
+		
 		
 		return "redirect:/reviewlist/"+vo.getCtgId()+"/"+vo.getDeCtgId();
 	}
@@ -117,7 +141,8 @@ public class BoardController {
 		return "redirect:/list/"+ctgId+"/"+vo.getDeCtgId();
 	}
 	@RequestMapping("/updateReviewPost")
-	public String updateReviewPost(ReviewVO vo,@RequestParam("smartEditor") String content,@RequestParam("ctgId") String ctgId,HttpSession session) {
+	public String updateReviewPost(ReviewVO vo,@RequestParam("smartEditor") String content,@RequestParam("ctgId") String ctgId,HttpSession session
+			) {
 		vo.setRevText(content);
 		Pattern pattern = Pattern.compile("<img[^>]*src=[\"']?([^>\"']+)[\"']?[^>]*>");
 		 Matcher matcher = pattern.matcher(content);
@@ -125,9 +150,13 @@ public class BoardController {
 	            System.out.println(matcher.group(1));
 	            vo.setRevImage(matcher.group(1));
 	        } 
+		 
 		 System.out.println(" :::"+vo.getRevNo());
 		 vo.setMemId((String)session.getAttribute("sid"));
-		service.modifyReview(vo);
+		 
+			 service.modifyReview(vo);
+		 
+		
 		return "redirect:/reviewlist/"+ctgId+"/"+vo.getDeCtgId();
 	}
 	@RequestMapping("/boardDelete")
@@ -143,15 +172,27 @@ public class BoardController {
 		return "redirect:/reviewlist/"+ctgId+"/"+deCtgId;
 	}
 	@RequestMapping("/writeReview")
-	public String insertReview(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId) {
+	public String insertReview(Model model,@RequestParam("ctgId") String ctgId,@RequestParam("deCtgId") String deCtgId,
+			PrdCriteria cri) {
 		model.addAttribute("ctgId", ctgId);
 		model.addAttribute("deCtgId", deCtgId);
+		cri.setCtgId(ctgId);
+		ArrayList<ClothsProductVO> cloList=prdService.clolist(cri);
+		
+		model.addAttribute("cloList", cloList);
+		ArrayList<FoodProductVO> fdList=prdService.list(cri);
+		model.addAttribute("fdList", fdList);
 		return "board/reviewInsert";
 	}
 	
 	@RequestMapping("/readView")
-	public String boardReadView(BoardVO vo,Model model) {
-			
+	public String boardReadView(BoardVO vo,Model model,HttpSession session) throws IOException {
+		
+		if(session.getAttribute("sid")==null) {
+			model.addAttribute("msg", "로그인이 필요합니다.");
+			model.addAttribute("url", "/loginForm");
+			return "alert";
+		}
 		model.addAttribute("read",service.getPage(vo.getBoardNo()));
 		service.updateHit(vo.getBoardNo());
 		model.addAttribute("ctgId",vo.getCtgId());
@@ -174,10 +215,19 @@ public class BoardController {
 		return "board/boardupdate";
 	}
 	@RequestMapping("/updateReview")
-	public String updateReview(ReviewVO vo,Model model) {
+	public String updateReview(ReviewVO vo,Model model,PrdCriteria cri) {
 		model.addAttribute("read",service.getReview(vo.getRevNo()));
 		model.addAttribute("ctgId",vo.getCtgId());
 		model.addAttribute("deCtgId", vo.getDeCtgId());
+		model.addAttribute("vo", vo);
+		cri.setCtgId(vo.getCtgId());
+		ArrayList<ClothsProductVO> cloList=prdService.clolist(cri);
+		
+		model.addAttribute("cloList", cloList);
+		ArrayList<FoodProductVO> fdList=prdService.list(cri);
+		model.addAttribute("fdList", fdList);
+		System.out.println(vo.getCloPrdNo());
+		System.out.println(vo.getFdPrdNo());
 		return "board/reviewUpdate";
 	}
 	@RequestMapping("/singleImageUpload")
@@ -192,7 +242,7 @@ public class BoardController {
 	            name = vo.getFiledata().getOriginalFilename().substring(vo.getFiledata().getOriginalFilename().lastIndexOf(File.separator)+1);
 				String filename_ext = name.substring(name.lastIndexOf(".")+1);
 				filename_ext = filename_ext.toLowerCase();
-			   	String[] allow_file = {"jpg","png","bmp","gif"};
+			   	String[] allow_file = {"jpg","png","bmp","gif","jfif"};
 			   	int cnt = 0;
 			   	for(int i=0; i<allow_file.length; i++) {
 			   		if(filename_ext.equals(allow_file[i])){

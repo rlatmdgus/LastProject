@@ -63,7 +63,7 @@
 	                         onclick="location.href='<c:url value="readProduct?FdPrdNo=${FPlist.fdPrdNo}"/>'">
 	                        <div class="boardindex">
 	                            <div class="titleindex">
-	                                <img src="${FPlist.fdPrdImg}" style="width: 252px; height: 252px;">
+	                                <img src="${FPlist.fdPrdImg}" onerror="this.src='<c:url value="/image/noimage.jpg"/>'" style="width: 252px; height: 252px;">
 	                            </div>
 	                            <div class="product-title-Bottom">
 	                                <span class="titlebottom" type="text" name="boardHit">${FPlist.fdPrdName}</span>
@@ -86,7 +86,7 @@
 	                        <div class="boardindex">
 	                            <div class="titleindex">
 	                            	<span class="board_title" type="text" name="boardTitle">${blist.boardTitle}</span>
-	                                <img src="${blist.boardImage}" style="width: 252px; height: 252px;">
+	                                <img src="${blist.boardImage}" onerror="this.src='<c:url value="/image/noimage.jpg"/>'" style="width: 252px; height: 252px;">
 	                            </div>
 	                            <div class="posttitleBottom">
 	                                <span class="titlebottom" type="text" name="boardHit">조회수 ${blist.boardHit}</span>

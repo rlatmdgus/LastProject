@@ -16,7 +16,7 @@ public interface IBoardDAO {
 	public int getTotalReview(Criteria cri);
 
 	public ArrayList<BoardVO> hitlist(Criteria cri);
-
+	public ArrayList<BoardVO> loginhitlist(Criteria cri);
 
 	public int getTotalBoard(String ctgId);
   
@@ -25,11 +25,13 @@ public interface IBoardDAO {
 	public BoardVO getPage(int boardNo);
 	public ReviewVO getReview(int revNo);
 	public void updateHit(int boardNo);
-	public void insertReview(ReviewVO vo);
+	public void insertReviewfd(ReviewVO vo);
+	public void insertReviewclo(ReviewVO vo);
 	public void deleteBoard(int boardNo);
 	public void deleteReview(int revNo);
 	public void modifyBoard(BoardVO vo);
 	public void modifyReview(ReviewVO vo);
+	
 	 // 댓글 개수
     public int commentCount() ;
  

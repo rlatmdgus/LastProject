@@ -39,7 +39,7 @@ public class APIController {
 	// 채팅창 + 음성 질문 + 이미지/멀티링크 답변
 	@RequestMapping("/chatbotForm")
 	public String chatbotForm() {
-		return "/ai/chatForm";
+		return "ai/chatForm";
 	}
 	
 }

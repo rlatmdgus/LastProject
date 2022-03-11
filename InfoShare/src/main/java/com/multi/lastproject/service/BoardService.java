@@ -45,10 +45,6 @@ public class BoardService implements IBoardService {
 		dao.updateHit(boardNo);
 	}
 	@Override
-	public void insertReview(ReviewVO vo) {
-		dao.insertReview(vo);
-	}
-	@Override
 	public int commentCount() {
 		// TODO Auto-generated method stub
 		return dao.commentCount();
@@ -119,6 +115,23 @@ public class BoardService implements IBoardService {
 	}
 
 	@Override
+	public ArrayList<BoardVO> loginhitlist(Criteria cri) {
+		// TODO Auto-generated method stub
+		return dao.loginhitlist(cri);
+	}
+
+	@Override
+	public void insertReviewfd(ReviewVO vo) {
+		// TODO Auto-generated method stub
+		dao.insertReviewfd(vo);
+	}
+
+	@Override
+	public void insertReviewclo(ReviewVO vo) {
+		// TODO Auto-generated method stub
+		dao.insertReviewclo(vo);
+	}
+	@Override
 	public ArrayList<BoardVO> selectBoard(String keyword) {
 		
 		return dao.selectBoard(keyword);
@@ -136,5 +149,6 @@ public class BoardService implements IBoardService {
 		// TODO Auto-generated method stub
 		return dao.myreviewList(memId);
 	}
+
 	
 }

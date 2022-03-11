@@ -18,7 +18,7 @@
 				<h3>리뷰</h3>
 			  <a href="<c:url value='/'/>" class="btn btn-success" >홈</a> <a href="<c:url value='/reviewlist/${read.ctgId }/${read.deCtgId }'/>" class="btn btn-success" > 목록</a>
 			  <c:if test="${read.memId ==sessionScope.sid }">
-			  	<button class="btn btn-success" id="delete" >삭제</button> <a href="<c:url value='/updateReview?revNo=${read.revNo}&ctgId=${ctgId }&deCtgId=${deCtgId }'/>" class="btn btn-success" > 수정</a>
+			  	<button class="btn btn-success" id="delete" >삭제</button> <a href="<c:url value='/updateReview?revNo=${read.revNo}&ctgId=${ctgId }&deCtgId=${deCtgId }&fdPrdNo=${read.fdPrdNo }&cloPrdNo=${read.cloPrdNo }'/>" class="btn btn-success" > 수정</a>
 			  </c:if>
 			</nav>
 			<hr />
@@ -28,7 +28,14 @@
 						<tr><td><h3>${read.revTitle }</h3></td></tr>
 						<tr><td>작성자 : ${read.memId }</td></tr>
 						<tr><td id="time">작성일 : <fmt:formatDate pattern = "yyyy/MM/dd hh:mm:ss" value="${read.revDate}"/></td>
-							<td>제품번호</td>
+							<td><c:if test="${not empty read.fdPrdNo  }">
+								제품번호 : ${read.fdPrdNo }
+							</c:if>
+							<c:if test="${not empty read.cloPrdNo  }">
+								제품번호 : ${read.cloPrdNo }
+							</c:if>
+							
+							</td>
 							</tr>
 						<tr><td colspan="2"><hr>${read.revText }</td></tr>	
 					</table>
